@@ -61,10 +61,10 @@ function Header() {
               </svg>
             </button>
             {isProductOpen && (
-              <div className="absolute top-8 left-1/2 transform -translate-x-1/2 bg-blue-800 p-2 rounded-md">
-                <a href="#product1" className="block text-white py-2 hover:text-blue-300">Product 1</a>
-                <a href="#product2" className="block text-white py-2 hover:text-blue-300">Product 2</a>
-                <a href="#product3" className="block text-white py-2 hover:text-blue-300">Product 3</a>
+              <div className="absolute top-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw]">
+                <a href="#product1" className="block text-black py-2 hover:text-blue-300">Product 1</a>
+                <a href="#product2" className="block text-black py-2 hover:text-blue-300">Product 2</a>
+                <a href="#product3" className="block text-black py-2 hover:text-blue-300">Product 3</a>
               </div>
             )}
           </div>
@@ -91,13 +91,15 @@ function Header() {
               </svg>
             </button>
             {isAboutOpen && (
-              <div className="absolute top-8 left-1/2 transform -translate-x-1/2 bg-blue-800 p-2 rounded-md">
-                <a href="#about1" className="block text-white py-2 hover:text-blue-300">About Us</a>
-                <a href="#team" className="block text-white py-2 hover:text-blue-300">Our Team</a>
+              <div className="absolute top-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw]">
+                <a href="#about1" className="block text-black py-2 hover:text-blue-300">About Us</a>
+                <a href="#team" className="block text-black py-2 hover:text-blue-300">Our Team</a>
               </div>
             )}
           </div>
-
+          <a href="#contact" className="hover:text-blue-300">
+            Contact
+          </a>
           <div className="relative" ref={globalDropdownRef}>
             <button
               onClick={() => setIsGlobalOpen(!isGlobalOpen)}
@@ -120,16 +122,16 @@ function Header() {
               </svg>
             </button>
             {isGlobalOpen && (
-              <div className="absolute top-8 left-1/2 transform -translate-x-1/2 bg-blue-800 p-2 rounded-md">
-                <a href="#global1" className="block text-white py-2 hover:text-blue-300">Global 1</a>
-                <a href="#global2" className="block text-white py-2 hover:text-blue-300">Global 2</a>
+              <div className="absolute top-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[10vw]">
+                <a href="#global1" className="block text-black py-2 hover:text-blue-300">Kenya</a>
+                <a href="#global2" className="block text-black py-2 hover:text-blue-300">Uganda</a>
+                <a href="#global2" className="block text-black py-2 hover:text-blue-300">Tanzania</a>
+                <a href="#global2" className="block text-black py-2 hover:text-blue-300">Rwanda</a>
               </div>
             )}
           </div>
 
-          <a href="#contact" className="hover:text-blue-300">
-            Contact
-          </a>
+
         </nav>
 
         <div className="flex text-md font-bold gap-4 text-center items-center">
@@ -139,12 +141,7 @@ function Header() {
           <button className="bg-green-400 p-1 pl-2 pr-2  hover:text-blue-300 hover:bg-white border border-blue-400 rounded-full">
             Request Demo
           </button>
-          <a
-            href="#contact"
-            className="hover:text-blue-300  rounded p-1"
-          >
-            Global
-          </a>
+          
         </div>
 
         {/* Mobile Menu Button */}
