@@ -23,10 +23,10 @@ export default [
     },
     rules: {
       "prettier/prettier": "error",
-      "react/react-in-jsx-scope": "off", // React 17+ doesn't require `import React`
-      "react/prop-types": "off", // Disable PropTypes validation
-      "jsx-a11y/no-onchange": "warn", // Accessibility rule
-      "tailwindcss/no-custom-classname": "off", // Allow custom Tailwind classes
+      "react/react-in-jsx-scope": "off", 
+      "react/prop-types": "off", 
+      "jsx-a11y/no-onchange": "warn", 
+      "tailwindcss/no-custom-classname": "off", 
     },
   },
 ];
