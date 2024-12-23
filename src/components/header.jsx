@@ -1,5 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import logo from "../assets/amsol-hr-outsourcing.png"
+import { FaTools, FaUsers, FaCalculator, FaBriefcase, FaGlobe, FaCode } from "react-icons/fa";
+import maprwanda from "../assets/hr-outsourcing-rwanda.webp"
+import mapTanzania from "../assets/hr-outsourcing-tz.png"
+import mapUganda from "../assets/hr-outsourcing-uganda.webp"
+import mapKenya from "../assets/hr-outsourcing-kenya.svg"
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,7 +45,7 @@ function Header() {
 
         {/* Navigation Links (Desktop) */}
         <nav className="hidden md:flex space-x-10 font-bold">
-        <div className="relative" 
+        <div className="relative h-[5vh] flex items-center p-1 hover:bg-gray-500" 
          onMouseEnter={() => setIsProductOpen(true)} 
          onMouseLeave={() => setIsProductOpen(false)} 
          ref={productDropdownRef}>
@@ -65,21 +70,69 @@ function Header() {
         </svg>
       </button>
       {isProductOpen && (
-        <div className="absolute top-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw]">
-          <a href="#product1" className="block text-black py-2 hover:text-blue-300">
-            HRMS
-          </a>
-          <a href="#product2" className="block text-black py-2 hover:text-blue-300">
-            CMS
-          </a>
-          <a href="#product3" className="block text-black py-2 hover:text-blue-300">
-            ATS
-          </a>
+        <div className="grid grid-cols-3 gap-4 justify-center absolute top-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw]">
+          <div>
+  <a href="#product1" className="flex items-center text-black py-2 hover:text-blue-300 gap-2">
+   <span className='bg-blue-100 p-2 rounded-full'><FaTools className="mr-2" /></span> 
+   <div>
+    <h2 className='text-blue-300'>HRMS</h2>
+   <p className="text-sm text-gray-600">Easily calculate employee salaries and deductions</p>
+    </div> 
+  </a>
+  <a href="#product2" className="flex items-center text-black py-2 hover:text-blue-300 gap-2">
+  <span className='bg-blue-100 p-2 rounded-full'><FaGlobe className="mr-2" /></span> 
+  <div>
+    <h2 className='text-blue-300'>CMS</h2>
+    <p className="text-sm text-gray-600">Easily calculate employee salaries and deductions</p>
+    </div>
+  </a>
+  <a href="#product3" className="flex items-center text-black py-2 hover:text-blue-300 gap-2">
+  <span className='bg-blue-100 p-2 rounded-full'><FaCode className="mr-2" /></span>
+  <div>
+    <h2 className='text-blue-300'>ATS</h2>
+    <p className="text-sm text-gray-600">salaries and deductions</p>
+    </div> 
+  </a>
+</div>
+<div>
+<a href="#product3" className="flex items-center text-black py-2 hover:text-blue-300 gap-2">
+  <span className="bg-blue-100 p-2 rounded-full">
+    <FaCalculator className="text-lg" />
+  </span>
+  <div>
+    <h2 className="font-bold text-blue-300">Payroll Calculator</h2>
+    <p className="text-sm text-gray-600">Easily calculate employee salaries and deductions.</p>
+  </div>
+</a>
+
+  <a href="#product3" className="flex items-center text-black py-2 hover:text-blue-300 gap-2">
+  <span className='bg-blue-100 p-2 rounded-full'><FaBriefcase className="mr-2" /></span>
+  <div>
+    <h2 className="font-bold text-blue-300">Employee Benefits </h2>
+    <p className="text-sm text-gray-600">calculate employee salaries and deductions</p>
+    </div> 
+  </a>
+  <a href="#product3" className="flex items-center text-black py-2 hover:text-blue-300 gap-2">
+  <span className='flex bg-blue-100 p-2 rounded-full justify-center'><FaUsers className="mr-2" /></span> 
+  <div>
+    <h2 className="font-bold text-blue-300">Recruitment</h2>
+    <p className="text-sm text-gray-600">salaries and deductions</p>
+  </div>
+  </a>
+</div>
+          <div
+  className="h-64 w-full bg-[url('https://via.placeholder.com/800')] bg-cover bg-center flex items-center justify-center"
+>
+  <button className="text-white bg-blue-500 px-4 py-2 rounded-md hover:bg-blue-600">
+    Request a Demo
+  </button>
+</div>
+
         </div>
       )}
     </div>
 
-          <div className="relative" 
+          <div className="relative h-[5vh] flex items-center p-1 hover:bg-gray-500" 
            onMouseEnter={() => setIsAboutOpen(true)} 
            onMouseLeave={() => setIsAboutOpen(false)} 
           ref={aboutDropdownRef}>
@@ -104,7 +157,7 @@ function Header() {
               </svg>
             </button>
             {isAboutOpen && (
-              <div className="grid absolute top-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw]">
+              <div className="grid grid-cols-3 gap-4 absolute top-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw]">
                 <div>
                 <div className='h-[10vh] text-black'>hello</div>
                 <a href="#about1" className="block text-black py-2 hover:text-blue-300">About Us</a>
@@ -120,10 +173,10 @@ function Header() {
               </div>
             )}
           </div>
-          <a href="#contact" className="hover:text-blue-300">
+          <a href="#contact" className="hover:text-blue-300 h-[5vh] flex items-center p-1 hover:bg-gray-500">
             Contact
           </a>
-          <div className="relative"
+          <div className="relative h-[5vh] flex items-center p-1 hover:bg-gray-500"
           onMouseEnter={() => setIsGlobalOpen(true)} 
           onMouseLeave={() => setIsGlobalOpen(false)} 
            ref={globalDropdownRef}>
@@ -148,12 +201,41 @@ function Header() {
               </svg>
             </button>
             {isGlobalOpen && (
-              <div className="absolute top-8 left-1/4 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[10vw]">
-                <a href="#global1" className="block text-black py-2 hover:text-blue-300">Kenya</a>
-                <a href="#global2" className="block text-black py-2 hover:text-blue-300">Uganda</a>
-                <a href="#global2" className="block text-black py-2 hover:text-blue-300">Tanzania</a>
-                <a href="#global2" className="block text-black py-2 hover:text-blue-300">Rwanda</a>
-              </div>
+             <div className="absolute top-8 left-1/4 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[15vw]">
+             <a href="#global1" className="flex items-center gap-3 text-black py-2 hover:text-blue-300">
+               <img
+                 src={mapKenya}
+                 alt="Kenya Flag"
+                 className="w-8 h-8 object-cover rounded-full"
+               />
+               Kenya
+             </a>
+             <a href="#global2" className="flex items-center gap-3 text-black py-2 hover:text-blue-300">
+               <img
+                 src={mapUganda}
+                 alt="Uganda Flag"
+                 className="w-8 h-8 object-cover rounded-full"
+               />
+               Uganda
+             </a>
+             <a href="#global3" className="flex items-center gap-3 text-black py-2 hover:text-blue-300">
+               <img
+                 src={mapTanzania}
+                 alt="Tanzania Flag"
+                 className="w-8 h-8 object-cover rounded-full"
+               />
+               Tanzania
+             </a>
+             <a href="#global4" className="flex items-center gap-3 text-black py-2 hover:text-blue-300">
+               <img
+                 src={maprwanda}
+                 alt="Rwanda Flag"
+                 className="w-8 h-8 object-cover rounded-full"
+               />
+               Rwanda
+             </a>
+           </div>
+           
             )}
           </div>
         </nav>
