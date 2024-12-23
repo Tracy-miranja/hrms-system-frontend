@@ -161,17 +161,17 @@ function Header() {
                 <div>
                 <div>
                 <a href="#about1" className="block text-black py-2 hover:text-blue-300 text-blue-300"><span className='p-2'>Our Story</span>
-                <div className='h-[10vh] text-black p-2'><p className='text-gray-400 font-small'>Learn how our passion for human productivity drives our mission and values</p></div>
+                <div className='h-[10vh] text-black p-2'><p className='text-gray-400 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
                 </a>
                 </div>
                 <div>
                 <a href="#about1" className="block text-black py-2 hover:text-blue-300 text-blue-300"><span className='p-2'>Career</span>
-                <div className='h-[10vh] text-black p-2'><p className='text-gray-400 font-small'>Learn how our passion for human productivity drives our mission and values</p></div>
+                <div className='h-[10vh] text-black p-2'><p className='text-gray-400 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
                 </a>
                 </div>
                 <div>
                 <a href="#about1" className="block text-black py-2 hover:text-blue-300 text-blue-300"><span className='p-2'>Press</span>
-                <div className='h-[10vh] text-black p-2'><p className='text-gray-400 font-small'>Learn how our passion for human productivity drives our mission and values</p></div>
+                <div className='h-[10vh] text-black p-2'><p className='text-gray-400 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
                 </a>
                 </div>          
               </div>
