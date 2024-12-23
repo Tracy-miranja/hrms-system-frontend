@@ -157,19 +157,31 @@ function Header() {
               </svg>
             </button>
             {isAboutOpen && (
-              <div className="grid grid-cols-3 gap-4 absolute top-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw]">
+              <div className="grid grid-cols-2 gap-4 absolute top-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw]">
                 <div>
-                <div className='h-[10vh] text-black'>hello</div>
-                <a href="#about1" className="block text-black py-2 hover:text-blue-300">About Us</a>
+                <div>
+                <a href="#about1" className="block text-black py-2 hover:text-blue-300 text-blue-300"><span className='p-2'>Our Story</span>
+                <div className='h-[10vh] text-black p-2'><p className='text-gray-400 font-small'>Learn how our passion for human productivity drives our mission and values</p></div>
+                </a>
                 </div>
                 <div>
-                <div className='h-[10vh] text-black'>hello</div>
-                    <a href="#team" className="block text-black py-2 hover:text-blue-300">Our Team</a>
-                    </div>
+                <a href="#about1" className="block text-black py-2 hover:text-blue-300 text-blue-300"><span className='p-2'>Career</span>
+                <div className='h-[10vh] text-black p-2'><p className='text-gray-400 font-small'>Learn how our passion for human productivity drives our mission and values</p></div>
+                </a>
+                </div>
                 <div>
-                <div className='h-[10vh] text-black'>hello</div>
-                <a href="#team" className="block text-black py-2 hover:text-blue-300">Our Team</a>
+                <a href="#about1" className="block text-black py-2 hover:text-blue-300 text-blue-300"><span className='p-2'>Press</span>
+                <div className='h-[10vh] text-black p-2'><p className='text-gray-400 font-small'>Learn how our passion for human productivity drives our mission and values</p></div>
+                </a>
                 </div>          
+              </div>
+              <div
+  className="h-full w-full bg-[url('https://via.placeholder.com/800')] bg-cover bg-center flex items-center justify-center"
+>
+  <button className="text-white bg-blue-500 px-4 py-2 rounded-md hover:bg-blue-600">
+    Request a Demo
+  </button>
+</div>
               </div>
             )}
           </div>
