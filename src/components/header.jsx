@@ -40,37 +40,49 @@ function Header() {
 
         {/* Navigation Links (Desktop) */}
         <nav className="hidden md:flex space-x-10 font-bold">
-          <div className="relative" ref={productDropdownRef}>
-            <button
-              onClick={() => setIsProductOpen(!isProductOpen)}
-              className="flex items-center space-x-2 hover:text-blue-300"
-            >
-              <span>Product</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-            {isProductOpen && (
-              <div className="absolute top-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw]">
-                <a href="#product1" className="block text-black py-2 hover:text-blue-300">HRMS</a>
-                <a href="#product2" className="block text-black py-2 hover:text-blue-300">CMS</a>
-                <a href="#product3" className="block text-black py-2 hover:text-blue-300">ATS</a>
-              </div>
-            )}
-          </div>
+        <div className="relative" 
+         onMouseEnter={() => setIsProductOpen(true)} 
+         onMouseLeave={() => setIsProductOpen(false)} 
+         ref={productDropdownRef}>
+      <button
+        onClick={() => setIsProductOpen(!isProductOpen)}
+        className="flex items-center space-x-2 hover:text-blue-300"
+      >
+        <span>Product</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </button>
+      {isProductOpen && (
+        <div className="absolute top-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw]">
+          <a href="#product1" className="block text-black py-2 hover:text-blue-300">
+            HRMS
+          </a>
+          <a href="#product2" className="block text-black py-2 hover:text-blue-300">
+            CMS
+          </a>
+          <a href="#product3" className="block text-black py-2 hover:text-blue-300">
+            ATS
+          </a>
+        </div>
+      )}
+    </div>
 
-          <div className="relative" ref={aboutDropdownRef}>
+          <div className="relative" 
+           onMouseEnter={() => setIsAboutOpen(true)} 
+           onMouseLeave={() => setIsAboutOpen(false)} 
+          ref={aboutDropdownRef}>
             <button
               onClick={() => setIsAboutOpen(!isAboutOpen)}
               className="flex items-center space-x-2 hover:text-blue-300"
@@ -111,7 +123,10 @@ function Header() {
           <a href="#contact" className="hover:text-blue-300">
             Contact
           </a>
-          <div className="relative" ref={globalDropdownRef}>
+          <div className="relative"
+          onMouseEnter={() => setIsGlobalOpen(true)} 
+          onMouseLeave={() => setIsGlobalOpen(false)} 
+           ref={globalDropdownRef}>
             <button
               onClick={() => setIsGlobalOpen(!isGlobalOpen)}
               className="flex items-center space-x-2 hover:text-blue-300"
