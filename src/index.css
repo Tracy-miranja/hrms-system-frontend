@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.sectionA {
+    background-image: url("./assets/hr-amsol-recruiting.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sectionB {
+    background-image: url("./assets/hroutsourcing-amsol.avif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.home {
+    position: relative;
+    z-index: 0; /* Ensure the pseudo-element is behind content */
+}
+
+.home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("./assets/hroutsourcing-world-amsol.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.2; 
+    z-index: -1; /* Place the pseudo-element behind the content */
+}
+
+
+
