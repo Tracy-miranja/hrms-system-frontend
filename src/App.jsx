@@ -3,6 +3,7 @@ import Banner from "./components/banner"
 import Clients from "./components/clients"
 import Service from "./components/service"
 import Footer from "./components/Footer"
+import WhyChooseUs from "./components/whyus"
 function App() {
   return (
     <>
@@ -10,7 +11,9 @@ function App() {
        <Banner />
        <Clients />
        <Service />
+       <WhyChooseUs />
        <Footer />
+      
       </div>
       
     </>

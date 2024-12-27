@@ -40,7 +40,7 @@ function Header() {
   }, []);
 
   return (
-    <header className="bg-blue-900 text-white shadow-md">
+    <header className="bg-blue-900 text-white shadow-md sticky">
       <div className="container mx-auto flex items-center justify-between p-3">
         {/* Logo Section */}
         <div className="text-xl font-bold">
