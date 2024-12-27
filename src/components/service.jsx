@@ -4,7 +4,7 @@ function Service() {
   return (
     <div className=''>
     <div className='ml-[5%] mt-2 w-[90%]'>
-         <div className='flex flex-col bg-blue-100 rounded-xl pt-6 justify-center'>
+         <div className='flex flex-col bg-[#e3ebff] rounded-xl pt-6 justify-center'>
             <div className='flex flex-col items-center  p-4 gap-2 '>
                 <div>
                 <h1 className='font-semibold text-2xl'>What We Offer</h1>
@@ -19,7 +19,7 @@ function Service() {
                 <button className='font-semibold w-fit border hover:bg-blue-400 rounded-full p-2 hover:text-white'>Employee Benefits</button>
             </div>
             </div>
-          <div className='flex bg-blue-100 justify-center'>
+          <div className='flex bg-[#e3ebff] justify-center'>
           <div className='flex flex-col gap-4 w-[50%] h-[40vh] p-8 justify-center'>
             <h1 className='font-bold text-2xl'>Compliant, Fast and Accurate <br />Global Payroll</h1>
             <p className='text-xl'>Easily manage employee data, automate processes,<br /> gain performance insights, boost employee engagement, and generate reports with a secure robust HRMS</p>
