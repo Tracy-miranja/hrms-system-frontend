@@ -40,7 +40,8 @@ function Service() {
   const [selectedService, setSelectedService] = useState("HRMS");
 
   return (
-    <div className="bg-gradient-to-r from-[#ff9a9e] via-[#fad0c4] to-[#fad0c4] min-h-screen py-10">
+    <div className="flex justify-center">
+    <div className="flex bg-blue-100 min-h-screen py-10 w-[90%] rounded-2xl shadow-lg">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-10">
@@ -59,8 +60,8 @@ function Service() {
               href="#"
               className={`p-8 rounded-lg shadow-xl transition-all transform-gpu ${
                 selectedService === service
-                  ? "bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 text-white scale-110"
-                  : "bg-white hover:scale-105"
+                  ? "bg-white"
+                  : "bg-white hover:bg-blue-200 hover:scale-105"
               }`}
               containerClassName="hover:shadow-2xl"
               onClick={() => setSelectedService(service)}
@@ -72,7 +73,7 @@ function Service() {
         </div>
 
         {/* Highlight Section */}
-        <div className="mt-12 bg-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row items-center">
+        {/* <div className="mt-12 bg-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row items-center">
           <div className="w-full md:w-1/2 text-center md:text-left">
             <h2 className="text-3xl font-bold text-blue-600">
               {servicesData[selectedService].title}
@@ -88,8 +89,9 @@ function Service() {
               className="w-3/4 rounded-lg shadow-lg"
             />
           </div>
-        </div>
+        </div> */}
       </div>
+    </div>
     </div>
   );
 }
