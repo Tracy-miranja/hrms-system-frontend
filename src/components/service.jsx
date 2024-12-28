@@ -1,46 +1,46 @@
-import React, { useState } from 'react';
+"use client";
+import React, { useState } from "react";
+import { PinContainer } from "../components/ui/3d-pin";
 
 // Sample data for services
 const servicesData = {
   HRMS: {
-    title: 'Streamlined HR Management',
-    description:
-      'Easily manage employee data, automate processes, and gain insights with ease.',
-    image: 'https://via.placeholder.com/300?text=HRMS', // Replace with actual image URL
+    title: "Streamlined HR Management",
+    description: "Easily manage employee data, automate processes, and gain insights with ease.",
+    image: "https://via.placeholder.com/300?text=HRMS",
   },
   ATS: {
-    title: 'Applicant Tracking Simplified',
-    description: 'Track, evaluate, and hire top talent seamlessly.',
-    image: 'https://via.placeholder.com/300?text=ATS', // Replace with actual image URL
+    title: "Applicant Tracking Simplified",
+    description: "Track, evaluate, and hire top talent seamlessly.",
+    image: "https://via.placeholder.com/300?text=ATS",
   },
   Payroll: {
-    title: 'Fast and Accurate Payroll',
-    description: 'Ensure compliant and timely payroll management for all employees.',
-    image: 'https://via.placeholder.com/300?text=Payroll', // Replace with actual image URL
+    title: "Fast and Accurate Payroll",
+    description: "Ensure compliant and timely payroll management for all employees.",
+    image: "https://via.placeholder.com/300?text=Payroll",
   },
   Recruitment: {
-    title: 'Effective Recruitment Solutions',
-    description: 'Find and onboard the best talent with our recruitment tools.',
-    image: 'https://via.placeholder.com/300?text=Recruitment', // Replace with actual image URL
+    title: "Effective Recruitment Solutions",
+    description: "Find and onboard the best talent with our recruitment tools.",
+    image: "https://via.placeholder.com/300?text=Recruitment",
   },
-  'Time Management': {
-    title: 'Efficient Time Management',
-    description: 'Track work hours, manage schedules, and improve productivity.',
-    image: 'https://via.placeholder.com/300?text=Time+Management', // Replace with actual image URL
+  "Time Management": {
+    title: "Efficient Time Management",
+    description: "Track work hours, manage schedules, and improve productivity.",
+    image: "https://via.placeholder.com/300?text=Time+Management",
   },
-  'Employee Benefits': {
-    title: 'Enhanced Employee Benefits',
-    description:
-      'Offer attractive benefits to boost employee satisfaction and retention.',
-    image: 'https://via.placeholder.com/300?text=Employee+Benefits', // Replace with actual image URL
+  "Employee Benefits": {
+    title: "Enhanced Employee Benefits",
+    description: "Offer attractive benefits to boost employee satisfaction and retention.",
+    image: "https://via.placeholder.com/300?text=Employee+Benefits",
   },
 };
 
 function Service() {
-  const [selectedService, setSelectedService] = useState('HRMS');
+  const [selectedService, setSelectedService] = useState("HRMS");
 
   return (
-    <div className="bg-gradient-to-r from-blue-100 via-white to-blue-50 min-h-screen py-10">
+    <div className="bg-gradient-to-r from-[#ff9a9e] via-[#fad0c4] to-[#fad0c4] min-h-screen py-10">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-10">
@@ -53,21 +53,21 @@ function Service() {
         {/* Service Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {Object.keys(servicesData).map((service) => (
-            <div
+            <PinContainer
               key={service}
-              className={`p-6 rounded-xl shadow-lg transition-transform transform ${
+              title={servicesData[service].title}
+              href="#"
+              className={`p-8 rounded-lg shadow-xl transition-all transform-gpu ${
                 selectedService === service
-                  ? 'bg-blue-500 text-white scale-105'
-                  : 'bg-white hover:scale-105'
+                  ? "bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 text-white scale-110"
+                  : "bg-white hover:scale-105"
               }`}
+              containerClassName="hover:shadow-2xl"
               onClick={() => setSelectedService(service)}
-              style={{ cursor: 'pointer' }}
             >
               <h2 className="text-2xl font-semibold">{service}</h2>
-              <p className="mt-2 text-sm">
-                {servicesData[service].description}
-              </p>
-            </div>
+              <p className="mt-2 text-sm">{servicesData[service].description}</p>
+            </PinContainer>
           ))}
         </div>
 

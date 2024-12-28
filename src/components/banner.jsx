@@ -3,6 +3,7 @@ import Header from './header'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleRight  } from "@fortawesome/free-solid-svg-icons";
 
+
 function Banner() {
   return (
     <>

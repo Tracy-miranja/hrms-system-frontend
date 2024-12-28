@@ -40,7 +40,7 @@ function Header() {
   }, []);
 
   return (
-    <header className="bg-blue-900 text-white shadow-md sticky">
+    <header className="bg-blue-900 text-white shadow-md ">
       <div className="container mx-auto flex items-center justify-between p-3">
         {/* Logo Section */}
         <div className="text-xl font-bold">
@@ -74,7 +74,7 @@ function Header() {
               </svg>
             </button>
             {isProductOpen && (
-              <div className="grid grid-cols-3 gap-4 z-10 justify-center absolute top-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw]">
+              <div className="grid grid-cols-3 gap-4 z-10 justify-center absolute top-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw] z-10">
                 <div>
                   <a href="#product1" className="flex items-center text-black py-2 hover:text-blue-300 gap-2">
                     <span className='bg-blue-100 p-2 rounded-full'><FaTools className="mr-2" /></span>
