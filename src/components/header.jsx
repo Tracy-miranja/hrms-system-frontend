@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import logo from "../assets/amsol-hr-outsourcing.png"
+import logo from "../assets/amsol-hr-outsourcing-company.png"
 import { FaTools, FaUsers, FaCalculator, FaBriefcase, FaGlobe, FaCode } from "react-icons/fa";
 import maprwanda from "../assets/hr-outsourcing-rwanda.webp"
 import mapTanzania from "../assets/hr-outsourcing-tz.png"
@@ -40,7 +40,7 @@ function Header() {
   }, []);
 
   return (
-    <header className="bg-blue-900 text-white shadow-md ">
+    <header className="sticky top-0 z-70 bg-blue-900 text-white shadow-md ">
       <div className="container mx-auto flex items-center justify-between p-3">
         {/* Logo Section */}
         <div className="text-xl font-bold">

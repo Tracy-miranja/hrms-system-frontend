@@ -16,6 +16,8 @@ const Footer = () => {
               alt="AMSOL Logo"
               className="mx-auto md:mx-0 w-32 h-auto"
             />
+            <p className="mt-4">AMSOL has a highly skilled, knowledgeable, experienced, diversified, and solid team of competent
+            and experienced hr consulting professionals.</p>
           </div>
 
           {/* Company Info */}

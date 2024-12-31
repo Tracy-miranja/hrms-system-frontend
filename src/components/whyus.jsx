@@ -43,7 +43,7 @@ const WhyChooseUs = () => {
               key={index}
               className="bg-white shadow-lg rounded-lg p-6 text-center hover:scale-105 transition-transform"
             >
-              <div className="mb-4">{feature.icon}</div>
+              <div className="flex mb-4 justify-center items-center">{feature.icon}</div>
               <h3 className="font-bold text-xl text-gray-800">{feature.title}</h3>
               <p className="text-gray-600 mt-2">{feature.description}</p>
             </div>

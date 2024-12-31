@@ -5,6 +5,7 @@ import Service from "./components/service"
 import Footer from "./components/Footer"
 import WhyChooseUs from "./components/whyus"
 import { BrowserRouter as Router } from "react-router-dom";
+import Sev from "./components/sev"
 function App() {
   return (
     <Router>
@@ -14,6 +15,7 @@ function App() {
        <Clients />
        <Service />
        <WhyChooseUs />
+       <Sev/>
        <Footer />
       
       </div>

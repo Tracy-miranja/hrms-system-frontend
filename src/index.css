@@ -102,5 +102,11 @@
     }
 }
 
+.unique{
+  background-image: url("../src/assets/image.png");
+  background-repeat: no-repeat;
+  height: 70vh;
+  width: 60%;
 
+}
 

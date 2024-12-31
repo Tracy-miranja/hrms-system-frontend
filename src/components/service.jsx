@@ -41,7 +41,7 @@ function Service() {
 
   return (
     <div className="flex justify-center">
-    <div className="flex bg-blue-100 min-h-screen py-10 w-[90%] rounded-2xl shadow-lg">
+    <div className="flex  bg-[#F3F9F1] min-h-screen py-10 w-[90%] rounded-2xl shadow-lg">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-10">
@@ -58,7 +58,7 @@ function Service() {
               key={service}
               title={servicesData[service].title}
               href="#"
-              className={`p-8 rounded-lg shadow-xl transition-all transform-gpu ${
+              className={`p-10 bg-blue-800 rounded-lg shadow-xl transition-all transform-gpu ${
                 selectedService === service
                   ? "bg-white"
                   : "bg-white hover:bg-blue-200 hover:scale-105"
