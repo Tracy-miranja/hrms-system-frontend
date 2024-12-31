@@ -41,57 +41,54 @@ function Service() {
 
   return (
     <div className="flex justify-center">
-    <div className="flex  bg-[#F3F9F1] min-h-screen py-10 w-[90%] rounded-2xl shadow-lg">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-10">
-          <h1 className="text-4xl font-extrabold text-blue-600">Our Services</h1>
-          <p className="text-lg text-gray-600 mt-2">
-            Explore our offerings designed to simplify and enhance your workflow.
-          </p>
-        </div>
-
-        {/* Service Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {Object.keys(servicesData).map((service) => (
-            <PinContainer
-              key={service}
-              title={servicesData[service].title}
-              href="#"
-              className={`p-10 bg-blue-800 rounded-lg shadow-xl transition-all transform-gpu ${
-                selectedService === service
-                  ? "bg-white"
-                  : "bg-white hover:bg-blue-200 hover:scale-105"
-              }`}
-              containerClassName="hover:shadow-2xl"
-              onClick={() => setSelectedService(service)}
-            >
-              <h2 className="text-2xl font-semibold">{service}</h2>
-              <p className="mt-2 text-sm">{servicesData[service].description}</p>
-            </PinContainer>
-          ))}
-        </div>
-
-        {/* Highlight Section */}
-        {/* <div className="mt-12 bg-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row items-center">
-          <div className="w-full md:w-1/2 text-center md:text-left">
-            <h2 className="text-3xl font-bold text-blue-600">
-              {servicesData[selectedService].title}
-            </h2>
-            <p className="text-lg text-gray-700 mt-4">
-              {servicesData[selectedService].description}
+      <div className="flex bg-[#F3F9F1] min-h-screen py-10 w-[90%] rounded-2xl shadow-lg">
+        <div className="container mx-auto px-4">
+          {/* Header */}
+          <div className="text-center mb-10">
+            <h1 className="text-4xl font-extrabold text-blue-600">Our Services</h1>
+            <p className="text-lg text-gray-600 mt-2">
+              Explore our offerings designed to simplify and enhance your workflow.
             </p>
           </div>
-          <div className="w-full md:w-1/2 flex justify-center mt-6 md:mt-0">
-            <img
-              src={servicesData[selectedService].image}
-              alt={selectedService}
-              className="w-3/4 rounded-lg shadow-lg"
-            />
+
+          {/* Tabs */}
+          <div className="flex justify-center space-x-4 mb-12">
+            {Object.keys(servicesData).map((service) => (
+              <button
+                key={service}
+                onClick={() => setSelectedService(service)}
+                className={`px-6 py-2 font-medium rounded-full transition-all ${
+                  selectedService === service
+                    ? "bg-blue-600 text-white"
+                    : "bg-gray-200 text-gray-700 hover:bg-blue-300 hover:text-blue-800"
+                }`}
+              >
+                {service}
+              </button>
+            ))}
           </div>
-        </div> */}
+
+          {/* Service Cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {Object.keys(servicesData).map((service) => (
+              <PinContainer
+                key={service}
+                title={servicesData[service].title}
+                href="#"
+                className={`p-10 rounded-lg shadow-xl transition-all transform-gpu gap-4 ${
+                  selectedService === service
+                    ? "bg-blue-200"
+                    : "bg-white hover:bg-blue-100 hover:scale-105"
+                }`}
+                containerClassName="hover:shadow-2xl"
+              >
+                <h2 className="text-2xl font-semibold">{service}</h2>
+                <p className="mt-2 text-sm">{servicesData[service].description}</p>
+              </PinContainer>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
     </div>
   );
 }
