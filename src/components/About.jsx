@@ -1,28 +1,85 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"; // For animations
 
-function About() {
+const About = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Banner Section */}
-      <motion.div
-        className="relative bg-gradient-to-r from-blue-700 to-blue-500 h-80 flex items-center justify-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <h1 className="text-4xl md:text-6xl font-bold text-white text-center">
-          About Us
-        </h1>
-        <p className="absolute bottom-10 text-lg md:text-xl text-gray-200 text-center px-4">
-          Discover how our HRMS system empowers businesses and HR teams to 
-          achieve excellence in employee management and recruitment.
-        </p>
-      </motion.div>
+    <div className="relative min-h-screen bg-gray-50">
+      {/* Sticky Background Section */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('https://via.placeholder.com/1920x1080')",
+          backgroundAttachment: "fixed",
+          zIndex: -1,
+        }}
+      ></div>
 
-      {/* Main Content Section */}
-      <div className="py-12 px-6 md:px-20">
-        {/* Intro Section */}
+      {/* Hero Section */}
+      <header className="relative bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-20">
+        <div className="container mx-auto px-6 text-center">
+          <motion.h1
+            className="text-4xl md:text-6xl font-bold"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            About AmsolHR
+          </motion.h1>
+          <motion.p
+            className="mt-4 text-lg md:text-xl"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            Empowering businesses worldwide with innovative HR solutions.
+          </motion.p>
+        </div>
+      </header>
+
+      {/* Content Sections */}
+      <section className="container mx-auto px-6 py-12 md:py-20">
+        <div className="md:flex items-center space-y-8 md:space-y-0 md:space-x-8">
+          <motion.div
+            className="md:w-1/2"
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <img
+              src="https://via.placeholder.com/500"
+              alt="About AmsolHR"
+              className="rounded-lg shadow-lg"
+            />
+          </motion.div>
+          <motion.div
+            className="md:w-1/2 space-y-4"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl font-bold text-gray-800">Who We Are</h2>
+            <p className="text-gray-600">
+              At AmsolHR, we specialize in providing cutting-edge HRMS solutions
+              designed to streamline and optimize human resource management
+              processes for businesses worldwide.
+            </p>
+            <p className="text-gray-600">
+              Our platform is built with the latest technologies, offering a
+              seamless, user-friendly experience for business owners, HR
+              professionals, and employees alike.
+            </p>
+            <a
+              href="#cta"
+              className="inline-block px-6 py-3 bg-indigo-500 text-white font-semibold rounded-md shadow hover:bg-indigo-600 transition duration-300"
+            >
+              Learn More
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Vision Section */}
+      <section className="mb-10">
         <motion.div
           className="text-center max-w-3xl mx-auto mb-10"
           initial={{ opacity: 0, y: 20 }}
@@ -33,7 +90,7 @@ function About() {
             Our Vision
           </h2>
           <p className="mt-4 text-gray-600 text-lg">
-            Our HRMS system aims to simplify, streamline, and optimize all 
+            Our HRMS system aims to simplify, streamline, and optimize all
             aspects of human resource management for businesses of all sizes.
           </p>
         </motion.div>
@@ -52,24 +109,26 @@ function About() {
             },
           }}
         >
-          {[{
-            title: "Employee Profiles",
-            description:
-              "Maintain detailed employee profiles with roles, responsibilities, and contact information.",
-            icon: "👥",
-          },
-          {
-            title: "Recruitment Portal",
-            description:
-              "Simplify hiring processes with integrated job postings and candidate tracking.",
-            icon: "📋",
-          },
-          {
-            title: "Analytics Dashboard",
-            description:
-              "Gain insights into team performance, attendance, and productivity trends.",
-            icon: "📊",
-          }].map((feature, index) => (
+          {[
+            {
+              title: "Employee Profiles",
+              description:
+                "Maintain detailed employee profiles with roles, responsibilities, and contact information.",
+              icon: "👥",
+            },
+            {
+              title: "Recruitment Portal",
+              description:
+                "Simplify hiring processes with integrated job postings and candidate tracking.",
+              icon: "📋",
+            },
+            {
+              title: "Analytics Dashboard",
+              description:
+                "Gain insights into team performance, attendance, and productivity trends.",
+              icon: "📊",
+            },
+          ].map((feature, index) => (
             <motion.div
               key={index}
               className="bg-white shadow-lg rounded-lg p-6 text-center hover:shadow-xl transform transition-all duration-300"
@@ -83,59 +142,44 @@ function About() {
             </motion.div>
           ))}
         </motion.div>
+      </section>
 
-        {/* New Sections Added */}
-        {/* Our Mission */}
-        <motion.div
-          className="text-center max-w-3xl mx-auto mt-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-            Our Mission
-          </h2>
-          <p className="mt-4 text-gray-600 text-lg">
-            To create innovative, reliable, and user-friendly HR solutions that
-            simplify workforce management and drive business growth.
-          </p>
-        </motion.div>
-
-        {/* Our Journey */}
-        <motion.div
-          className="text-center max-w-4xl mx-auto mt-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-            Our Journey
-          </h2>
-          <p className="mt-4 text-gray-600 text-lg">
-            Since our inception, we have dedicated ourselves to transforming HR
-            management. Starting as a small startup, we have grown into a
-            trusted partner for businesses worldwide, delivering innovative
-            solutions tailored to their needs.
-          </p>
-        </motion.div>
-
-        {/* Call-to-Action */}
-        <motion.div
-          className="text-center mt-16"
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <a
-            href="/contact"
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg shadow-md hover:bg-blue-700 transition-all duration-300"
+      {/* CTA Section */}
+      <section
+        id="cta"
+        className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white py-16"
+      >
+        <div className="container mx-auto px-6 text-center space-y-6">
+          <motion.h3
+            className="text-3xl md:text-4xl font-bold"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            Contact Us Today
-          </a>
-        </motion.div>
-      </div>
+            Ready to Transform Your HR Processes?
+          </motion.h3>
+          <motion.p
+            className="text-lg md:text-xl"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            Join thousands of businesses already experiencing the AmsolHR
+            difference.
+          </motion.p>
+          <motion.a
+            href="/signup"
+            className="inline-block px-8 py-4 bg-white text-indigo-500 font-bold rounded-md shadow hover:bg-gray-100 transition duration-300"
+            initial={{ scale: 0.9 }}
+            animate={{ scale: 1 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            Get Started Now
+          </motion.a>
+        </div>
+      </section>
     </div>
   );
-}
+};
 
 export default About;
