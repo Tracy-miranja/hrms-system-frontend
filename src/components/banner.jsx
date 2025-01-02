@@ -9,7 +9,7 @@ function Banner() {
   const [currentWord, setCurrentWord] = useState('');
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const typingSpeed = 300; // Slow typing speed
+  const typingSpeed = 300; 
   const pauseTime = 1500;
 
   useEffect(() => {
@@ -17,14 +17,14 @@ function Banner() {
       const fullWord = words[currentWordIndex];
 
       if (!isDeleting) {
-        // Typing the word
+        
         setCurrentWord((prev) => fullWord.slice(0, prev.length + 1));
 
         if (currentWord === fullWord) {
           setTimeout(() => setIsDeleting(true), pauseTime);
         }
       } else {
-        // Deleting the word
+        // Deleting the word 
         setCurrentWord((prev) => fullWord.slice(0, prev.length - 1));
 
         if (currentWord === '') {
@@ -40,7 +40,6 @@ function Banner() {
 
   return (
     <>
-    <Header />
     <div className='flex h-screen text-white '>
     <div className='home flex flex-col justify-center w-[50%] h-full pl-20 gap-4'>
       <h1 className='text-black font-bold text-5xl'>

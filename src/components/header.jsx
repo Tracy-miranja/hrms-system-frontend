@@ -7,6 +7,8 @@ import mapUganda from "../assets/hr-outsourcing-uganda.webp"
 import mapKenya from "../assets/hr-outsourcing-kenya.svg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+import about from "../assets/Frame(2).png"
+import { Link } from 'react-router-dom';
 
 
 function Header() {
@@ -44,7 +46,7 @@ function Header() {
       <div className="container mx-auto flex items-center justify-between p-3">
         {/* Logo Section */}
         <div className="text-xl font-bold">
-          <img src={logo} className='h-[5vh]' />
+          <Link to="/"><img src={logo} className='h-[5vh]' /></Link>
         </div>
 
         {/* Navigation Links (Desktop) */}
@@ -57,7 +59,7 @@ function Header() {
               onClick={() => setIsProductOpen(!isProductOpen)}
               className="flex items-center space-x-2 hover:text-blue-300"
             >
-              <span>Product</span>
+              <Link to="/product"><span>Product</span></Link>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -124,7 +126,7 @@ function Header() {
                     </div>
                   </a>
                 </div>
-                <div className="relative h-64 w-full bg-[url('../assets/Frame18.svg')] bg-cover bg-center rounded-xl">
+                <div className="about1 relative h-64 w-full bg-[url('../assets/Frame(2).png')] bg-cover bg-center rounded-xl">
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-transparent opacity-20 rounded-xl"></div>
 
@@ -147,7 +149,7 @@ function Header() {
               onClick={() => setIsAboutOpen(!isAboutOpen)}
               className="flex items-center space-x-2 hover:text-blue-300"
             >
-              <span>About</span>
+              <Link to='/about'>About</Link>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
