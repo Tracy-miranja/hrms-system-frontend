@@ -82,7 +82,7 @@ function Header() {
                   <a href="#product1" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
                     <span className='bg-blue-100 p-2 rounded-full'><FaTools className="mr-2" /></span>
                     <div >
-                      <h2 className='text-blue-300'>HRMS</h2>
+                      <h2 className='text-blue-300'>HRM</h2>
                       <p className="text-sm text-gray-600">Easily calculate employee salaries and deductions</p>
                     </div>
                   </a>
@@ -223,6 +223,11 @@ function Header() {
             {IsResourceOpen && (
               <div className="grid grid-cols-2 gap-4 absolute z-10 top-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw]">
                 <div>
+                <div  className='hover:bg-green-100'>
+                    <Link to="/payrollCalculator" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Calculator</span>
+                      <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>accurate and Easy to use, calculate employee salaries and deductions in your country</p></div>
+                    </Link>
+                  </div>
                   <div  className='hover:bg-green-100'>
                     <a href="#about1" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Blog</span>
                       <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
@@ -233,11 +238,7 @@ function Header() {
                       <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
                     </a>
                   </div>
-                  <div  className='hover:bg-green-100'>
-                    <Link to="/payrollCalculator" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Calculator</span>
-                      <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
-                    </Link>
-                  </div>
+                 
                 </div>
                 <div
                   className="h-full w-full bg-[url('https://via.placeholder.com/800')] bg-cover bg-center flex items-center justify-center rounded-xl bg-blue-400"

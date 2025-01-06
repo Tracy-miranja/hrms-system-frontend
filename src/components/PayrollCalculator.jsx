@@ -7,6 +7,10 @@ const PayrollCalculator = () => {
     country: "",
     currency: "",
     grossSalary: "",
+    employeeName: "",
+    designation: "",
+    dateOfPayment: "",
+    payPeriod: "",
   });
   const [deductions, setDeductions] = useState(null);
 
@@ -61,14 +65,18 @@ const PayrollCalculator = () => {
   const generatePayslip = () => {
     const doc = new jsPDF();
     doc.text("Payslip", 20, 10);
-    doc.text(`Country: ${formData.country}`, 20, 20);
-    doc.text(`Gross Salary: ${formData.currency} ${formData.grossSalary}`, 20, 30);
-    doc.text(`PAYE: ${formData.currency} ${deductions.PAYE.toFixed(2)}`, 20, 40);
-    doc.text(`SHIF: ${formData.currency} ${deductions.SHIF.toFixed(2)}`, 20, 50);
-    doc.text(`NSSF: ${formData.currency} ${deductions.NSSF.toFixed(2)}`, 20, 60);
-    doc.text(`House Levy: ${formData.currency} ${deductions.houseLevy.toFixed(2)}`, 20, 70);
-    doc.text(`Total Deductions: ${formData.currency} ${deductions.totalDeductions.toFixed(2)}`, 20, 80);
-    doc.text(`Net Salary: ${formData.currency} ${deductions.netSalary.toFixed(2)}`, 20, 90);
+    doc.text(`Employee Name: ${formData.employeeName}`, 20, 20);
+    doc.text(`Designation: ${formData.designation}`, 20, 30);
+    doc.text(`Date of Payment: ${formData.dateOfPayment}`, 20, 40);
+    doc.text(`Pay Period: ${formData.payPeriod}`, 20, 50);
+    doc.text(`Country: ${formData.country}`, 20, 60);
+    doc.text(`Gross Salary: ${formData.currency} ${formData.grossSalary}`, 20, 70);
+    doc.text(`PAYE: ${formData.currency} ${deductions.PAYE.toFixed(2)}`, 20, 80);
+    doc.text(`SHIF: ${formData.currency} ${deductions.SHIF.toFixed(2)}`, 20, 90);
+    doc.text(`NSSF: ${formData.currency} ${deductions.NSSF.toFixed(2)}`, 20, 100);
+    doc.text(`House Levy: ${formData.currency} ${deductions.houseLevy.toFixed(2)}`, 20, 110);
+    doc.text(`Total Deductions: ${formData.currency} ${deductions.totalDeductions.toFixed(2)}`, 20, 120);
+    doc.text(`Net Salary: ${formData.currency} ${deductions.netSalary.toFixed(2)}`, 20, 130);
 
     // Download the generated PDF
     doc.save("payslip.pdf");
@@ -79,6 +87,65 @@ const PayrollCalculator = () => {
       <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
         <h1 className="text-2xl font-bold text-center mb-6">Payroll Calculator</h1>
         <div className="grid grid-cols-2 gap-4">
+          {/* Employee Name */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Employee Name
+            </label>
+            <input
+              type="text"
+              name="employeeName"
+              value={formData.employeeName}
+              onChange={handleInputChange}
+              placeholder="Enter employee name"
+              className="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 focus:outline-none p-2"
+            />
+          </div>
+
+          {/* Designation */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Designation
+            </label>
+            <input
+              type="text"
+              name="designation"
+              value={formData.designation}
+              onChange={handleInputChange}
+              placeholder="Enter designation"
+              className="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 focus:outline-none p-2"
+            />
+          </div>
+
+          {/* Date of Payment */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Date of Payment
+            </label>
+            <input
+              type="date"
+              name="dateOfPayment"
+              value={formData.dateOfPayment}
+              onChange={handleInputChange}
+              className="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 focus:outline-none p-2"
+            />
+          </div>
+
+          {/* Pay Period */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Pay Period
+            </label>
+            <input
+              type="text"
+              name="payPeriod"
+              value={formData.payPeriod}
+              onChange={handleInputChange}
+              placeholder="Enter pay period"
+              className="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 focus:outline-none p-2"
+            />
+          </div>
+
           {/* Country Selection */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -148,6 +215,22 @@ const PayrollCalculator = () => {
           <div className="mt-6 bg-gray-100 p-4 rounded-md shadow">
             <h2 className="text-xl font-bold">Payslip</h2>
             <div className="mt-4 space-y-2">
+              <p>
+                <span className="font-semibold">Employee Name:</span>{" "}
+                {formData.employeeName}
+              </p>
+              <p>
+                <span className="font-semibold">Designation:</span>{" "}
+                {formData.designation}
+              </p>
+              <p>
+                <span className="font-semibold">Date of Payment:</span>{" "}
+                {formData.dateOfPayment}
+              </p>
+              <p>
+                <span className="font-semibold">Pay Period:</span>{" "}
+                {formData.payPeriod}
+              </p>
               <p>
                 <span className="font-semibold">Country:</span> {formData.country}
               </p>
