@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import about from "../assets/Frame(2).png"
 import { Link } from 'react-router-dom';
+import logo2 from "../assets/logo.png"
 
 
 function Header() {
@@ -46,7 +47,7 @@ function Header() {
       <div className="container mx-auto flex items-center justify-between p-3">
         {/* Logo Section */}
         <div className="text-xl font-bold">
-          <Link to="/"><img src={logo} className='h-[5vh]' /></Link>
+          <Link to="/"><img src={logo2} className='h-[5vh]' /></Link>
         </div>
 
         {/* Navigation Links (Desktop) */}
@@ -78,21 +79,21 @@ function Header() {
             {isProductOpen && (
               <div className="grid grid-cols-3 gap-4 z-10 justify-center absolute top-10 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw] pl-10 z-10">
                 <div>
-                  <a href="#product1" className="flex items-center text-black py-2 hover:text-blue-300 gap-2">
+                  <a href="#product1" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
                     <span className='bg-blue-100 p-2 rounded-full'><FaTools className="mr-2" /></span>
-                    <div>
+                    <div >
                       <h2 className='text-blue-300'>HRMS</h2>
                       <p className="text-sm text-gray-600">Easily calculate employee salaries and deductions</p>
                     </div>
                   </a>
-                  <a href="#product2" className="flex items-center text-black py-2 hover:text-blue-300 gap-2">
+                  <a href="#product2" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
                     <span className='bg-blue-100 p-2 rounded-full'><FaGlobe className="mr-2" /></span>
                     <div>
                       <h2 className='text-blue-300'>CMS</h2>
                       <p className="text-sm text-gray-600">Easily calculate employee salaries and deductions</p>
                     </div>
                   </a>
-                  <a href="#product3" className="flex items-center text-black py-2 hover:text-blue-300 gap-2">
+                  <a href="#product3" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
                     <span className='bg-blue-100 p-2 rounded-full'><FaCode className="mr-2" /></span>
                     <div>
                       <h2 className='text-blue-300'>ATS</h2>
@@ -101,7 +102,7 @@ function Header() {
                   </a>
                 </div>
                 <div>
-                  <a href="#product3" className="flex items-center text-black py-2 hover:text-blue-300 gap-2">
+                  <a href="#product3" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
                     <span className="bg-blue-100 p-2 rounded-full">
                       <FaCalculator className="text-lg" />
                     </span>
@@ -111,14 +112,14 @@ function Header() {
                     </div>
                   </a>
 
-                  <a href="#product3" className="flex items-center text-black py-2 hover:text-blue-300 gap-2">
+                  <a href="#product3" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
                     <span className='bg-blue-100 p-2 rounded-full'><FaBriefcase className="mr-2" /></span>
                     <div>
                       <h2 className="font-bold text-blue-300">Employee Benefits </h2>
                       <p className="text-sm text-gray-600">calculate employee salaries and deductions</p>
                     </div>
                   </a>
-                  <a href="#product3" className="flex items-center text-black py-2 hover:text-blue-300 gap-2">
+                  <a href="#product3" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
                     <span className='flex bg-blue-100 p-2 rounded-full justify-center'><FaUsers className="mr-2" /></span>
                     <div>
                       <h2 className="font-bold text-blue-300">Recruitment</h2>
@@ -168,19 +169,19 @@ function Header() {
             {isAboutOpen && (
               <div className="grid grid-cols-2 gap-4 absolute z-10 top-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw]">
                 <div>
-                  <div>
-                    <a href="#about1" className="block text-black py-2 hover:text-blue-300 text-blue-300"><span className='p-2'>Our Story</span>
-                      <div className='h-[10vh] text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
+                  <div  className='hover:bg-green-100'>
+                    <a href="#about1" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Our Story</span>
+                      <div className='text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
                     </a>
                   </div>
-                  <div>
-                    <a href="#about1" className="block text-black py-2 hover:text-blue-300 text-blue-300"><span className='p-2'>Career</span>
-                      <div className='h-[10vh] text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
+                  <div className='hover:bg-green-100'>
+                    <a href="#about1" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Career</span>
+                      <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
                     </a>
                   </div>
-                  <div>
-                    <a href="#about1" className="block text-black py-2 hover:text-blue-300 text-blue-300"><span className='p-2'>Press</span>
-                      <div className='h-[10vh] text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
+                  <div  className='hover:bg-green-100'>
+                    <a href="#about1" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Press</span>
+                      <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
                     </a>
                   </div>
                 </div>
@@ -222,20 +223,20 @@ function Header() {
             {IsResourceOpen && (
               <div className="grid grid-cols-2 gap-4 absolute z-10 top-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw]">
                 <div>
-                  <div>
-                    <a href="#about1" className="block text-black py-2 hover:text-blue-300 text-blue-300"><span className='p-2'>Blog</span>
-                      <div className='h-[10vh] text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
+                  <div  className='hover:bg-green-100'>
+                    <a href="#about1" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Blog</span>
+                      <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
                     </a>
                   </div>
-                  <div>
-                    <a href="#about1" className="block text-black py-2 hover:text-blue-300 text-blue-300"><span className='p-2'>Event</span>
-                      <div className='h-[10vh] text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
+                  <div  className='hover:bg-green-100'>
+                    <a href="#about1" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Event</span>
+                      <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
                     </a>
                   </div>
-                  <div>
-                    <a href="#about1" className="block text-black py-2 hover:text-blue-300 text-blue-300"><span className='p-2'>Glossary</span>
-                      <div className='h-[10vh] text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
-                    </a>
+                  <div  className='hover:bg-green-100'>
+                    <Link to="/payrollCalculator" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Calculator</span>
+                      <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
+                    </Link>
                   </div>
                 </div>
                 <div

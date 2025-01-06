@@ -8,6 +8,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Sev from "./components/sev"
 import About from "./components/About"
 import Product from "./components/Product"
+import PayrollCalculator from "./components/PayrollCalculator"
 function App() {
   return (
     <Router>
@@ -24,6 +25,7 @@ function App() {
         } />
         <Route path="/about" element={<About />} />
         <Route path="/product" element={<Product />}/>
+        <Route path="/payrollCalculator" element={<PayrollCalculator />} />
       </Routes>
       <Footer />
     </Router>

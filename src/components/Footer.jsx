@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../assets/amsol-hr-outsourcing.png";
 import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import logo2 from "../assets/logo.png"
 
 
 const Footer = () => {
@@ -12,7 +13,7 @@ const Footer = () => {
           {/* AMSOL Logo */}
           <div className="flex-1 mb-6">
             <img
-              src={logo}
+              src={logo2}
               alt="AMSOL Logo"
               className="mx-auto md:mx-0 w-32 h-auto"
             />

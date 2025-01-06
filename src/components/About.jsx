@@ -1,5 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion"; // For animations
+import { FaUser } from "react-icons/fa";
+import amsolhr from "../assets/amsolteam2.jpg"
 
 const About = () => {
   return (
@@ -35,9 +37,10 @@ const About = () => {
           </motion.p>
         </div>
       </header>
-
+      {/* core values */}
+      
       {/* Content Sections */}
-      <section className="container mx-auto px-6 py-12 md:py-20">
+      <section className="container mx-auto px-2 py-12 md:py-20 gap-4">
         <div className="md:flex items-center space-y-8 md:space-y-0 md:space-x-8">
           <motion.div
             className="md:w-1/2"
@@ -46,9 +49,9 @@ const About = () => {
             transition={{ duration: 0.8 }}
           >
             <img
-              src="https://via.placeholder.com/500"
+              src={amsolhr}
               alt="About AmsolHR"
-              className="rounded-lg shadow-lg"
+              className="rounded-lg shadow-lg w-[100%] h-[100%]"
             />
           </motion.div>
           <motion.div
@@ -57,16 +60,14 @@ const About = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl font-bold text-gray-800">Who We Are</h2>
+            <h2 className="text-3xl font-bold text-gray-800">Our focus is on maximizing efficiency and boosting productivity in the workplace.</h2>
             <p className="text-gray-600">
-              At AmsolHR, we specialize in providing cutting-edge HRMS solutions
-              designed to streamline and optimize human resource management
-              processes for businesses worldwide.
+            A few years ago, while leading our software company, our founders uncovered a transformative opportunity in the people space—a chance to empower businesses across Africa to streamline hiring, managing, and paying their teams seamlessly. Imagine having the power to handle HR, payroll, and compliance for multiple countries, all from one intuitive platform.
+
+Yes, one platform! And it’s not just any platform—it’s designed to work smarter, so your business can grow without limits. No more getting bogged down in repetitive, time-consuming HR tasks. Instead, you can focus on what truly matters: building a thriving team and driving your people strategy forward.
             </p>
             <p className="text-gray-600">
-              Our platform is built with the latest technologies, offering a
-              seamless, user-friendly experience for business owners, HR
-              professionals, and employees alike.
+            We embraced this vision and have been passionately crafting solutions that empower fast-growing companies to take charge of their operations with ease and efficiency. With us, you can ditch the complexities and focus on accelerating your success—because your people deserve a system as forward-thinking as your goals.
             </p>
             <a
               href="#cta"
