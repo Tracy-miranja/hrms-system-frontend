@@ -107,7 +107,7 @@ function Header() {
                       <FaCalculator className="text-lg" />
                     </span>
                     <div>
-                      <h2 className="font-bold text-blue-300">Payroll Calculator</h2>
+                      <h2 className="font-bold text-blue-300">Payroll & Tax Management</h2>
                       <p className="text-sm text-gray-600">Easily calculate employee salaries and deductions.</p>
                     </div>
                   </a>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { jsPDF } from "jspdf"; // Import jsPDF for PDF generation
+import salary from "../assets/salary-calculation.png"
 
 const PayrollCalculator = () => {
   const [countries, setCountries] = useState([]);
@@ -61,35 +62,75 @@ const PayrollCalculator = () => {
     });
   };
 
-  // Generate PDF for payslip
   const generatePayslip = () => {
     const doc = new jsPDF();
-    doc.text("Payslip", 20, 10);
-    doc.text(`Employee Name: ${formData.employeeName}`, 20, 20);
-    doc.text(`Designation: ${formData.designation}`, 20, 30);
-    doc.text(`Date of Payment: ${formData.dateOfPayment}`, 20, 40);
-    doc.text(`Pay Period: ${formData.payPeriod}`, 20, 50);
-    doc.text(`Country: ${formData.country}`, 20, 60);
-    doc.text(`Gross Salary: ${formData.currency} ${formData.grossSalary}`, 20, 70);
-    doc.text(`PAYE: ${formData.currency} ${deductions.PAYE.toFixed(2)}`, 20, 80);
-    doc.text(`SHIF: ${formData.currency} ${deductions.SHIF.toFixed(2)}`, 20, 90);
-    doc.text(`NSSF: ${formData.currency} ${deductions.NSSF.toFixed(2)}`, 20, 100);
-    doc.text(`House Levy: ${formData.currency} ${deductions.houseLevy.toFixed(2)}`, 20, 110);
-    doc.text(`Total Deductions: ${formData.currency} ${deductions.totalDeductions.toFixed(2)}`, 20, 120);
-    doc.text(`Net Salary: ${formData.currency} ${deductions.netSalary.toFixed(2)}`, 20, 130);
-
-    // Download the generated PDF
+  
+    // Add a title
+    doc.setFontSize(16);
+    doc.setFont("helvetica", "bold");
+    doc.text("Payslip", 105, 20, { align: "center" });
+  
+    // Draw a border
+    doc.setLineWidth(0.5);
+    doc.rect(10, 10, 190, 277);
+  
+    // Employee Details Section
+    doc.setFontSize(12);
+    doc.setFont("helvetica", "bold");
+    doc.text("Employee Details", 20, 40);
+    doc.setFont("helvetica", "normal");
+    doc.text(`Employee Name: ${formData.employeeName}`, 20, 50);
+    doc.text(`Designation: ${formData.designation}`, 20, 60);
+    doc.text(`Date of Payment: ${formData.dateOfPayment}`, 20, 70);
+    doc.text(`Pay Period: ${formData.payPeriod}`, 20, 80);
+    doc.text(`Country: ${formData.country}`, 20, 90);
+  
+    // Salary Section
+    doc.setFont("helvetica", "bold");
+    doc.text("Salary Details", 20, 110);
+    doc.setFont("helvetica", "normal");
+    doc.text(`Gross Salary: ${formData.currency} ${formData.grossSalary}`, 20, 120);
+  
+    // Deductions Section
+    doc.setFont("helvetica", "bold");
+    doc.text("Deductions", 20, 140);
+    doc.setFont("helvetica", "normal");
+    doc.text(`PAYE: ${formData.currency} ${deductions.PAYE.toFixed(2)}`, 20, 150);
+    doc.text(`SHIF: ${formData.currency} ${deductions.SHIF.toFixed(2)}`, 20, 160);
+    doc.text(`NSSF: ${formData.currency} ${deductions.NSSF.toFixed(2)}`, 20, 170);
+    doc.text(`House Levy: ${formData.currency} ${deductions.houseLevy.toFixed(2)}`, 20, 180);
+    doc.text(
+      `Total Deductions: ${formData.currency} ${deductions.totalDeductions.toFixed(2)}`,
+      20,
+      190
+    );
+  
+    // Net Salary Section
+    doc.setFont("helvetica", "bold");
+    doc.setTextColor(0, 128, 0); // Green color for emphasis
+    doc.text(`Net Salary: ${formData.currency} ${deductions.netSalary.toFixed(2)}`, 20, 210);
+  
+    // Footer
+    doc.setFont("helvetica", "italic");
+    doc.setFontSize(10);
+    doc.setTextColor(128, 128, 128); // Gray text
+    doc.text("Generated using Payroll Calculator", 105, 290, { align: "center" });
+  
+    // Save the PDF
     doc.save("payslip.pdf");
   };
-
+  
   return (
-    <div className="min-h-screen bg-gray-50 py-10 px-5">
-      <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
+    <div className="flex min-h-screen bg-gray-50 p-10 mx-auto ">
+      <div className="max-w-4xl mx-auto bg-green-200 shadow-md rounded-lg p-6 w-[40%]">
+        <div >
         <h1 className="text-2xl font-bold text-center mb-6">Payroll Calculator</h1>
+        </div>
+        
         <div className="grid grid-cols-2 gap-4">
           {/* Employee Name */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-xl font-medium text-gray-700 mb-2">
               Employee Name
             </label>
             <input
@@ -104,7 +145,7 @@ const PayrollCalculator = () => {
 
           {/* Designation */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-xl font-medium text-gray-700 mb-2">
               Designation
             </label>
             <input
@@ -119,7 +160,7 @@ const PayrollCalculator = () => {
 
           {/* Date of Payment */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-xl font-medium text-gray-700 mb-2">
               Date of Payment
             </label>
             <input
@@ -133,7 +174,7 @@ const PayrollCalculator = () => {
 
           {/* Pay Period */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-xl font-medium text-gray-700 mb-2">
               Pay Period
             </label>
             <input
@@ -148,7 +189,7 @@ const PayrollCalculator = () => {
 
           {/* Country Selection */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-xl font-medium text-gray-700 mb-2">
               Select Country
             </label>
             <select
@@ -168,7 +209,7 @@ const PayrollCalculator = () => {
 
           {/* Gross Salary Input */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-xl font-medium text-gray-700 mb-2">
               Gross Salary
             </label>
             <input
@@ -183,7 +224,7 @@ const PayrollCalculator = () => {
 
           {/* Currency Display */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-xl font-medium text-gray-700 mb-2">
               Currency
             </label>
             <input
@@ -212,9 +253,12 @@ const PayrollCalculator = () => {
 
         {/* Deductions Display */}
         {deductions && (
-          <div className="mt-6 bg-gray-100 p-4 rounded-md shadow">
+          <div className="mt-6 bg-gray-100  rounded-md shadow">
+            <div className="flex bg-green-300 p-3 justify-center items-center">
             <h2 className="text-xl font-bold">Payslip</h2>
-            <div className="mt-4 space-y-2">
+            </div>
+            
+            <div className="mt-4 space-y-2 p-3">
               <p>
                 <span className="font-semibold">Employee Name:</span>{" "}
                 {formData.employeeName}
@@ -273,6 +317,13 @@ const PayrollCalculator = () => {
             </button>
           </div>
         )}
+      </div>
+      <div className="flex flex-col w-[40%] items-center gap-4">
+        <h1 className="text-[28px] font-bold">Best PAYE Calculator: Accurate and Fast.</h1>
+        <p className="text-[18px] ">How to calculate PAYE? Pay As You Earn (PAYE) is a mandatory tax deduction done on any earnings. Not sure about earnings subject to PAYE? These are wages, casual wages, salary, leave pay, sick pay, payment in lieu of leave, commission, bonus, gratuity, or subsistence, traveling, entertainment, or other allowance received during employment. Use Workpay's PAYE calculator</p>
+        <div className="flex mt-10 w-[100%] items-center justify-center">
+            <img src={salary} />
+        </div>
       </div>
     </div>
   );
