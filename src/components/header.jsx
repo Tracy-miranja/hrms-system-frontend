@@ -79,30 +79,30 @@ function Header() {
             {isProductOpen && (
               <div className="grid grid-cols-3 gap-4 z-10 justify-center absolute top-10 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw] pl-10 z-10">
                 <div>
-                  <a href="#product1" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
+                  <Link to="/hr-management-software" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
                     <span className='bg-blue-100 p-2 rounded-full'><FaTools className="mr-2" /></span>
                     <div >
-                      <h2 className='text-blue-300'>HRM</h2>
+                      <h2 className='text-blue-300'><Link to="">HRM</Link></h2>
                       <p className="text-sm text-gray-600">Easily calculate employee salaries and deductions</p>
                     </div>
-                  </a>
-                  <a href="#product2" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
+                  </Link>
+                  <Link to="/CMS-software" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
                     <span className='bg-blue-100 p-2 rounded-full'><FaGlobe className="mr-2" /></span>
                     <div>
                       <h2 className='text-blue-300'>CMS</h2>
                       <p className="text-sm text-gray-600">Easily calculate employee salaries and deductions</p>
                     </div>
-                  </a>
-                  <a href="#product3" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
+                  </Link>
+                  <Link to="/ATS" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
                     <span className='bg-blue-100 p-2 rounded-full'><FaCode className="mr-2" /></span>
                     <div>
                       <h2 className='text-blue-300'>ATS</h2>
                       <p className="text-sm text-gray-600">salaries and deductions</p>
                     </div>
-                  </a>
+                  </Link>
                 </div>
                 <div>
-                  <a href="#product3" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
+                  <Link to="/payroll-software" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
                     <span className="bg-blue-100 p-2 rounded-full">
                       <FaCalculator className="text-lg" />
                     </span>
@@ -110,22 +110,22 @@ function Header() {
                       <h2 className="font-bold text-blue-300">Payroll & Tax Management</h2>
                       <p className="text-sm text-gray-600">Easily calculate employee salaries and deductions.</p>
                     </div>
-                  </a>
+                  </Link>
 
-                  <a href="#product3" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
+                  <Link to="/employee-benefits"className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
                     <span className='bg-blue-100 p-2 rounded-full'><FaBriefcase className="mr-2" /></span>
                     <div>
                       <h2 className="font-bold text-blue-300">Employee Benefits </h2>
                       <p className="text-sm text-gray-600">calculate employee salaries and deductions</p>
                     </div>
-                  </a>
-                  <a href="#product3" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
+                  </Link>
+                  <Link to="/Recruitment" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
                     <span className='flex bg-blue-100 p-2 rounded-full justify-center'><FaUsers className="mr-2" /></span>
                     <div>
                       <h2 className="font-bold text-blue-300">Recruitment</h2>
                       <p className="text-sm text-gray-600">salaries and deductions</p>
                     </div>
-                  </a>
+                  </Link>
                 </div>
                 <div className="about1 relative h-64 w-full bg-[url('../assets/Frame(2).png')] bg-cover bg-center rounded-xl">
                   {/* Gradient overlay */}
@@ -170,9 +170,9 @@ function Header() {
               <div className="grid grid-cols-2 gap-4 absolute z-10 top-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw]">
                 <div>
                   <div  className='hover:bg-green-100'>
-                    <a href="#about1" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Our Story</span>
+                    <Link to="/about" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Our Story</span>
                       <div className='text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
-                    </a>
+                    </Link>
                   </div>
                   <div className='hover:bg-green-100'>
                     <a href="#about1" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Career</span>
@@ -224,7 +224,7 @@ function Header() {
               <div className="grid grid-cols-2 gap-4 absolute z-10 top-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw]">
                 <div>
                 <div  className='hover:bg-green-100'>
-                    <Link to="/payrollCalculator" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Calculator</span>
+                    <Link to="/payrollCalculator" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>PAYE Calculator</span>
                       <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>accurate and Easy to use, calculate employee salaries and deductions in your country</p></div>
                     </Link>
                   </div>

@@ -1,21 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { jsPDF } from "jspdf"; // Import jsPDF for PDF generation
-import salary from "../assets/salary-calculation.png"
+import React, { useState, useEffect } from 'react';
 
 const PayrollCalculator = () => {
-  const [countries, setCountries] = useState([]);
-  const [formData, setFormData] = useState({
-    country: "",
-    currency: "",
-    grossSalary: "",
-    employeeName: "",
-    designation: "",
-    dateOfPayment: "",
-    payPeriod: "",
-  });
-  const [deductions, setDeductions] = useState(null);
+  const [country, setCountry] = useState('Kenya');
+  const [salaryType, setSalaryType] = useState('Net');
+  const [salary, setSalary] = useState('');
+  const [isNonResident, setIsNonResident] = useState(false);
+  const [isSecondaryEmployee, setIsSecondaryEmployee] = useState(false);
+  const [mortgageInterest, setMortgageInterest] = useState('');
+  const [housingLevyRelief, setHousingLevyRelief] = useState(false);
+  const [deductNSSF, setDeductNSSF] = useState(false);
+  const [deductPAYE, setDeductPAYE] = useState(false);
+  const [deductHousingLevy, setDeductHousingLevy] = useState(false);
+  const [deductNHIF, setDeductNHIF] = useState(false);
 
-  // Fetch country and currency data
+  const [countryTaxRules, setCountryTaxRules] = useState({});
+  const [receipt, setReceipt] = useState(null);
+
+  const [countries, setCountries] = useState([]); // Store all countries
+  const [selectedCountry, setSelectedCountry] = useState(''); // Store selected country
+  
   useEffect(() => {
     const fetchCountries = async () => {
       try {
@@ -23,309 +26,239 @@ const PayrollCalculator = () => {
         const data = await response.json();
         const formattedCountries = data.map((country) => ({
           name: country.name.common,
-          currency: country.currencies
-            ? Object.keys(country.currencies)[0]
-            : "USD",
+          currency: country.currencies ? Object.keys(country.currencies)[0] : "USD",
         }));
         setCountries(formattedCountries);
       } catch (error) {
         console.error("Error fetching countries:", error);
       }
     };
-
+  
     fetchCountries();
   }, []);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const calculatePayroll = () => {
-    const gross = parseFloat(formData.grossSalary) || 0;
-
-    // Simulate tax calculation
-    const PAYE = gross * 0.1; // 10% PAYE
-    const SHIF = gross * 0.0275; // 2.75% SHIF
-    const NSSF = gross * 0.05; // 5% NSSF
-    const houseLevy = gross * 0.01; // 1% house levy (example)
-    const totalDeductions = PAYE + SHIF + NSSF + houseLevy;
-    const netSalary = gross - totalDeductions;
-
-    setDeductions({
-      PAYE,
-      SHIF,
-      NSSF,
-      houseLevy,
-      totalDeductions,
-      netSalary,
-    });
-  };
-
-  const generatePayslip = () => {
-    const doc = new jsPDF();
   
-    // Add a title
-    doc.setFontSize(16);
-    doc.setFont("helvetica", "bold");
-    doc.text("Payslip", 105, 20, { align: "center" });
-  
-    // Draw a border
-    doc.setLineWidth(0.5);
-    doc.rect(10, 10, 190, 277);
-  
-    // Employee Details Section
-    doc.setFontSize(12);
-    doc.setFont("helvetica", "bold");
-    doc.text("Employee Details", 20, 40);
-    doc.setFont("helvetica", "normal");
-    doc.text(`Employee Name: ${formData.employeeName}`, 20, 50);
-    doc.text(`Designation: ${formData.designation}`, 20, 60);
-    doc.text(`Date of Payment: ${formData.dateOfPayment}`, 20, 70);
-    doc.text(`Pay Period: ${formData.payPeriod}`, 20, 80);
-    doc.text(`Country: ${formData.country}`, 20, 90);
-  
-    // Salary Section
-    doc.setFont("helvetica", "bold");
-    doc.text("Salary Details", 20, 110);
-    doc.setFont("helvetica", "normal");
-    doc.text(`Gross Salary: ${formData.currency} ${formData.grossSalary}`, 20, 120);
-  
-    // Deductions Section
-    doc.setFont("helvetica", "bold");
-    doc.text("Deductions", 20, 140);
-    doc.setFont("helvetica", "normal");
-    doc.text(`PAYE: ${formData.currency} ${deductions.PAYE.toFixed(2)}`, 20, 150);
-    doc.text(`SHIF: ${formData.currency} ${deductions.SHIF.toFixed(2)}`, 20, 160);
-    doc.text(`NSSF: ${formData.currency} ${deductions.NSSF.toFixed(2)}`, 20, 170);
-    doc.text(`House Levy: ${formData.currency} ${deductions.houseLevy.toFixed(2)}`, 20, 180);
-    doc.text(
-      `Total Deductions: ${formData.currency} ${deductions.totalDeductions.toFixed(2)}`,
-      20,
-      190
-    );
-  
-    // Net Salary Section
-    doc.setFont("helvetica", "bold");
-    doc.setTextColor(0, 128, 0); // Green color for emphasis
-    doc.text(`Net Salary: ${formData.currency} ${deductions.netSalary.toFixed(2)}`, 20, 210);
-  
-    // Footer
-    doc.setFont("helvetica", "italic");
-    doc.setFontSize(10);
-    doc.setTextColor(128, 128, 128); // Gray text
-    doc.text("Generated using Payroll Calculator", 105, 290, { align: "center" });
-  
-    // Save the PDF
-    doc.save("payslip.pdf");
+  const handleCountryChange = (e) => {
+    setSelectedCountry(e.target.value);
   };
   
+  const calculateDeductions = () => {
+    let deductions = 0;
+
+    if (deductNSSF) deductions += 0.06 * salary;
+    if (deductPAYE) deductions += 0.1 * salary;
+    if (deductHousingLevy) deductions += 0.01 * salary;
+    if (deductNHIF) deductions += 0.02 * salary;
+
+    return deductions;
+  };
+
+  const calculateFinalSalary = () => {
+    const deductions = calculateDeductions();
+    let finalSalary = 0;
+  
+    if (salaryType === 'Gross') {
+      finalSalary = salary - deductions;
+    } else {
+      finalSalary = salary + deductions;
+    }
+  
+    return isNaN(finalSalary) ? 0 : finalSalary;  // Ensure it's a valid number
+  };
+  
+  const calculatePayrollCost = () => {
+    const finalSalary = calculateFinalSalary();
+    const employerCost = finalSalary + calculateDeductions();
+    return isNaN(employerCost) ? 0 : employerCost;  // Ensure it's a valid number
+  };
+
+  // Generate the receipt
+  const generateReceipt = () => {
+    const finalSalary = calculateFinalSalary();
+    const deductions = calculateDeductions();
+    const receiptData = {
+      country,
+      salaryType,
+      salary,
+      finalSalary,
+      deductions,
+      taxRules: countryTaxRules
+    };
+    setReceipt(receiptData);
+  };
+
   return (
-    <div className="flex min-h-screen bg-gray-50 p-10 mx-auto ">
-      <div className="max-w-4xl mx-auto bg-green-200 shadow-md rounded-lg p-6 w-[40%]">
-        <div >
-        <h1 className="text-2xl font-bold text-center mb-6">Payroll Calculator</h1>
-        </div>
-        
-        <div className="grid grid-cols-2 gap-4">
-          {/* Employee Name */}
-          <div>
-            <label className="block text-xl font-medium text-gray-700 mb-2">
-              Employee Name
-            </label>
+    <>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg">
+        <h1 className="text-2xl font-bold text-gray-700 text-center mb-6">
+          Payroll Cost Calculator
+        </h1>
+
+        {/* Country Selector */}
+        <div className="mb-4">
+  <label htmlFor="country" className="block text-gray-600 font-medium mb-2">
+    Choose Desired Country
+  </label>
+  <select
+    id="country"
+    value={selectedCountry}
+    onChange={handleCountryChange}
+    className="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 focus:outline-none p-2"
+  >
+    <option value="">Select a country</option>
+    {countries.map((country, index) => (
+      <option key={index} value={country.name}>
+        {country.name}
+      </option>
+    ))}
+  </select>
+</div>
+
+        {/* Salary Type Toggle */}
+        <div className="mb-4 flex justify-between items-center">
+          <label className="block text-gray-600 font-medium">Salary Type</label>
+          <div className="flex items-center">
+            <label className="mr-2">Net</label>
             <input
-              type="text"
-              name="employeeName"
-              value={formData.employeeName}
-              onChange={handleInputChange}
-              placeholder="Enter employee name"
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 focus:outline-none p-2"
+              type="radio"
+              name="salaryType"
+              value="Net"
+              checked={salaryType === 'Net'}
+              onChange={() => setSalaryType('Net')}
+              className="mr-4"
             />
-          </div>
-
-          {/* Designation */}
-          <div>
-            <label className="block text-xl font-medium text-gray-700 mb-2">
-              Designation
-            </label>
+            <label className="mr-2">Gross</label>
             <input
-              type="text"
-              name="designation"
-              value={formData.designation}
-              onChange={handleInputChange}
-              placeholder="Enter designation"
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 focus:outline-none p-2"
-            />
-          </div>
-
-          {/* Date of Payment */}
-          <div>
-            <label className="block text-xl font-medium text-gray-700 mb-2">
-              Date of Payment
-            </label>
-            <input
-              type="date"
-              name="dateOfPayment"
-              value={formData.dateOfPayment}
-              onChange={handleInputChange}
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 focus:outline-none p-2"
-            />
-          </div>
-
-          {/* Pay Period */}
-          <div>
-            <label className="block text-xl font-medium text-gray-700 mb-2">
-              Pay Period
-            </label>
-            <input
-              type="text"
-              name="payPeriod"
-              value={formData.payPeriod}
-              onChange={handleInputChange}
-              placeholder="Enter pay period"
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 focus:outline-none p-2"
-            />
-          </div>
-
-          {/* Country Selection */}
-          <div>
-            <label className="block text-xl font-medium text-gray-700 mb-2">
-              Select Country
-            </label>
-            <select
-              name="country"
-              value={formData.country}
-              onChange={handleInputChange}
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 focus:outline-none p-2"
-            >
-              <option value="">Select a country</option>
-              {countries.map((country, index) => (
-                <option key={index} value={country.name}>
-                  {country.name}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          {/* Gross Salary Input */}
-          <div>
-            <label className="block text-xl font-medium text-gray-700 mb-2">
-              Gross Salary
-            </label>
-            <input
-              type="number"
-              name="grossSalary"
-              value={formData.grossSalary}
-              onChange={handleInputChange}
-              placeholder="Enter gross salary"
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 focus:outline-none p-2"
-            />
-          </div>
-
-          {/* Currency Display */}
-          <div>
-            <label className="block text-xl font-medium text-gray-700 mb-2">
-              Currency
-            </label>
-            <input
-              type="text"
-              name="currency"
-              value={
-                formData.country
-                  ? countries.find(
-                      (country) => country.name === formData.country
-                    )?.currency || "USD"
-                  : ""
-              }
-              readOnly
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 focus:outline-none p-2 bg-gray-100"
+              type="radio"
+              name="salaryType"
+              value="Gross"
+              checked={salaryType === 'Gross'}
+              onChange={() => setSalaryType('Gross')}
             />
           </div>
         </div>
 
-        {/* Calculate Button */}
-        <button
-          onClick={calculatePayroll}
-          className="mt-6 w-full bg-blue-500 text-white py-2 px-4 rounded-md shadow hover:bg-blue-600"
-        >
-          Calculate Payroll
-        </button>
+        {/* Salary Input */}
+        <div className="mb-4">
+          <label htmlFor="salary" className="block text-gray-600 font-medium mb-2">
+            Enter Salary
+          </label>
+          <input
+            type="number"
+            id="salary"
+            value={salary}
+            onChange={(e) => setSalary(parseFloat(e.target.value))}
+            placeholder={`Enter ${salaryType} salary`}
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+        </div>
 
-        {/* Deductions Display */}
-        {deductions && (
-          <div className="mt-6 bg-gray-100  rounded-md shadow">
-            <div className="flex bg-green-300 p-3 justify-center items-center">
-            <h2 className="text-xl font-bold">Payslip</h2>
-            </div>
-            
-            <div className="mt-4 space-y-2 p-3">
-              <p>
-                <span className="font-semibold">Employee Name:</span>{" "}
-                {formData.employeeName}
-              </p>
-              <p>
-                <span className="font-semibold">Designation:</span>{" "}
-                {formData.designation}
-              </p>
-              <p>
-                <span className="font-semibold">Date of Payment:</span>{" "}
-                {formData.dateOfPayment}
-              </p>
-              <p>
-                <span className="font-semibold">Pay Period:</span>{" "}
-                {formData.payPeriod}
-              </p>
-              <p>
-                <span className="font-semibold">Country:</span> {formData.country}
-              </p>
-              <p>
-                <span className="font-semibold">Gross Salary:</span> {formData.currency}{" "}
-                {formData.grossSalary}
-              </p>
-              <p>
-                <span className="font-semibold">PAYE:</span> {formData.currency}{" "}
-                {deductions.PAYE.toFixed(2)}
-              </p>
-              <p>
-                <span className="font-semibold">SHIF:</span> {formData.currency}{" "}
-                {deductions.SHIF.toFixed(2)}
-              </p>
-              <p>
-                <span className="font-semibold">NSSF:</span> {formData.currency}{" "}
-                {deductions.NSSF.toFixed(2)}
-              </p>
-              <p>
-                <span className="font-semibold">House Levy:</span> {formData.currency}{" "}
-                {deductions.houseLevy.toFixed(2)}
-              </p>
-              <p>
-                <span className="font-semibold">Total Deductions:</span> {formData.currency}{" "}
-                {deductions.totalDeductions.toFixed(2)}
-              </p>
-              <p className="text-lg font-bold">
-                <span className="font-semibold">Net Salary:</span> {formData.currency}{" "}
-                {deductions.netSalary.toFixed(2)}
-              </p>
-            </div>
+        {/* Deduction Toggles */}
+        <div className="mb-4">
+          <div className="flex items-center justify-between">
+            <label className="text-gray-600 font-medium">Deduct NSSF</label>
+            <input
+              type="checkbox"
+              checked={deductNSSF}
+              onChange={() => setDeductNSSF(!deductNSSF)}
+              className="text-blue-500"
+            />
+          </div>
+          <div className="flex items-center justify-between mt-2">
+            <label className="text-gray-600 font-medium">Deduct PAYE</label>
+            <input
+              type="checkbox"
+              checked={deductPAYE}
+              onChange={() => setDeductPAYE(!deductPAYE)}
+              className="text-blue-500"
+            />
+          </div>
+          <div className="flex items-center justify-between mt-2">
+            <label className="text-gray-600 font-medium">Deduct Housing Levy</label>
+            <input
+              type="checkbox"
+              checked={deductHousingLevy}
+              onChange={() => setDeductHousingLevy(!deductHousingLevy)}
+              className="text-blue-500"
+            />
+          </div>
+          <div className="flex items-center justify-between mt-2">
+            <label className="text-gray-600 font-medium">Deduct NHIF/SHIF</label>
+            <input
+              type="checkbox"
+              checked={deductNHIF}
+              onChange={() => setDeductNHIF(!deductNHIF)}
+              className="text-blue-500"
+            />
+          </div>
+        </div>
 
-            {/* Download Payslip Button */}
-            <button
-              onClick={generatePayslip}
-              className="mt-6 w-full bg-green-500 text-white py-2 px-4 rounded-md shadow hover:bg-green-600"
-            >
-              Download Payslip as PDF
-            </button>
+        {/* Mortgage Interest */}
+        <div className="mb-4">
+          <label htmlFor="mortgageInterest" className="block text-gray-600 font-medium mb-2">
+            Interest on Mortgage
+          </label>
+          <input
+            type="number"
+            id="mortgageInterest"
+            value={mortgageInterest}
+            onChange={(e) => setMortgageInterest(e.target.value)}
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+        </div>
+
+        {/* Housing Levy Relief */}
+        <div className="mb-4 flex items-center">
+          <label htmlFor="housingLevyRelief" className="text-gray-600 font-medium mr-2">
+            Enable Housing Levy Relief
+          </label>
+          <input
+            type="checkbox"
+            checked={housingLevyRelief}
+            onChange={() => setHousingLevyRelief(!housingLevyRelief)}
+            className="text-blue-500"
+          />
+        </div>
+
+        {/* Final Calculations */}
+        <div className="mt-6 text-center">
+          <p className="text-gray-600">Final Salary (after deductions):</p>
+          <p className="text-xl font-bold text-blue-500">
+            KES {isNaN(calculateFinalSalary()) ? '0.00' : calculateFinalSalary()}
+          </p>
+        </div>
+
+        {/* Generate Receipt Button */}
+        <div className="mt-6 text-center">
+          <button
+            onClick={generateReceipt}
+            className="px-6 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600"
+          >
+            Generate Receipt
+          </button>
+        </div>
+
+        {/* Receipt */}
+        {receipt && (
+          <div className="mt-8 bg-gray-100 p-6 rounded-lg">
+            <h3 className="text-xl font-semibold text-gray-700">Receipt</h3>
+            <div className="mt-4 text-sm text-gray-600">
+              <p>Country: {receipt.country}</p>
+              <p>Salary Type: {receipt.salaryType}</p>
+              <p>Salary: {receipt.salary}</p>
+              <p>Final Salary: {receipt.finalSalary}</p>
+              <p>Deductions: {receipt.deductions}</p>
+              {/* <p>Tax Rules: {JSON.stringify(receipt.taxRules)}</p> */}
+            </div>
           </div>
         )}
       </div>
-      <div className="flex flex-col w-[40%] items-center gap-4">
-        <h1 className="text-[28px] font-bold">Best PAYE Calculator: Accurate and Fast.</h1>
-        <p className="text-[18px] ">How to calculate PAYE? Pay As You Earn (PAYE) is a mandatory tax deduction done on any earnings. Not sure about earnings subject to PAYE? These are wages, casual wages, salary, leave pay, sick pay, payment in lieu of leave, commission, bonus, gratuity, or subsistence, traveling, entertainment, or other allowance received during employment. Use Workpay's PAYE calculator</p>
-        <div className="flex mt-10 w-[100%] items-center justify-center">
-            <img src={salary} />
-        </div>
-      </div>
+      
     </div>
+    <section>
+        <h1>hello</h1>
+      </section>
+    </>
   );
 };
 

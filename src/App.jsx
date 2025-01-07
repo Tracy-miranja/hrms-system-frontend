@@ -7,8 +7,14 @@ import WhyChooseUs from "./components/whyus"
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Sev from "./components/sev"
 import About from "./components/About"
-import Product from "./components/Product"
 import PayrollCalculator from "./components/PayrollCalculator"
+import HumanResource from "./components/HumanResource"
+import Payroll from "./components/Payroll"
+import Cms from "./components/Cms"
+import CMS from "./components/Cms"
+import Employee from "./components/employee"
+import Recruitment from "./components/Recruitment"
+import ATS from "./components/ATS"
 function App() {
   return (
     <Router>
@@ -24,8 +30,13 @@ function App() {
           </>
         } />
         <Route path="/about" element={<About />} />
-        <Route path="/product" element={<Product />}/>
+        <Route path="/hr-management-software" element={<HumanResource />}/>
+        <Route path="/CMS-software" element={<CMS />}/>
+        <Route path="/payroll-software" element={<Payroll />}/>
+        <Route path="/employee-benefits" element={< Employee/>}/>
+        <Route path="/Recruitment" element={< Recruitment/>}/>
         <Route path="/payrollCalculator" element={<PayrollCalculator />} />
+        <Route path="/ATS" element={<ATS/>} />
       </Routes>
       <Footer />
     </Router>
