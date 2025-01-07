@@ -251,12 +251,12 @@ function Header() {
               </div>
             )}
           </div>
-          <a href="#contact" className="hover:text-blue-300 h-[5vh] flex items-center p-1 hover:bg-gray-500">
+          <Link to="/pricing" className="hover:text-blue-300 h-[5vh] flex items-center p-1 hover:bg-gray-500">
             Pricing
-          </a>
-          <a href="#contact" className="hover:text-blue-300 h-[5vh] flex items-center p-1 hover:bg-gray-500">
+          </Link>
+          <Link to="/contact-us" className="hover:text-blue-300 h-[5vh] flex items-center p-1 hover:bg-gray-500">
             Contact
-          </a>
+          </Link>
           
           </nav>
         <div className="flex text-md font-bold gap-4 text-center items-center">
@@ -294,38 +294,38 @@ function Header() {
             </button>
             {isGlobalOpen && (
               <div className="absolute top-10 left-1/4 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[12vw]">
-                <a href="#global1" className="flex items-center gap-3 text-black py-2 hover:text-blue-300">
+                <Link to="/kenya-country-guide" className="flex items-center gap-3 text-black py-2 hover:text-blue-300">
                   <img
                     src={mapKenya}
                     alt="Kenya Flag"
                     className="w-8 h-8 object-cover rounded-full"
                   />
                   Kenya
-                </a>
-                <a href="#global2" className="flex items-center gap-3 text-black py-2 hover:text-blue-300">
+                </Link>
+                <Link to="/uganda-country-guide" className="flex items-center gap-3 text-black py-2 hover:text-blue-300">
                   <img
                     src={mapUganda}
                     alt="Uganda Flag"
                     className="w-8 h-8 object-cover rounded-full"
                   />
                   Uganda
-                </a>
-                <a href="#global3" className="flex items-center gap-3 text-black py-2 hover:text-blue-300">
+                </Link>
+                <Link to="/tanzania-country-guide" className="flex items-center gap-3 text-black py-2 hover:text-blue-300">
                   <img
                     src={mapTanzania}
                     alt="Tanzania Flag"
                     className="w-8 h-8 object-cover rounded-full"
                   />
                   Tanzania
-                </a>
-                <a href="#global4" className="flex items-center gap-3 text-black py-2 hover:text-blue-300">
+                </Link>
+                <Link to="/rwanda-country-guide" className="flex items-center gap-3 text-black py-2 hover:text-blue-300">
                   <img
                     src={maprwanda}
                     alt="Rwanda Flag"
                     className="w-8 h-8 object-cover rounded-full"
                   />
                   Rwanda
-                </a>
+                </Link>
               </div>
 
             )}

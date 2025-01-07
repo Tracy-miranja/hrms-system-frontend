@@ -15,6 +15,12 @@ import CMS from "./components/Cms"
 import Employee from "./components/employee"
 import Recruitment from "./components/Recruitment"
 import ATS from "./components/ATS"
+import Pricing from "./components/Pricing"
+import { Contact } from "lucide-react"
+import Kenyaguide from "./components/Kenyaguide"
+import RwandaGuide from "./components/RwandaGuide"
+import TanzaniaGuide from "./components/TanzaniaGuide"
+import UgandaGuide from "./components/UgandaGuide"
 function App() {
   return (
     <Router>
@@ -37,6 +43,12 @@ function App() {
         <Route path="/Recruitment" element={< Recruitment/>}/>
         <Route path="/payrollCalculator" element={<PayrollCalculator />} />
         <Route path="/ATS" element={<ATS/>} />
+        <Route path="/pricing" element={<Pricing/>} />
+        <Route path="/contact-us" element={<Contact />}/>
+        <Route path="/kenya-country-guide" element={<Kenyaguide />}/>
+        <Route path="/rwanda-country-guide" element={<RwandaGuide/>}/>
+        <Route path="/tanzania-country-guide" element={<TanzaniaGuide/>}/>
+        <Route path="/uganda-country-guide" element={<UgandaGuide/>}/>
       </Routes>
       <Footer />
     </Router>
