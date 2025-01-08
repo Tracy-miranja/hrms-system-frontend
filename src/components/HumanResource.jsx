@@ -2,14 +2,25 @@ import React from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleRight } from "@fortawesome/free-solid-svg-icons";
 import hroutsourcingcompany from '/src/assets/hroutsourcingcompany.svg';
-import { FaCheckCircle } from "react-icons/fa";
-import { FaWalking, FaBell } from 'react-icons/fa';
-import { FaRobot } from 'react-icons/fa';
-import { FaChartLine } from 'react-icons/fa';
-import { FaBolt } from 'react-icons/fa';
-import { FaLock } from 'react-icons/fa';
+import { FaCheckCircle,FaWalking, FaBell,FaRobot,FaChartLine, FaBolt,FaLock } from "react-icons/fa";
+import { useState } from 'react';
+
 
 function HumanResource() {
+
+  const [showSafeSecure, setShowSafeSecure] = useState(false);
+  const [showPayAsYouGo, setShowPayAsYouGo] = useState(false);
+  const [showEmailAlerts, setShowEmailAlerts] = useState(false);
+  const [showImproveEfficiency, setShowImproveEfficiency] = useState(false);
+  const [showGrowBusiness, setShowGrowBusiness] = useState(false);
+  const [showAiAutomation, setShowAiAutomation] = useState(false);
+
+  const safeSecureText = "Your data and transactions are protected with advanced encryption (AES-256), HTTPS (SSL/TLS) for secure communication, and multi-factor authentication (MFA) for access control. We comply with industry standards such as GDPR, ISO/IEC 27001, and PCI DSS. Real-time fraud detection and regular security audits help prevent suspicious activity, while firewalls and secure APIs strengthen network security. Data integrity is ensured through regular checks, and routine backups with disaster recovery plans keep your data safe and accessible.";
+  const payAsYouGoText = "Pay as You Go offers a flexible pricing model designed to fit your specific business needs. Instead of paying for fixed, predefined packages, you only pay for the services and features you actually use, allowing for better budget control and cost efficiency. This model adapts to your organization’s scale, so whether you're a startup with fluctuating demands or a large enterprise with consistent usage, you can customize your payments based on actual usage metrics. With this approach, you can easily scale your services up or down as needed, without committing to long-term contracts or paying for unused resources. It provides transparency, flexibility, and financial predictability, ensuring that your costs remain aligned with your business needs.";
+  const emailAlertsText = "Email and SMS Alerts keep you informed with timely notifications, ensuring that you never miss important updates or events. Whether it's a new employee onboarding, a payroll issue, or a time-sensitive HR task, these alerts provide real-time communication to help you stay on top of your operations. Customizable settings allow you to choose which notifications you want to receive, so you can prioritize what matters most. Automated reminders help reduce administrative workload by notifying HR teams and employees about deadlines, appointments, approvals, or policy changes. With email and SMS alerts, you can streamline communication, enhance productivity, and ensure that all stakeholders are promptly informed, reducing the risk of missed actions and improving overall efficiency.";
+  const improveEfficiencyText = "Improve Efficiency focuses on optimizing and streamlining your operations to save time, reduce errors, and enhance productivity. By automating repetitive tasks such as payroll processing, attendance tracking, and employee performance evaluations, you can free up valuable resources for more strategic activities. This reduces manual data entry, minimizes human error, and speeds up decision-making processes. Additionally, integrated tools and workflows provide a seamless experience, allowing HR teams to quickly access, manage, and update employee information in real-time. With a more organized approach to task management, businesses can accelerate project timelines, improve collaboration across departments, and foster a more productive work environment.";
+  const growBusinessText = "Grow Your Business by leveraging advanced HR tools designed to enhance your organization's performance and support scalable growth. With features like talent acquisition, employee development, and performance management, you can build a skilled and motivated workforce that drives your business forward. Automation of administrative tasks, such as payroll, benefits management, and scheduling, frees up your HR team to focus on strategic initiatives that contribute to long-term success. Advanced analytics and reporting tools allow you to track key metrics, identify trends, and make data-driven decisions that align with your business goals. Additionally, seamless integration with other business systems ensures that your HR processes work in harmony with your overall business strategy.";
+  const aiAutomationText = "Smart AI-Powered Automation revolutionizes how businesses manage their HR processes by using artificial intelligence to streamline and optimize operations. AI-driven tools automate routine tasks such as resume screening, interview scheduling, and employee data management, allowing HR teams to focus on more strategic activities. Machine learning algorithms continuously improve their efficiency by learning from past data, making predictions, and offering insights that help businesses make informed decisions faster. AI can also enhance employee engagement by personalizing communications, predicting training needs, and identifying potential performance issues before they become problems.";
   const features = [
     {
       title: "Recruitment",
@@ -68,7 +79,7 @@ function HumanResource() {
           <div className="lg:w-1/2">
             <h1 className="text-4xl font-bold text-blue-600 mb-4">
               Empower Your Workforce <br />
-              with Amsol HRMS
+              with Amsol HRM
             </h1>
             <p className="text-gray-700 mb-6">
               Automate manual tasks, eliminate errors, and securely manage employee information –  all in a single database: an HR management system.
@@ -106,10 +117,10 @@ function HumanResource() {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="flex flex-col bg-white shadow-md rounded-lg text-center relative"
+                className="flex flex-col bg-white shadow-md rounded-lg text-center relative hover:bg-blue-400 hover:text-white"
               >
                 {/* Icon and Title Container */}
-                <div className="relative w-full h-[15vh] bg-black rounded-xl flex flex-col items-center justify-center">
+                <div className="relative w-full h-[15vh] bg-black rounded-xl flex flex-col items-center justify-center hover:bg-blue-400">
                   {/* Icon */}
                   <div
                     className="absolute -top-[50px] bg-white rounded-full flex items-center justify-center shadow-2xl z-10"
@@ -125,7 +136,7 @@ function HumanResource() {
                 </div>
                 {/* Description with Bullets */}
                 <div className="px-4 mt-8 mb-4">
-                  <p className="text-gray-700 font-medium mb-3">{feature.description}</p>
+                  <p className="text-gray-700 font-medium mb-3 hover:text-white">{feature.description}</p>
                   <ul className="list-none space-y-2 text-left">
                     {feature.bullets.map((bullet, i) => (
                       <li key={i} className="flex items-center text-gray-700">
@@ -142,77 +153,126 @@ function HumanResource() {
       </section>
       <section className="flex flex-col bg-gray-200 mt-3 py-20 items-center justify-center">
       <div className="container mx-auto px-4">
-  <div className="flex items-center justify-center font-bold text-2xl mb-6">
-    <h1>Benefits</h1>
-  </div>
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-1">
-    {/* Safe and Secure */}
-    <div className="flex flex-col items-center space-x-4 shadow-lg p-4">
-      <div className="w-[100px] h-[100px] bg-white rounded-full flex items-center justify-center shadow-md">
-      <FaLock className="text-blue-500 text-4xl" />
-      </div>
-      <div className='flex flex-col items-center'>
-        <h1 className="font-semibold text-lg p-3">Safe and Secure</h1>
-        <p className="text-gray-600">Your data and transactions are protected with advanced encryption (AES-256), HTTPS (SSL/TLS) for secure communication, and multi-factor authentication (MFA) for access control. We comply with industry standards such as GDPR, ISO/IEC 27001, and PCI DSS. Real-time fraud detection and regular security audits help prevent suspicious activity, while firewalls and secure APIs strengthen network security. Data integrity is ensured through regular checks, and routine backups with disaster recovery plans keep your data safe and accessible</p>
-      </div>
-    </div>
+        <div className="flex items-center justify-center font-bold text-2xl mb-6">
+          <h1>Benefits</h1>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-1">
+          {/* Safe and Secure */}
+          <div className="flex flex-col items-center space-x-4 shadow-lg p-4">
+            <div className="w-[100px] h-[100px] bg-white rounded-full flex items-center justify-center shadow-md">
+              <FaLock className="text-blue-500 text-4xl" />
+            </div>
+            <div className="flex flex-col items-center">
+              <h1 className="font-semibold text-lg p-3">Safe and Secure</h1>
+              <p className="text-gray-600">
+                {showSafeSecure ? safeSecureText : `${safeSecureText.slice(0, 200)}...`}
+                <button
+                  onClick={() => setShowSafeSecure(!showSafeSecure)}
+                  className="text-blue-500 ml-2"
+                >
+                  {showSafeSecure ? 'Read Less' : 'Read More'}
+                </button>
+              </p>
+            </div>
+          </div>
 
-    {/* Pay as You Go */}
-    <div className="flex flex-col items-center space-x-4 shadow-lg p-4">
-      <div className="w-[100px] h-[100px] bg-white rounded-full flex items-center justify-center shadow-md">
-        <FaWalking className="text-blue-500 text-5xl" />
-      </div>
-      <div className='flex flex-col items-center'>
-        <h1 className="font-semibold text-lg p-3">Pay as You Go</h1>
-        <p className="text-gray-600">Pay as You Go offers a flexible pricing model designed to fit your specific business needs. Instead of paying for fixed, predefined packages, you only pay for the services and features you actually use, allowing for better budget control and cost efficiency. This model adapts to your organization’s scale, so whether you're a startup with fluctuating demands or a large enterprise with consistent usage, you can customize your payments based on actual usage metrics. With this approach, you can easily scale your services up or down as needed, without committing to long-term contracts or paying for unused resources. It provides transparency, flexibility, and financial predictability, ensuring that your costs remain aligned with your business needs</p>
-      </div>
-    </div>
+          {/* Pay as You Go */}
+          <div className="flex flex-col items-center space-x-4 shadow-lg p-4">
+            <div className="w-[100px] h-[100px] bg-white rounded-full flex items-center justify-center shadow-md">
+              <FaWalking className="text-blue-500 text-5xl" />
+            </div>
+            <div className="flex flex-col items-center">
+              <h1 className="font-semibold text-lg p-3">Pay as You Go</h1>
+              <p className="text-gray-600">
+                {showPayAsYouGo ? payAsYouGoText : `${payAsYouGoText.slice(0, 200)}...`}
+                <button
+                  onClick={() => setShowPayAsYouGo(!showPayAsYouGo)}
+                  className="text-blue-500 ml-2"
+                >
+                  {showPayAsYouGo ? 'Read Less' : 'Read More'}
+                </button>
+              </p>
+            </div>
+          </div>
 
-    {/* Email and SMS Alerts */}
-    <div className="flex flex-col items-center space-x-4 shadow-lg p-4">
-      <div className="w-[100px] h-[100px] bg-white rounded-full flex items-center justify-center shadow-md">
-        <FaBell className="text-blue-500 text-4xl" />
-      </div>
-      <div className='flex flex-col items-center'>
-        <h1 className="font-semibold text-lg p-3">Email and SMS Alerts</h1>
-        <p className="text-gray-600">Email and SMS Alerts keep you informed with timely notifications, ensuring that you never miss important updates or events. Whether it's a new employee onboarding, a payroll issue, or a time-sensitive HR task, these alerts provide real-time communication to help you stay on top of your operations. Customizable settings allow you to choose which notifications you want to receive, so you can prioritize what matters most. Automated reminders help reduce administrative workload by notifying HR teams and employees about deadlines, appointments, approvals, or policy changes. With email and SMS alerts, you can streamline communication, enhance productivity, and ensure that all stakeholders are promptly informed, reducing the risk of missed actions and improving overall efficiency.</p>
-      </div>
-    </div>
+          {/* Email and SMS Alerts */}
+          <div className="flex flex-col items-center space-x-4 shadow-lg p-4">
+            <div className="w-[100px] h-[100px] bg-white rounded-full flex items-center justify-center shadow-md">
+              <FaBell className="text-blue-500 text-4xl" />
+            </div>
+            <div className="flex flex-col items-center">
+              <h1 className="font-semibold text-lg p-3">Email and SMS Alerts</h1>
+              <p className="text-gray-600">
+                {showEmailAlerts ? emailAlertsText : `${emailAlertsText.slice(0, 200)}...`}
+                <button
+                  onClick={() => setShowEmailAlerts(!showEmailAlerts)}
+                  className="text-blue-500 ml-2"
+                >
+                  {showEmailAlerts ? 'Read Less' : 'Read More'}
+                </button>
+              </p>
+            </div>
+          </div>
 
-    {/* Improve Efficiency */}
-    <div className="flex flex-col items-center space-x-4 shadow-lg p-4">
-      <div className="w-[100px] h-[100px] bg-white rounded-full flex items-center justify-center shadow-md">
-      <FaBolt className="text-blue-500 text-4xl" />
-      </div>
-      <div className='flex flex-col items-center'>
-        <h1 className="font-semibold text-lg p-3">Improve Efficiency</h1>
-        <p className="text-gray-600">Improve Efficiency focuses on optimizing and streamlining your operations to save time, reduce errors, and enhance productivity. By automating repetitive tasks such as payroll processing, attendance tracking, and employee performance evaluations, you can free up valuable resources for more strategic activities. This reduces manual data entry, minimizes human error, and speeds up decision-making processes. Additionally, integrated tools and workflows provide a seamless experience, allowing HR teams to quickly access, manage, and update employee information in real-time. With a more organized approach to task management, businesses can accelerate project timelines, improve collaboration across departments, and foster a more productive work environment. By improving efficiency, your HR processes become faster, more accurate, and more cost-effective, allowing you to focus on what truly matters—growing your business and supporting your workforce.</p>
-      </div>
-    </div>
+          {/* Improve Efficiency */}
+          <div className="flex flex-col items-center space-x-4 shadow-lg p-4">
+            <div className="w-[100px] h-[100px] bg-white rounded-full flex items-center justify-center shadow-md">
+              <FaBolt className="text-blue-500 text-4xl" />
+            </div>
+            <div className="flex flex-col items-center">
+              <h1 className="font-semibold text-lg p-3">Improve Efficiency</h1>
+              <p className="text-gray-600">
+                {showImproveEfficiency ? improveEfficiencyText : `${improveEfficiencyText.slice(0, 200)}...`}
+                <button
+                  onClick={() => setShowImproveEfficiency(!showImproveEfficiency)}
+                  className="text-blue-500 ml-2"
+                >
+                  {showImproveEfficiency ? 'Read Less' : 'Read More'}
+                </button>
+              </p>
+            </div>
+          </div>
 
-    {/* Grow Your Business */}
-    <div className="flex flex-col items-center space-x-4 shadow-lg p-4">
-      <div className="w-[100px] h-[100px] bg-white rounded-full flex items-center justify-center shadow-md">
-      <FaChartLine className="text-blue-500 text-4xl" />
+          {/* Grow Your Business */}
+          <div className="flex flex-col items-center space-x-4 shadow-lg p-4">
+            <div className="w-[100px] h-[100px] bg-white rounded-full flex items-center justify-center shadow-md">
+              <FaChartLine className="text-blue-500 text-4xl" />
+            </div>
+            <div className="flex flex-col items-center">
+              <h1 className="font-semibold text-lg p-3">Grow Your Business</h1>
+              <p className="text-gray-600">
+                {showGrowBusiness ? growBusinessText : `${growBusinessText.slice(0, 200)}...`}
+                <button
+                  onClick={() => setShowGrowBusiness(!showGrowBusiness)}
+                  className="text-blue-500 ml-2"
+                >
+                  {showGrowBusiness ? 'Read Less' : 'Read More'}
+                </button>
+              </p>
+            </div>
+          </div>
+
+          {/* Smart AI-Powered Automation */}
+          <div className="flex flex-col items-center space-x-4 shadow-lg p-4">
+            <div className="w-[100px] h-[100px] bg-white rounded-full flex items-center justify-center shadow-md">
+              <FaRobot className="text-blue-500 text-5xl" />
+            </div>
+            <div className="flex flex-col items-center">
+              <h1 className="font-semibold text-lg p-3">Smart AI-Powered Automation</h1>
+              <p className="text-gray-600">
+                {showAiAutomation ? aiAutomationText : `${aiAutomationText.slice(0, 200)}...`}
+                <button
+                  onClick={() => setShowAiAutomation(!showAiAutomation)}
+                  className="text-blue-500 ml-2"
+                >
+                  {showAiAutomation ? 'Read Less' : 'Read More'}
+                </button>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className='flex flex-col items-center'>
-        <h1 className="font-semibold text-lg p-3">Grow Your Business</h1>
-        <p className="text-gray-600">Grow Your Business by leveraging advanced HR tools designed to enhance your organization's performance and support scalable growth. With features like talent acquisition, employee development, and performance management, you can build a skilled and motivated workforce that drives your business forward. Automation of administrative tasks, such as payroll, benefits management, and scheduling, frees up your HR team to focus on strategic initiatives that contribute to long-term success. Advanced analytics and reporting tools allow you to track key metrics, identify trends, and make data-driven decisions that align with your business goals. Additionally, seamless integration with other business systems ensures that your HR processes work in harmony with your overall business strategy. By streamlining operations and enhancing employee engagement, these tools empower you to attract top talent, boost productivity, and ultimately achieve your business objectives.</p>
-      </div>
-    </div>
-     {/* Grow Your Business */}
-     <div className="flex flex-col items-center space-x-4 shadow-lg p-4">
-      <div className="w-[100px] h-[100px] bg-white rounded-full flex items-center justify-center shadow-md">
-      <FaRobot className="text-blue-500 text-5xl" />
-      </div>
-      <div className='flex flex-col items-center'>
-        <h1 className="font-semibold text-lg p-3">Smart AI-Powered Automation</h1>
-        <p className="text-gray-600">Smart AI-Powered Automation revolutionizes how businesses manage their HR processes by using artificial intelligence to streamline and optimize operations. AI-driven tools automate routine tasks such as resume screening, interview scheduling, and employee data management, allowing HR teams to focus on more strategic activities. Machine learning algorithms continuously improve their efficiency by learning from past data, making predictions, and offering insights that help businesses make informed decisions faster. AI can also enhance employee engagement by personalizing communications, predicting training needs, and identifying potential performance issues before they become problems. By leveraging AI-powered automation, businesses can reduce human error, enhance decision-making, and significantly increase the speed and accuracy of HR tasks, leading to improved overall operational efficiency and employee satisfaction. This technology not only saves time and resources but also ensures your HR processes are scalable and adaptable to the evolving needs of your organization.</p>
-      </div>
-    </div>
-  </div>
-  </div>
-</section>
+    </section>
     </div>
   )
 }
