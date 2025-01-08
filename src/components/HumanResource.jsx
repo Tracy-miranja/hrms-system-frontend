@@ -4,6 +4,8 @@ import { faCircleRight } from "@fortawesome/free-solid-svg-icons";
 import hroutsourcingcompany from '/src/assets/hroutsourcingcompany.svg';
 import { FaCheckCircle,FaWalking, FaBell,FaRobot,FaChartLine, FaBolt,FaLock } from "react-icons/fa";
 import { useState } from 'react';
+import { CardSpotlight } from "@/components/ui/card-spotlight";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 
 
 function HumanResource() {
@@ -74,28 +76,46 @@ function HumanResource() {
 
   return (
     <div>
-      <section className="bg-[#F3F9F1] py-1 gap-4">
-        <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center">
-          <div className="lg:w-1/2">
-            <h1 className="text-4xl font-bold text-blue-600 mb-4">
+      <section className="bg-gray-800 py-12 gap-4">
+        <div className="container mx-auto flex flex-col lg:flex-row items-center py-[30px]">
+          <div className="lg:w-1/2 ">
+            <h1 className="text-4xl font-bold text-blue-600 mb-8 z-40">
               Empower Your Workforce <br />
               with Amsol HRM
             </h1>
-            <p className="text-gray-700 mb-6">
+            <p className="text-white text-[22px] mb-8 z-40">
               Automate manual tasks, eliminate errors, and securely manage employee information –  all in a single database: an HR management system.
               Streamline your HR operations,
               enhance productivity, and elevate
               employee experience
             </p>
-            <div className='flex gap-3'>
-              <button className='flex text-black bg-gray-500 p-2 rounded-full w-fit items-center text-white hover:bg-white border hover:text-black hover:border-blue-400'>
-                Get started
+            <div className="grid grid-cols-2 gap-x-8 gap-y-4 text-[22px] pb-8 text-white ">
+      <div className="flex items-center ">
+        <FaCheckCircle className=" text-blue-500 w-9 h-9 mr-2" />
+        <span className='text-white'>Streamlined & paperless</span>
+      </div>
+      <div className="flex items-center">
+        <FaCheckCircle className="text-blue-500 w-9 h-9  mr-2" />
+        <span>Onboarding tracker</span>
+      </div>
+      <div className="flex items-center">
+        <FaCheckCircle className="text-blue-500 w-9 h-9  mr-2" />
+        <span>Fully customizable workflows</span>
+      </div>
+      <div className="flex items-center">
+        <FaCheckCircle className="text-blue-500 w-9 h-9  mr-2" />
+        <span>Secure database</span>
+      </div>
+    </div>
+            <div className='flex gap-3 text-[18px] mb-10'>
+              <button className='flex text-black z-40 bg-blue-500 p-2 rounded-full w-fit items-center text-white hover:bg-white border hover:text-black hover:border-blue-400'>
+                See our Pricing
                 <FontAwesomeIcon
                   icon={faCircleRight}
                   className='text-xl border border-white rounded-full ml-2'
                 />
               </button>
-              <button className='flex text-black bg-blue-500 p-2 rounded-full w-fit items-center text-white hover:bg-white border hover:text-black hover:border-blue-400'>
+              <button className='flex text-white p-2 z-40 rounded-full w-fit items-center border-blue-400 text-black hover:bg-white border hover:text-black hover:border-blue-400'>
                 Request a demo
                 <FontAwesomeIcon
                   icon={faCircleRight}
@@ -103,27 +123,29 @@ function HumanResource() {
                 />
               </button>
             </div>
+            
           </div>
-          <div className="lg:w-1/2">
-            <img src={hroutsourcingcompany} alt="HR Software" className="rounded-lg w-full h-full " />
+          <div className="relative lg:w-[50%] z-40 ">
+            <img src={hroutsourcingcompany} alt="HR Software" className=" -mt-[50px] rounded-lg w-[100%] h-full " />
           </div>
+          <BackgroundBeams className="h-screen"/>
         </div>
       </section>
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-4">Features</h2>
+          <h2 className="text-3xl font-bold text-center text-blue-500 mb-4">Features</h2>
           <p className="text-md font-semibold text-center mb-20">Everything You Need in One Powerful Platform</p>
           <div className="grid md:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <div
+              <CardSpotlight
                 key={index}
-                className="flex flex-col bg-white shadow-md rounded-lg text-center relative hover:bg-blue-400 hover:text-white"
+                className="flex flex-col bg-black text-white shadow-md rounded-2xl  relative "
               >
                 {/* Icon and Title Container */}
-                <div className="relative w-full h-[15vh] bg-black rounded-xl flex flex-col items-center justify-center hover:bg-blue-400">
+                <div className="relative w-full h-[15vh] bg-blue-400 rounded-xl flex flex-col items-center justify-center hover:bg-white hover:text-black">
                   {/* Icon */}
                   <div
-                    className="absolute -top-[50px] bg-white rounded-full flex items-center justify-center shadow-2xl z-10"
+                    className="absolute -top-[30px] bg-white rounded-full flex items-center justify-center shadow-2xl z-10"
                     style={{
                       width: "100px",
                       height: "100px",
@@ -132,21 +154,21 @@ function HumanResource() {
                     <div className="text-4xl text-black">{feature.icon}</div>
                   </div>
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-white mt-[60px]">{feature.title}</h3>
+                  <h3 className="text-xl font-bold text-white mt-[60px] hover:text-black">{feature.title}</h3>
                 </div>
                 {/* Description with Bullets */}
                 <div className="px-4 mt-8 mb-4">
-                  <p className="text-gray-700 font-medium mb-3 hover:text-white">{feature.description}</p>
+                  <p className="text-white font-medium mb-3 hover:text-white">{feature.description}</p>
                   <ul className="list-none space-y-2 text-left">
                     {feature.bullets.map((bullet, i) => (
-                      <li key={i} className="flex items-center text-gray-700">
+                      <li key={i} className="flex items-center text-white">
                         <FaCheckCircle className="text-green-500 mr-2" />
                         {bullet}
                       </li>
                     ))}
                   </ul>
                 </div>
-              </div>
+              </CardSpotlight>
             ))}
           </div>
         </div>

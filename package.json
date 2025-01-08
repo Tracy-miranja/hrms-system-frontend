@@ -15,10 +15,12 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@radix-ui/react-slot": "^1.1.1",
+    "@react-three/fiber": "^8.17.10",
     "@reduxjs/toolkit": "^2.5.0",
+    "@types/three": "^0.172.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "framer-motion": "^11.15.0",
+    "framer-motion": "^11.16.0",
     "jspdf": "^2.5.2",
     "lucide-react": "^0.469.0",
     "react": "^18.3.1",
@@ -30,7 +32,8 @@
     "react-to-print": "^3.0.4",
     "react-tooltip": "^5.28.0",
     "tailwind-merge": "^2.6.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "three": "^0.172.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
