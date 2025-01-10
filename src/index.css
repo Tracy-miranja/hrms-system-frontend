@@ -130,4 +130,11 @@
   background-size: cover;
 }
 
+.contact-hr{
+  background-image: url("../src/assets/amsolhr7.png");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 60vh;
+}
+
 
