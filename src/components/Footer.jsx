@@ -6,7 +6,7 @@ import logo2 from "../assets/logo.png"
 
 const Footer = () => {
   return (
-    <footer className="bg-blue-900 text-white py-8 mb-0">
+    <footer className=" bg-blue-900 text-white py-8 mb-0 p-0">
       <div className="container mx-auto px-4">
         {/* Flex Container for Logo and Links */}
         <div className="flex flex-wrap justify-between items-start text-center md:text-left">

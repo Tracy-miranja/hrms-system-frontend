@@ -25,18 +25,6 @@ function HumanResource() {
   const aiAutomationText = "Smart AI-Powered Automation revolutionizes how businesses manage their HR processes by using artificial intelligence to streamline and optimize operations. AI-driven tools automate routine tasks such as resume screening, interview scheduling, and employee data management, allowing HR teams to focus on more strategic activities. Machine learning algorithms continuously improve their efficiency by learning from past data, making predictions, and offering insights that help businesses make informed decisions faster. AI can also enhance employee engagement by personalizing communications, predicting training needs, and identifying potential performance issues before they become problems.";
   const features = [
     {
-      title: "Recruitment",
-      description: "Simplify your hiring process with ease.",
-      icon: "🎯",
-      bullets: [
-        "Post jobs easily",
-        "Screen candidates efficiently",
-        "Schedule interviews quickly",
-        "Streamline hiring workflows",
-        "Enhance employer branding",
-      ],
-    },
-    {
       title: "Payroll",
       description: "Automate salary disbursements securely.",
       icon: "💰",
@@ -48,8 +36,22 @@ function HumanResource() {
         "Ensure secure transactions",
       ],
     },
+
     {
-      title: "Performance",
+      title: "Survey",
+      description: "Create and manage surveys effortlessly.",
+      icon: "📝",
+      bullets: [
+        "Design customizable surveys",
+        "Distribute surveys seamlessly",
+        "Collect real-time responses",
+        "Analyze detailed insights",
+        "Enhance feedback collection",
+      ],
+    },
+    
+    {
+      title: "Performance & stuff development",
       description: "Track and improve employee performance.",
       icon: "📈",
       bullets: [
@@ -60,6 +62,19 @@ function HumanResource() {
         "Enhance productivity tracking",
       ],
     },
+    {
+      title: "Recruitment",
+      description: "Simplify your hiring process with ease.",
+      icon: "🎯",
+      bullets: [
+        "Post jobs easily",
+        "Screen candidates efficiently",
+        "Schedule interviews quickly",
+        "Streamline hiring workflows",
+        "Enhance employer branding",
+      ],
+    },
+
     {
       title: "Attendance & Time Tracking",
       description: "Monitor work hours effortlessly.",
@@ -72,6 +87,19 @@ function HumanResource() {
         "Monitor absenteeism trends",
       ],
     },
+    {
+      title: "Training",
+      description: "Empower employees with effective training programs.",
+      icon: "🎓",
+      bullets: [
+        "Develop tailored training modules",
+        "Track learning progress",
+        "Provide interactive sessions",
+        "Offer certification programs",
+        "Enhance skill development",
+      ],
+    }
+    
   ];
 
   return (
@@ -79,7 +107,7 @@ function HumanResource() {
       <section className="bg-gray-800 py-12 gap-4">
         <div className="container mx-auto flex flex-col lg:flex-row items-center py-[30px]">
           <div className="lg:w-1/2 ">
-            <h1 className="text-4xl font-bold text-blue-600 mb-8 z-40">
+            <h1 className="text-4xl font-bold text-green-500 mb-8 z-40">
               Empower Your Workforce <br />
               with Amsol HRM
             </h1>
@@ -108,14 +136,14 @@ function HumanResource() {
       </div>
     </div>
             <div className='flex gap-3 text-[18px] mb-10'>
-              <button className='flex text-black z-40 bg-blue-500 p-2 rounded-full w-fit items-center text-white hover:bg-white border hover:text-black hover:border-blue-400'>
+              <button className='flex text-black z-40 bg-blue-500 p-2 px-6 rounded-full w-fit items-center text-white hover:bg-white border hover:text-black hover:border-blue-400'>
                 See our Pricing
                 <FontAwesomeIcon
                   icon={faCircleRight}
                   className='text-xl border border-white rounded-full ml-2'
                 />
               </button>
-              <button className='flex text-white p-2 z-40 rounded-full w-fit items-center border-blue-400 text-black hover:bg-white border hover:text-black hover:border-blue-400'>
+              <button className='flex text-white p-2 px-6 z-40 rounded-full w-fit items-center border-blue-400 text-black hover:bg-white border hover:text-black hover:border-blue-400'>
                 Request a demo
                 <FontAwesomeIcon
                   icon={faCircleRight}
@@ -135,11 +163,11 @@ function HumanResource() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-blue-500 mb-4">Features</h2>
           <p className="text-md font-semibold text-center mb-20">Everything You Need in One Powerful Platform</p>
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-4 gap-8 ">
             {features.map((feature, index) => (
-              <CardSpotlight
+              <div
                 key={index}
-                className="flex flex-col bg-black text-white shadow-md rounded-2xl  relative "
+                className="flex flex-col bg-white text-black shadow-md rounded-2xl mt-5 relative hover:bg-gray-100"
               >
                 {/* Icon and Title Container */}
                 <div className="relative w-full h-[15vh] bg-blue-400 rounded-xl flex flex-col items-center justify-center hover:bg-white hover:text-black">
@@ -158,17 +186,17 @@ function HumanResource() {
                 </div>
                 {/* Description with Bullets */}
                 <div className="px-4 mt-8 mb-4">
-                  <p className="text-white font-medium mb-3 hover:text-white">{feature.description}</p>
+                  <p className="text-black font-medium mb-3 hover:text-white">{feature.description}</p>
                   <ul className="list-none space-y-2 text-left">
                     {feature.bullets.map((bullet, i) => (
-                      <li key={i} className="flex items-center text-white">
+                      <li key={i} className="flex items-center text-black">
                         <FaCheckCircle className="text-green-500 mr-2" />
                         {bullet}
                       </li>
                     ))}
                   </ul>
                 </div>
-              </CardSpotlight>
+              </div>
             ))}
           </div>
         </div>

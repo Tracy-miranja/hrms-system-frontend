@@ -3,6 +3,7 @@ import { motion } from "framer-motion"; // For animations
 import { FaUser } from "react-icons/fa";
 import amsolhr from "../assets/amsolteam2.jpg"
 
+
 const About = () => {
   return (
     <div className="relative min-h-screen bg-gray-50">

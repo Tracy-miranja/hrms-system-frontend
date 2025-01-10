@@ -124,5 +124,10 @@
   background-image: url("./assets/Frame\(2\).png");
 }
 
+.pricing{
+  background-image: url("../src/assets/hr.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 

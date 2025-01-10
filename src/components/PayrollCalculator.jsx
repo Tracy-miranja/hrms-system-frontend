@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+
 const PayrollCalculator = () => {
   const [country, setCountry] = useState('Kenya');
   const [salaryType, setSalaryType] = useState('Net');
@@ -43,35 +44,54 @@ const PayrollCalculator = () => {
   
   const calculateDeductions = () => {
     let deductions = 0;
-
-    if (deductNSSF) deductions += 0.06 * salary;
-    if (deductPAYE) deductions += 0.1 * salary;
-    if (deductHousingLevy) deductions += 0.01 * salary;
-    if (deductNHIF) deductions += 0.02 * salary;
-
+  
+    // Deduct NSSF
+    if (deductNSSF) {
+      const nssf = salary <= 18000 ? 0.06 * salary : 1080; 
+      deductions += nssf;
+    }
+  
+    // Deduct PAYE
+    if (deductPAYE) {
+      let taxableSalary = salaryType === "Gross" ? salary : salary / 0.9; // Assuming Net Salary is ~90% of Gross
+      taxableSalary -= deductions; // Subtract NSSF
+      if (taxableSalary <= 24000) {
+        deductions += taxableSalary * 0.1; // 10% tax for lowest bracket
+      } else if (taxableSalary <= 32333) {
+        deductions += 2400 + (taxableSalary - 24000) * 0.25; // 25% for next bracket
+      } else {
+        deductions += 4483.25 + (taxableSalary - 32333) * 0.3; // 30% for remaining
+      }
+    }
+  
+    // Deduct Housing Levy
+    if (deductHousingLevy) {
+      const housingLevy = 0.01 * salary;
+      deductions += housingLevy;
+    }
+  
+    // Deduct NHIF
+    if (deductNHIF) {
+      const nhif = salary <= 100000 ? 0.02 * salary : 2000; // Example: Cap NHIF to 2000 for higher salaries
+      deductions += nhif;
+    }
+  
     return deductions;
   };
-
+  
   const calculateFinalSalary = () => {
     const deductions = calculateDeductions();
     let finalSalary = 0;
   
-    if (salaryType === 'Gross') {
+    if (salaryType === "Gross") {
       finalSalary = salary - deductions;
     } else {
       finalSalary = salary + deductions;
     }
   
-    return isNaN(finalSalary) ? 0 : finalSalary;  // Ensure it's a valid number
+    return isNaN(finalSalary) ? 0 : finalSalary;
   };
   
-  const calculatePayrollCost = () => {
-    const finalSalary = calculateFinalSalary();
-    const employerCost = finalSalary + calculateDeductions();
-    return isNaN(employerCost) ? 0 : employerCost;  // Ensure it's a valid number
-  };
-
-  // Generate the receipt
   const generateReceipt = () => {
     const finalSalary = calculateFinalSalary();
     const deductions = calculateDeductions();
@@ -81,17 +101,33 @@ const PayrollCalculator = () => {
       salary,
       finalSalary,
       deductions,
-      taxRules: countryTaxRules
+      breakdown: {
+        nssf: deductNSSF ? 0.06 * salary : 0,
+        paye: deductPAYE ? deductions - (deductNSSF ? 0.06 * salary : 0) : 0,
+        housingLevy: deductHousingLevy ? 0.01 * salary : 0,
+        nhif: deductNHIF ? 0.02 * salary : 0,
+      },
     };
     setReceipt(receiptData);
   };
 
+  const deductions = calculateDeductions();
+  const finalSalary = calculateFinalSalary();
+  
   return (
     <>
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg">
-        <h1 className="text-2xl font-bold text-gray-700 text-center mb-6">
+     
+        <div className='bg-gray-300 pt-6'>
+        <h1 className="text-2xl font-bold text-gray-700 text-center mb-6 ">
           Payroll Cost Calculator
+         
+        </h1>
+    <div className=" min-h-screen  flex  justify-center gap-10 text-lg bg-gray-300 p-6">
+   
+      <div className="bg-gray-100 p-8 rounded-lg shadow-lg w-full max-w-lg">
+        <h1 className="text-2xl font-bold text-gray-700 text-center mb-6">
+          
+          Salary Details
         </h1>
 
         {/* Country Selector */}
@@ -234,30 +270,61 @@ const PayrollCalculator = () => {
             onClick={generateReceipt}
             className="px-6 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600"
           >
-            Generate Receipt
+            Generate Payslip
           </button>
         </div>
 
         {/* Receipt */}
         {receipt && (
-          <div className="mt-8 bg-gray-100 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-700">Receipt</h3>
-            <div className="mt-4 text-sm text-gray-600">
-              <p>Country: {receipt.country}</p>
-              <p>Salary Type: {receipt.salaryType}</p>
-              <p>Salary: {receipt.salary}</p>
-              <p>Final Salary: {receipt.finalSalary}</p>
-              <p>Deductions: {receipt.deductions}</p>
+          <div className="mt-8 bg-gray-100  rounded-lg">
+            <div className='bg-green-500 text-center'><h3 className="text-xl font-semibold text-gray-700 ">PaySlip</h3></div>
+            <div className="mt-4 text-sm text-gray-600 px-6 gap-2">
+              <p><span className='font-bold'>Country</span>: {receipt.country}</p>
+              <p><span className='font-bold'>Salary Type</span>: {receipt.salaryType}</p>
+              <p><span className='font-bold'>Salary</span>: {receipt.salary}</p>
+              <p><span className='font-bold'>Final Salary</span>: {receipt.finalSalary}</p>
+              <p><span className='font-bold'>Deductions</span>: {receipt.deductions}</p>
               {/* <p>Tax Rules: {JSON.stringify(receipt.taxRules)}</p> */}
             </div>
           </div>
         )}
       </div>
-      
+      <div className="flex flex-col max-w-lg w-full p-6 bg-white h-fit rounded-lg">
+      <div className="bg-orange-400 p-6 rounded-lg text-center mb-4">
+        <h1 className="text-white font-bold text-[32px]">
+          Net Pay:
+          <p className="text-xl font-bold text-white mt-3">
+            KES {isNaN(finalSalary) ? '0.00' : finalSalary}
+          </p>
+        </h1>
+      </div>
+      <div className="bg-white p-4 rounded-lg shadow-md">
+        {[
+          { label: 'Gross Pay', value: salary || '0.00' },
+          { label: 'NSSF Contribution', value: deductNSSF ? (0.06 * salary).toFixed(2) : '0.00' },
+          { label: 'Taxable Income', value: salaryType === 'Gross' ? salary - deductions : salary },
+          { label: 'Tax Before Relief', value: deductions.toFixed(2) || '0.00' },
+          { label: 'Housing Levy', value: deductHousingLevy ? (0.01 * salary).toFixed(2) : '0.00' },
+          { label: 'NHIF Contribution', value: deductNHIF ? (salary <= 100000 ? 0.02 * salary : 2000).toFixed(2) : '0.00' },
+          { label: 'PAYE', value: deductPAYE || '0.00' },
+          { label: 'Net Pay', value: finalSalary },
+        ].map((item, index) => (
+          <div
+            key={index}
+            className="flex justify-between border-b border-gray-200 py-2"
+          >
+            <span className="text-gray-700">{item.label}</span>
+            <span className="font-bold text-gray-900">KES {item.value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+    </div>
     </div>
     <section>
         <h1>hello</h1>
       </section>
+      
     </>
   );
 };

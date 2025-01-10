@@ -1,23 +1,41 @@
 import React from 'react';
+import arbor from "../assets/Arbor-Networks-Logo.jpg"
+import Surge from "../assets/Surge-Energy.jpg"
+import Ata from "../assets/Ata-gss.png"
+import Kiota from "../assets/Kiota-School.png"
+import SHOFCO from "../assets/SHOFCO.png"
+import Navitas from "../assets/Navitas.jpg"
+import Nssf from "../assets/Nssf.png"
+import Nutanix from "../assets/Nutanix_Logo.png"
+import Flytxt from "../assets/Flytxt.jpg"
+import Bosch from "../assets/Bosch-logo.png"
+import Cwgc from "../assets/Cwgc.jpg"
+import Auto from "../assets/Auto-industries-limited.jpg"
+import Kohler from "../assets/Kohler.png"
 
 function Clients() {
   const clients = [
-    '/assets/client1-logo.png',
-    '/assets/client2-logo.png',
-    '/assets/client3-logo.png',
-    '/assets/client4-logo.png',
-    '/assets/client5-logo.png',
-    '/assets/client6-logo.png',
-    '/assets/client7-logo.png',
-  ]; // Replace with actual client logo paths
+    arbor,
+    Surge,
+    Ata,
+    Kiota,
+    SHOFCO,
+    Navitas,
+    Nssf,
+    Nutanix,
+    Flytxt,
+    Bosch,
+    Cwgc,
+    Auto,
+    Kohler,
+    
+  ]; 
 
   return (
     <div className="bg-gray-50 py-10">
       {/* Header */}
       <div className="flex justify-center mb-8 font-semibold text-2xl">
-        
-          <h2>Our Clients</h2>
-      
+        <h2>Our Clients</h2>
       </div>
 
       {/* Scrolling Section */}
