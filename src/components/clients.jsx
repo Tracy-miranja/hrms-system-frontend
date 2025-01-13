@@ -32,10 +32,10 @@ function Clients() {
   ]; 
 
   return (
-    <div className="bg-gray-50 py-10">
+    <div className="bg-gray-50 py-12">
       {/* Header */}
-      <div className="flex justify-center mb-8 font-semibold text-2xl">
-        <h2>Our Clients</h2>
+      <div className="flex justify-center mb-10 text-gray-800 font-semibold text-2xl">
+        <h2>Trusted by world famous companies</h2>
       </div>
 
       {/* Scrolling Section */}
