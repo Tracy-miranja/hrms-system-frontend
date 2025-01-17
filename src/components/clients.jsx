@@ -34,9 +34,9 @@ function Clients() {
   return (
     <div className="bg-gray-50 py-12">
       {/* Header */}
-      <div className="flex justify-center mb-10 text-gray-800 font-semibold text-2xl">
+      {/* <div className="flex justify-center mb-10 text-gray-800 font-semibold text-2xl">
         <h2>Trusted by world famous companies</h2>
-      </div>
+      </div> */}
 
       {/* Scrolling Section */}
       <div className="overflow-hidden">

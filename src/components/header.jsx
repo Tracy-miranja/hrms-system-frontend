@@ -10,6 +10,7 @@ import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import about from "../assets/Frame(2).png"
 import { Link } from 'react-router-dom';
 import logo2 from "../assets/logo.png"
+import { faCircleRight  } from "@fortawesome/free-solid-svg-icons";
 
 
 function Header() {
@@ -260,11 +261,15 @@ function Header() {
           
           </nav>
         <div className="flex text-md font-bold gap-4 text-center items-center">
-          <button className="bg-white text-black p-1 pl-2 pr-2 hover:text-blue-300 hover:bg-white border border-blue-400 rounded-full">
+          {/* <button className="bg-white text-black p-1 pl-2 pr-2 hover:text-blue-300 hover:bg-white border border-blue-400 rounded-full">
             Login
-          </button>
-          <button className="bg-white text-black p-1 pl-2 pr-2  hover:text-blue-300 hover:bg-white border border-blue-400 rounded-full">
+          </button> */}
+          <button className="flex bg-white text-black p-1 pl-2 pr-2  hover:text-blue-300 hover:bg-white border border-blue-400 rounded-full">
             Request Demo
+            <FontAwesomeIcon
+                                icon={faCircleRight}
+                                className='flex items-center text-xl border border-white rounded-full ml-2'
+                              />
           </button>
           <div className="relative h-[5vh] flex items-center p-1 hover:bg-gray-500"
             onMouseEnter={() => setIsGlobalOpen(true)}

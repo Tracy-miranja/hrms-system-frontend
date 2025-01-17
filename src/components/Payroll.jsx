@@ -2,10 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleRight  } from "@fortawesome/free-solid-svg-icons";
-import payroll from "../assets/payroll.png"
+import payroll from "../assets/payroll2.png"
 import { FaDollarSign, FaRegClock } from "react-icons/fa";
 import Clients from './clients';
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
+import GetStartedSection from './GetStartedSection';
 const people = [
   {
     id: 1,
@@ -100,8 +101,9 @@ const Payroll = () => {
       
     </div>
     <Clients />
-    <div className='p-10 flex text-center items-center justify-center'>
+    <div className='p-10 flex flex-col text-center items-center justify-center'>
       <h1 className='text-center text-[36px] font-semibold'>Simplified and Accelerated Payroll Solutions</h1>
+      <p className='text-xl'>All-In-One Plat form</p>
     </div>
     <div className=' flex justify-center items-center p-10'>
     <div className="container flex flex-col md:flex-row items-center justify-between shadow-xl gap-8 px-4 py-8 bg-gray-200 rounded-xl">
@@ -172,6 +174,7 @@ const Payroll = () => {
 
     </div>
     </div>
+    <GetStartedSection />
     </>
   );
 };
