@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-
+import { useState, useEffect } from 'react';
 
 const PayrollCalculator = () => {
   const [country, setCountry] = useState('Kenya');
@@ -13,24 +12,29 @@ const PayrollCalculator = () => {
   const [deductPAYE, setDeductPAYE] = useState(false);
   const [deductHousingLevy, setDeductHousingLevy] = useState(false);
   const [deductSHIF, setDeductSHIF] = useState(false);
-
+  const [finalSalary, setFinalSalary] = useState(0);
   const [countryTaxRules, setCountryTaxRules] = useState({});
   const [receipt, setReceipt] = useState(null);
 
   const [countries, setCountries] = useState([]); // Store all countries
   const [selectedCountry, setSelectedCountry] = useState(''); // Store selected country
+  const [deductions, setDeductions] = useState({});
 
+useEffect(() => {
+  const calcDeductions = calculateDeductions(salary, salaryType, deductNSSF, deductPAYE, deductHousingLevy, deductSHIF);
+  setDeductions(calcDeductions);
+}, [salary, salaryType, deductNSSF, deductPAYE, deductHousingLevy, deductSHIF]);
+
+  // Fetch countries data
   useEffect(() => {
     const fetchCountries = async () => {
       try {
         const response = await fetch("https://restcountries.com/v3.1/all");
         const data = await response.json();
-        // Filter for the four countries
         const targetCountries = ["Kenya", "Uganda", "Tanzania", "Rwanda"];
         const filteredCountries = data.filter((country) =>
           targetCountries.includes(country.name.common)
         );
-        // Format the filtered countries
         const formattedCountries = filteredCountries.map((country) => ({
           name: country.name.common,
           currency: country.currencies
@@ -46,76 +50,96 @@ const PayrollCalculator = () => {
     fetchCountries();
   }, []);
 
+  // Handle country change
   const handleCountryChange = (e) => {
     setSelectedCountry(e.target.value);
   };
 
-  const calculateDeductions = () => {
+  // Calculate deductions based on inputs
+  const calculateDeductions = (salary, salaryType, deductNSSF, deductPAYE, deductHousingLevy, deductSHIF) => {
     let deductions = 0;
+    let grossSalary = salaryType === "Gross" ? salary : salary / 0.9; // Approximation for taxable salary
 
-    // Calculate NSSF (6% of salary, capped at 2,160)
+    let nssf = 0;
     if (deductNSSF) {
-      const nssf = Math.min(0.06 * salary, 2160);
+      nssf = Math.min(0.06 * grossSalary, 2160);
       deductions += nssf;
     }
 
-    // Calculate PAYE
-    if (deductPAYE) {
-      let taxableSalary = salaryType === "Gross" ? salary : salary / 0.9; // Approximate taxable salary from net
-      taxableSalary -= deductions; // Subtract NSSF
-
-      let paye = 0;
-      if (taxableSalary <= 24000) {
-        paye += 2400; // 10% on the first 24,000
-        if (taxableSalary > 32333) {
-          paye += 2083.25; // 25% on the next 8,333
-          if (taxableSalary > 800000) {
-            paye += 235500; // 30% on the next 467,667
-            paye += (taxableSalary - 800000) * 0.35; // 35% on amounts over 800,000
-          } else {
-            paye += (taxableSalary - 32333) * 0.3; // 30% on the remaining amount up to 800,000
-          }
-        } else {
-          paye += (taxableSalary - 24000) * 0.25; // 25% on the next 8,333
-        }
-      } else {
-        paye += taxableSalary * 0.1; // 10% for lowest bracket
-      }
-
-      paye -= 2400; // Apply personal relief
-      deductions += Math.max(paye, 0); // Ensure PAYE is non-negative
-    }
-
-    // Calculate Housing Levy (1.5% of gross pay)
+    let housingLevy = 0;
     if (deductHousingLevy) {
-      const housingLevy = 0.015 * salary;
+      housingLevy = 0.015 * grossSalary;
       deductions += housingLevy;
     }
 
-    // Calculate SHIF (2.75% of gross pay)
+    let shif = 0;
     if (deductSHIF) {
-      const shif = 0.0275 * salary;
+      shif = 0.0275 * grossSalary;
       deductions += shif;
     }
 
-    return deductions;
+    let paye = 0;
+    if (deductPAYE) {
+      let taxableSalary = grossSalary - deductions;
+
+      if (taxableSalary <= 24000) {
+        paye += taxableSalary * 0.10;
+      } else {
+        paye += 24000 * 0.10;
+        if (taxableSalary <= 32333) {
+          paye += (taxableSalary - 24000) * 0.25;
+        } else {
+          paye += 8333 * 0.25;
+          if (taxableSalary <= 500000) {
+            paye += (taxableSalary - 32333) * 0.30;
+          } else {
+            paye += (500000 - 32333) * 0.30;
+            if (taxableSalary <= 800000) {
+              paye += (taxableSalary - 500000) * 0.325;
+            } else {
+              paye += (800000 - 500000) * 0.325;
+              paye += (taxableSalary - 800000) * 0.35;
+            }
+          }
+        }
+      }
+
+      paye -= 2400; // Apply personal relief
+      paye = Math.max(paye, 0); // Ensure PAYE is non-negative
+    }
+
+    deductions += paye;
+
+    return {
+      totalDeductions: deductions,
+      nssf,
+      housingLevy,
+      shif,
+      paye,
+    };
   };
 
+  // Calculate final salary after deductions
   const calculateFinalSalary = () => {
-    const deductions = calculateDeductions();
+    const deductions = calculateDeductions(salary, salaryType, deductNSSF, deductPAYE, deductHousingLevy, deductSHIF);
     let finalSalary = 0;
 
     if (salaryType === "Gross") {
-      finalSalary = salary - deductions;
+      finalSalary = salary - deductions.totalDeductions;
     } else {
-      finalSalary = salary + deductions;
+      finalSalary = salary + deductions.totalDeductions;
     }
 
     return isNaN(finalSalary) ? 0 : finalSalary;
   };
 
+  useEffect(() => {
+    setFinalSalary(calculateFinalSalary());
+  }, [salary, salaryType, deductNSSF, deductPAYE, deductHousingLevy, deductSHIF]);
+
+  // Generate the receipt with deductions
   const generateReceipt = () => {
-    const deductions = calculateDeductions();
+    const deductions = calculateDeductions(salary, salaryType, deductNSSF, deductPAYE, deductHousingLevy, deductSHIF);
     const finalSalary = calculateFinalSalary();
 
     const receiptData = {
@@ -128,15 +152,12 @@ const PayrollCalculator = () => {
         nssf: deductNSSF ? Math.min(0.06 * salary, 2160) : 0,
         housingLevy: deductHousingLevy ? 0.015 * salary : 0,
         shif: deductSHIF ? 0.0275 * salary : 0,
-        paye: deductPAYE ? deductions - (deductNSSF ? Math.min(0.06 * salary, 2160) : 0) : 0,
+        paye: deductPAYE ? deductions.totalDeductions - (deductNSSF ? Math.min(0.06 * salary, 2160) : 0) : 0,
       },
     };
 
     setReceipt(receiptData);
   };
-
-  const deductions = calculateDeductions();
-  const finalSalary = calculateFinalSalary();
 
   return (
     <>
@@ -357,33 +378,58 @@ const PayrollCalculator = () => {
             )}
           </div>
           <div className="flex flex-col max-w-lg w-full p-6 bg-white h-fit rounded-lg">
-            <div className="bg-orange-400 p-6 rounded-lg text-center mb-4">
-              <h1 className="text-white font-bold text-[32px]">
-                Net Pay:
-                <p className="text-xl font-bold text-white mt-3">
-                  KES {isNaN(finalSalary) ? '0.00' : finalSalary}
-                </p>
-              </h1>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-md">
-              {[
-                { label: 'Gross Pay', value: salary || '0.00' },
-                { label: 'NSSF Contribution', value: deductNSSF ? (0.06 * salary).toFixed(2) : '0.00' },
-                { label: 'Housing Levy', value: deductHousingLevy ? (0.01 * salary).toFixed(2) : '0.00' },
-                { label: 'SHIF Contribution', value: deductSHIF ? (salary <= 100000 ? 0.02 * salary : 2000).toFixed(2) : '0.00' },
-                { label: 'Taxable Income', value: salaryType === 'Gross' ? salary - deductions : salary },
-                { label: 'PAYE', value: deductions.toFixed(2) || '0.00' },
-                { label: 'Net Pay', value: finalSalary },
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className="flex justify-between border-b border-gray-200 py-2"
-                >
-                  <span className="text-gray-700">{item.label}</span>
-                  <span className="font-bold text-gray-900">KES {item.value}</span>
-                </div>
-              ))}
-            </div>
+          <div className="bg-orange-400 p-6 rounded-lg text-center mb-4">
+  <h1 className="text-white font-bold text-[32px]">
+    Net Pay:
+    <p className="text-xl font-bold text-white mt-3">
+      KES {isNaN(finalSalary) ? '0.00' : finalSalary}
+    </p>
+  </h1>
+</div>
+<div className="bg-white p-4 rounded-lg shadow-md">
+  {[
+    { label: 'Gross Pay', value: salary || '0.00' },
+    { 
+      label: 'NSSF Contribution', 
+      value: deductNSSF ? Math.min(0.06 * salary, 2160).toFixed(2) : '0.00' 
+    }, 
+    { 
+      label: 'Housing Levy', 
+      value: deductHousingLevy ? (0.015 * salary).toFixed(2) : '0.00' 
+    },
+    { 
+      label: 'SHIF Contribution', 
+      value: deductSHIF ? (0.0275 * salary).toFixed(2) : '0.00' 
+    },
+    
+    { 
+      label: 'Taxable Income', 
+      value: (salary - ((deductSHIF ? (0.0275 * salary) : 0) + 
+                       (deductNSSF ? Math.min(0.06 * salary, 2160) : 0) + 
+                       (deductHousingLevy ? (0.015 * salary) : 0) 
+                     )).toFixed(2) 
+    },
+    {
+      label: "Personal Relief",
+      value: (deductions?.paye || 0) <= 2400 ? "0.00" : "-2400",
+    },
+    
+    
+    { label: 'PAYE', value: deductions?.paye?.toFixed(2) || '0.00' },
+    
+    
+    { label: 'Net Pay', value: (salary - (deductions?.totalDeductions || 0)).toFixed(2) },
+  ].map((item, index) => (
+    <div
+      key={index}
+      className="flex justify-between border-b border-gray-200 py-2"
+    >
+      <span className="text-gray-700">{item.label}</span>
+      <span className="font-bold text-gray-900">KES {item.value}</span>
+    </div>
+  ))}
+</div>
+
           </div>
         </div>
       </div>
