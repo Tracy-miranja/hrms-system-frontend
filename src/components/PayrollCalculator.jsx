@@ -20,10 +20,10 @@ const PayrollCalculator = () => {
   const [selectedCountry, setSelectedCountry] = useState(''); // Store selected country
   const [deductions, setDeductions] = useState({});
 
-useEffect(() => {
-  const calcDeductions = calculateDeductions(salary, salaryType, deductNSSF, deductPAYE, deductHousingLevy, deductSHIF);
-  setDeductions(calcDeductions);
-}, [salary, salaryType, deductNSSF, deductPAYE, deductHousingLevy, deductSHIF]);
+  useEffect(() => {
+    const calcDeductions = calculateDeductions(salary, salaryType, deductNSSF, deductPAYE, deductHousingLevy, deductSHIF);
+    setDeductions(calcDeductions);
+  }, [salary, salaryType, deductNSSF, deductPAYE, deductHousingLevy, deductSHIF]);
 
   // Fetch countries data
   useEffect(() => {
@@ -155,29 +155,25 @@ useEffect(() => {
         paye: deductPAYE ? deductions.totalDeductions - (deductNSSF ? Math.min(0.06 * salary, 2160) : 0) : 0,
       },
     };
-
     setReceipt(receiptData);
   };
 
   return (
     <>
-
-      <div className='bg-gray-300 pt-6'>
-        <h1 className="text-2xl font-bold text-gray-700 text-center mb-6 ">
+      <div className='bg-gradient-to-r from-blue-500 to-purple-600 pt-6 px-3'>
+        <h1 className="text-2xl font-bold text-white text-center mb-6 ">
           Payroll Cost Calculator
-
         </h1>
-        <div className=" min-h-screen  flex  justify-center gap-10 text-lg bg-gray-300 p-6">
-
-          <div className="bg-gray-100 p-8 rounded-lg shadow-lg w-full max-w-lg">
-            <h1 className="text-2xl font-bold text-gray-700 text-center mb-6">
+        <div className=" min-h-screen  flex  justify-center gap-10 text-lg bg-gradient-to-r from-blue-500 to-purple-600 p-6">
+          <div className="bg-white  p-8 rounded-lg shadow-lg w-full max-w-lg">
+            <h1 className="text-2xl font-bold text-gray-800 text-center mb-6">
 
               Salary Details
             </h1>
 
             {/* Country Selector */}
             <div className="mb-4">
-              <label htmlFor="country" className="block text-gray-600 font-medium mb-2">
+              <label htmlFor="country" className="block text-white  font-medium mb-2">
                 Choose Desired Country
               </label>
               <select
@@ -378,64 +374,143 @@ useEffect(() => {
             )}
           </div>
           <div className="flex flex-col max-w-lg w-full p-6 bg-white h-fit rounded-lg">
-          <div className="bg-orange-400 p-6 rounded-lg text-center mb-4">
-  <h1 className="text-white font-bold text-[32px]">
-    Net Pay:
-    <p className="text-xl font-bold text-white mt-3">
-      KES {isNaN(finalSalary) ? '0.00' : finalSalary}
-    </p>
-  </h1>
-</div>
-<div className="bg-white p-4 rounded-lg shadow-md">
-  {[
-    { label: 'Gross Pay', value: salary || '0.00' },
-    { 
-      label: 'NSSF Contribution', 
-      value: deductNSSF ? Math.min(0.06 * salary, 2160).toFixed(2) : '0.00' 
-    }, 
-    { 
-      label: 'Housing Levy', 
-      value: deductHousingLevy ? (0.015 * salary).toFixed(2) : '0.00' 
-    },
-    { 
-      label: 'SHIF Contribution', 
-      value: deductSHIF ? (0.0275 * salary).toFixed(2) : '0.00' 
-    },
-    
-    { 
-      label: 'Taxable Income', 
-      value: (salary - ((deductSHIF ? (0.0275 * salary) : 0) + 
-                       (deductNSSF ? Math.min(0.06 * salary, 2160) : 0) + 
-                       (deductHousingLevy ? (0.015 * salary) : 0) 
-                     )).toFixed(2) 
-    },
-    {
-      label: "Personal Relief",
-      value: (deductions?.paye || 0) <= 2400 ? "0.00" : "-2400",
-    },
-    
-    
-    { label: 'PAYE', value: deductions?.paye?.toFixed(2) || '0.00' },
-    
-    
-    { label: 'Net Pay', value: (salary - (deductions?.totalDeductions || 0)).toFixed(2) },
-  ].map((item, index) => (
-    <div
-      key={index}
-      className="flex justify-between border-b border-gray-200 py-2"
-    >
-      <span className="text-gray-700">{item.label}</span>
-      <span className="font-bold text-gray-900">KES {item.value}</span>
-    </div>
-  ))}
-</div>
+            <div className="bg-orange-400 p-6 rounded-lg text-center mb-4">
+              <h1 className="text-white font-bold text-[32px]">
+                Net Pay:
+                <p className="text-xl font-bold text-white mt-3">
+                  KES {isNaN(finalSalary) ? '0.00' : finalSalary}
+                </p>
+              </h1>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-md">
+              {[
+                { label: 'Gross Pay', value: salary || '0.00' },
+                {
+                  label: 'NSSF Contribution',
+                  value: deductNSSF ? Math.min(0.06 * salary, 2160).toFixed(2) : '0.00'
+                },
+                {
+                  label: 'Housing Levy',
+                  value: deductHousingLevy ? (0.015 * salary).toFixed(2) : '0.00'
+                },
+                {
+                  label: 'SHIF Contribution',
+                  value: deductSHIF ? (0.0275 * salary).toFixed(2) : '0.00'
+                },
+
+                {
+                  label: 'Taxable Income',
+                  value: (salary - ((deductSHIF ? (0.0275 * salary) : 0) +
+                    (deductNSSF ? Math.min(0.06 * salary, 2160) : 0) +
+                    (deductHousingLevy ? (0.015 * salary) : 0)
+                  )).toFixed(2)
+                },
+                {
+                  label: "Personal Relief",
+                  value: (deductions?.paye || 0) <= 2400 ? "0.00" : "-2400",
+                },
+
+
+                { label: 'PAYE', value: deductions?.paye?.toFixed(2) || '0.00' },
+
+
+                { label: 'Net Pay', value: (salary - (deductions?.totalDeductions || 0)).toFixed(2) },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="flex justify-between border-b border-gray-200 py-2"
+                >
+                  <span className="text-gray-700">{item.label}</span>
+                  <span className="font-bold text-gray-900">KES {item.value}</span>
+                </div>
+              ))}
+            </div>
 
           </div>
         </div>
       </div>
-      <section>
-        <h1>hello</h1>
-      </section>
+      <div className='flex justify-center items-center pt-12 pb-12'>
+        <div className="container flex items center flex-col bg-gray-100 p-6 rounded-lg shadow-md">
+          <section className="mb-6">
+            <h1 className="text-2xl text-center font-bold text-orange-500">Best PAYE Tax Calculator for Kenya</h1>
+            <p className="text-gray-700 mt-4 text-xl">
+              In Kenya, workers in formal employment are taxed through a deduction named Pay As You Earn (PAYE).
+            </p>
+            <p className="text-gray-700 mt-2 text-xl">
+              The formula for determining PAYE is based on Kenyan Tax Laws (Understanding Kenyan PAYE calculation). For
+              <strong> NET PAY CALCULATOR</strong>, use the "Treat salary as net pay" option.
+            </p>
+          </section>
+
+          <section className="mb-6">
+            <h2 className="text-xl text-center font-semibold text-gray-800">PAYE Calculator (Based on Finance Act 2023)</h2>
+            <table className="w-full mt-4 border border-gray-300">
+              <thead>
+                <tr className="bg-gray-200 text-gray-700 text-xl">
+                  <th className="p-2 border text-xl">Monthly Bands of Taxable Income (KES)</th>
+                  <th className="p-2 border text-xl">Tax Rate</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="p-2 border text-xl">0 – 24,000</td>
+                  <td className="p-2 border text-xl">10%</td>
+                </tr>
+                <tr>
+                  <td className="p-2 border text-xl">On the next 8,333</td>
+                  <td className="p-2 border text-xl">25%</td>
+                </tr>
+                <tr>
+                  <td className="p-2 border text-xl">On the next 467,667</td>
+                  <td className="p-2 border text-xl">30%</td>
+                </tr>
+                <tr>
+                  <td className="p-2 border text-xl">On the next 300,000</td>
+                  <td className="p-2 border text-xl">32.5%</td>
+                </tr>
+                <tr>
+                  <td className="p-2 border text-xl">On amounts over 800,000</td>
+                  <td className="p-2 border text-xl">35%</td>
+                </tr>
+              </tbody>
+            </table>
+            <p className="text-gray-700 mt-4 text-xl">
+              <strong className='text-xl'>Personal Relief:</strong> KES 2,400.00 per month<br />
+              <strong className='text-xl'>Minimum Taxable Income:</strong> KES 24,001.00 per month
+            </p>
+          </section>
+
+          <section className="mb-6">
+            <p className="text-gray-700 text-xl">
+              As an employee, your employer will deduct this tax and remit it to KRA on your behalf through the KRA Online Portal. A special Microsoft Excel File, dabbed iTax P10 file, is used to compile all employee payroll data into a single uploadable zip file.
+              <a href="#" className="text-blue-500 underline"> See our iTax P10 how-to guide</a> on how to fill this in.
+            </p>
+            <p className="text-gray-700 mt-2 text-xl">
+              PAYE returns deadline for a given month is the 9th day of the following month. Late payments attract a penalty fine of KES 10,000 (USD 100) charged to the employer.
+            </p>
+            <p className="text-gray-700 mt-2 text-xl">
+              Similarly, NSSF (National Social Security Fund) and NHIF (National Hospital Insurance Fund) are mandatory deductions collected and remitted to relevant statutory bodies on behalf of the employee.
+            </p>
+          </section>
+
+          <section className="mb-6">
+            <h2 className="text-xl font-semibold text-gray-800 text-xl">NB:</h2>
+            <ul className="list-disc list-inside text-gray-700 mt-4 text-xl">
+              <li>Effective January 2022, insurance relief is now applicable to NHIF after gazettement of the Finance Act No.8 of 2021.</li>
+              <li>Effective July 2023, 1.5% of gross salary is deducted from employees and employers as a contribution towards the housing levy, following the Finance Act 2023.</li>
+              <li>Effective October 2024, 2.75% of gross salary is deducted from each employee as a Social Health Insurance Fund (SHIF), replacing NHIF.</li>
+              <li>Effective December 2024, SHIF and housing levy are now reliefs deductible before tax.</li>
+            </ul>
+          </section>
+
+          <section>
+            <p className="text-gray-700 text-xl">
+              AmsolHr Online Payroll will automatically generate your iTax P10 data, NSSF Excel file, and NHIF Byproduct for you with its in-built statutory formats. It also provides a broad array of Human Resource Management tools not available on PAYE calculators in Excel sheets.
+            </p>
+          </section>
+        </div>
+      </div>
+
 
     </>
   );
