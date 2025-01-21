@@ -264,13 +264,17 @@ function Header() {
           {/* <button className="bg-white text-black p-1 pl-2 pr-2 hover:text-blue-300 hover:bg-white border border-blue-400 rounded-full">
             Login
           </button> */}
-          <button className="flex bg-white text-black p-1 pl-2 pr-2  hover:text-blue-300 hover:bg-white border border-blue-400 rounded-full">
+          <Link to="/Demo">
+          <button className="flex bg-white text-black p-1 pl-4 pr-4  hover:text-blue-300 hover:bg-white border border-blue-400 rounded-full">
+          
             Request Demo
             <FontAwesomeIcon
                                 icon={faCircleRight}
                                 className='flex items-center text-xl border border-white rounded-full ml-2'
                               />
+                            
           </button>
+          </Link>
           <div className="relative h-[5vh] flex items-center p-1 hover:bg-gray-500"
             onMouseEnter={() => setIsGlobalOpen(true)}
             onMouseLeave={() => setIsGlobalOpen(false)}

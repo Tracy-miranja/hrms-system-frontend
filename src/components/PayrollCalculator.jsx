@@ -338,12 +338,12 @@ const PayrollCalculator = () => {
 
                     <tr className="border-b">
                       <td className="px-4 py-2 font-bold text-left">NSSF:</td>
-                      <td className="px-4 py-2 text-right">{receipt.breakdown.nssf}</td>
+                      <td className="px-4 py-2 text-right">{receipt.breakdown.nssf.toFixed(2)}</td>
                     </tr>
 
                     <tr className="border-b">
                       <td className="px-4 py-2 font-bold text-left">Housing Levy:</td>
-                      <td className="px-4 py-2 text-right">{receipt.breakdown.housingLevy}</td>
+                      <td className="px-4 py-2 text-right">{receipt.breakdown.housingLevy.toFixed(2)}</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-2 font-bold text-left">SHIF:</td>
@@ -360,7 +360,7 @@ const PayrollCalculator = () => {
 
                     <tr className="border-b">
                       <td className="px-4 py-2 font-bold text-left">Total Deductions:</td>
-                      <td className="px-4 py-2 text-right">{receipt.deductions}</td>
+                      <td className="px-4 py-2 text-right">{receipt.deductions.totalDeductions.toFixed(2)}</td>
                     </tr>
 
                     <tr className="border-b bg-blue-400 p-3">

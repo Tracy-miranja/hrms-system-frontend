@@ -21,6 +21,7 @@ import Kenyaguide from "./components/Kenyaguide"
 import RwandaGuide from "./components/RwandaGuide"
 import TanzaniaGuide from "./components/TanzaniaGuide"
 import UgandaGuide from "./components/UgandaGuide"
+import DemoPage from "./components/Requestdemo"
 function App() {
   return (
     <Router>
@@ -49,6 +50,7 @@ function App() {
         <Route path="/rwanda-country-guide" element={<RwandaGuide/>}/>
         <Route path="/tanzania-country-guide" element={<TanzaniaGuide/>}/>
         <Route path="/uganda-country-guide" element={<UgandaGuide/>}/>
+        <Route path="/Demo" element={<DemoPage />} />
       </Routes>
       <Footer />
     </Router>
