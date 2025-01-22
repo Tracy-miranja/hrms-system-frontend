@@ -104,7 +104,7 @@ function HumanResource() {
 
   return (
     <div>
-      <section className="bg-gray-800 py-12 gap-4">
+      <section className="bg-gradient-to-r from-blue-500 to-purple-600 py-12 gap-4">
         <div className="container mx-auto flex flex-col lg:flex-row items-center py-[30px]">
           <div className="lg:w-1/2 ">
             <h1 className="text-4xl font-bold text-green-500 mb-8 z-40">
@@ -136,7 +136,7 @@ function HumanResource() {
       </div>
     </div>
             <div className='flex gap-3 text-[18px] mb-10'>
-              <button className='flex text-black z-40 bg-blue-500 p-2 px-6 rounded-full w-fit items-center text-white hover:bg-white border hover:text-black hover:border-blue-400'>
+              <button className='flex text-blue-900 z-40 bg-yellow-300 p-2 px-6 rounded-full w-fit items-center  hover:bg-white border hover:text-black hover:border-blue-400'>
                 See our Pricing
                 <FontAwesomeIcon
                   icon={faCircleRight}

@@ -97,7 +97,7 @@ function Header() {
                   <Link to="/ATS" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
                     <span className='bg-blue-100 p-2 rounded-full'><FaCode className="mr-2" /></span>
                     <div>
-                      <h2 className='text-blue-300'>ATS</h2>
+                      <h2 className='text-blue-300'>Time management</h2>
                       <p className="text-sm text-gray-600">salaries and deductions</p>
                     </div>
                   </Link>
@@ -123,7 +123,7 @@ function Header() {
                   <Link to="/Recruitment" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
                     <span className='flex bg-blue-100 p-2 rounded-full justify-center'><FaUsers className="mr-2" /></span>
                     <div>
-                      <h2 className="font-bold text-blue-300">Recruitment</h2>
+                      <h2 className="font-bold text-blue-300">ATS & Recruitment</h2>
                       <p className="text-sm text-gray-600">salaries and deductions</p>
                     </div>
                   </Link>
