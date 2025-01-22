@@ -1,3 +1,10 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+ 
+const colors = require("tailwindcss/colors");
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
+
 /** @type {import('tailwindcss').Config} */
 export default {
     darkMode: ["class"],
@@ -7,6 +14,7 @@ export default {
   ],
   theme: {
   	extend: {
+		
   		keyframes: {
   			scroll: {
   				'0%': {

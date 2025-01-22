@@ -1,83 +1,182 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Contact = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   return (
-    <div className="min-h-screen bg-gray-50 flex  justify-center p-6 gap-4 ">
-      <div className='w-[40%] bg-gray-500 p-6'>
-        <h1>Connect with our Team of Experts</h1>
-        <p>Have questions or need a hand? Our team is here to assist and make sure you get the support you need!</p>
-        <div className='flex'>
-        <div><h3>Want to join our talented team? check our job board</h3></div>
-        <div className='contact-hr'></div>
-      </div>
-      </div>
-      
-      <div className="max-w-4xl w-full bg-white shadow-md rounded-lg p-8">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">Contact Us</h1>
-        <p className="text-gray-600 mb-6 text-center">
-          We'd love to hear from you! Reach out to us using the form below or through our contact details.
+    <div className="bg-gray-50 min-h-screen text-lg">
+      {/* Hero Section */}
+      <section
+        className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-20 text-center"
+        data-aos="fade-in"
+      >
+        <h1 className="text-5xl font-bold">Contact Us</h1>
+        <p className="text-lg mt-4">
+          Reach out to us for inquiries, collaborations, or support.
         </p>
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Left Column */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
-            <input
-              type="text"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter your full name"
-            />
+      </section>
+
+      {/* Contact Details and Form Section */}
+      <section className="max-w-7xl mx-auto px-6 py-16 grid lg:grid-cols-2 gap-12">
+        {/* Contact Details */}
+        <div data-aos="fade-up">
+          <h2 className="text-3xl font-bold text-gray-800">Get in Touch</h2>
+          <p className="mt-4 text-gray-600">
+            We’re here to help. Contact us via phone, email, or by filling out
+            the form.
+          </p>
+          <div className="mt-8 space-y-6">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800">Address</h3>
+              <p className="text-gray-600 mt-2">
+                123 Business Lane, Suite 100<br />
+                Houston, TX 77027
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800">Phone</h3>
+              <p className="text-gray-600 mt-2">+1 (555) 123-4567</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800">Email</h3>
+              <p className="text-gray-600 mt-2">info@example.com</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800">Hours</h3>
+              <p className="text-gray-600 mt-2">
+                Monday - Friday: 8:00 AM - 5:00 PM<br />
+                Saturday - Sunday: Closed
+              </p>
+            </div>
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
-            <input
-              type="email"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter your email address"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
-            <input
-              type="tel"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter your phone number"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Company Name</label>
-            <input
-              type="text"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter your company name"
-            />
-          </div>
-          <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
-            <textarea
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              rows="5"
-              placeholder="Type your message here"
-            ></textarea>
-          </div>
-          <div className="md:col-span-2 text-center">
+        </div>
+
+        {/* Contact Form */}
+        <div
+          className="bg-blue-900 shadow-lg rounded-lg p-8 "
+          data-aos="zoom-in-up"
+        >
+          <h2 className="text-2xl font-bold text-white">Contact Form</h2>
+          <p className="text-white mt-2">
+            Fill out the form below, and we’ll get back to you as soon as
+            possible.
+          </p>
+          <form className="space-y-6 mt-6">
+            <div className='flex gap-3 w-full'>
+              <div>
+              <label className="block text-white font-medium">
+                First Name
+              </label>
+              <input
+                type="text"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 mt-1"
+                required
+              />
+              </div>
+              <div>
+              <label className="block text-white font-medium">
+                Last Name
+              </label>
+              <input
+                type="text"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 mt-1"
+                required
+              />
+              </div>
+              
+            </div>
+            
+            <div>
+              <label className="block text-white font-medium">Email</label>
+              <input
+                type="email"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 mt-1"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-white font-medium">Phone</label>
+              <input
+                type="tel"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 mt-1"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-white font-medium">
+                Company Name
+              </label>
+              <input
+                type="text"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 mt-1"
+              />
+            </div>
+            <div>
+              {/* Country Dropdown */}
+              <select
+                className="w-full border border-gray-300 rounded-lg px-4 py-2"
+                required
+              >
+                <option value="" disabled selected>
+                  Select Country
+                </option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="Kenya">Kenya</option>
+                <option value="South Africa">South Africa</option>
+                <option value="United States">United States</option>
+                <option value="United Kingdom">United Kingdom</option>
+              </select>
+            </div>
+            <div>
+              {/* Inquiry Type Dropdown */}
+              <select
+                className="w-full border border-gray-300 rounded-lg px-4 py-2"
+                required
+              >
+                <option value="" disabled selected>
+                  Select Type of Inquiry
+                </option>
+                <option value="General">General Inquiry</option>
+                <option value="Support">Customer Support</option>
+                <option value="Sales">Sales Inquiry</option>
+                <option value="Partnership">Partnership Request</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-white font-medium">Message</label>
+              <textarea
+                rows="4"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 mt-1"
+                required
+              ></textarea>
+            </div>
             <button
               type="submit"
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200"
+              className="w-full bg-yellow-500 text-white py-3 rounded-lg hover:bg-gray-800"
+              data-aos="fade-left"
             >
               Submit
             </button>
-          </div>
-        </form>
-        <div className="mt-8 text-center">
-          <p className="text-gray-600">Or reach us directly at:</p>
-          <p className="text-gray-800 font-medium">Email: support@yourcompany.com</p>
-          <p className="text-gray-800 font-medium">Phone: +254 111 888 000 <br/>
-Call us anytime! 24/7
-
-</p>
+          </form>
         </div>
-      </div>
-      
+      </section>
+
+      {/* Map Section */}
+      <section
+        className="h-96 w-full bg-gray-200"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <iframe
+          className="w-full h-full"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.52846789754!2d-122.4194164846813!3d37.77492977975907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064e093ff85%3A0x1f8605e963392f82!2s123%20Business%20Lane!5e0!3m2!1sen!2sus!4v1698147230590!5m2!1sen!2sus"
+          loading="lazy"
+        ></iframe>
+      </section>
     </div>
   );
 };

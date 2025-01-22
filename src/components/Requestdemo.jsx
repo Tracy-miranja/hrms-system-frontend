@@ -1,4 +1,53 @@
 import React, { useState, useEffect } from "react";
+import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
+import Clients from "./clients";
+// import { ContainerScroll } from "@/components/container-scroll-animation";
+// import Image from "next/image";
+
+const people = [
+  {
+    id: 1,
+    name: "John Doe",
+    designation: "Software Engineer",
+    image:
+      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+  },
+  {
+    id: 2,
+    name: "Robert Johnson",
+    designation: "Product Manager",
+    image:
+      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+  },
+  {
+    id: 3,
+    name: "Jane Smith",
+    designation: "Data Scientist",
+    image:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+  },
+  {
+    id: 4,
+    name: "Emily Davis",
+    designation: "UX Designer",
+    image:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+  },
+  {
+    id: 5,
+    name: "Tyler Durden",
+    designation: "Soap Developer",
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
+  },
+  {
+    id: 6,
+    name: "Dora",
+    designation: "The Explorer",
+    image:
+      "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3534&q=80",
+  },
+];
 
 
 const products = [
@@ -84,6 +133,7 @@ const DemoPage = () => {
 
     return (
         <div className="min-h-screen">
+              
             {/* Hero Section */}
             <section className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -93,17 +143,25 @@ const DemoPage = () => {
                     <p className="mt-4 text-lg sm:text-xl">
                         Discover how AmsolHR can transform your workforce management.
                         Schedule a personalized demo today.
+                       
                     </p>
+                    
                 </div>
+                <div className="flex flex-row items-center justify-center mb-10 w-full mt-4">
+      <AnimatedTooltip items={people} />
+    </div>
             </section>
+        
 
             {/* Form Section */}
             <div className="flex justify-center pt-4 shadow-xl text-xl mb-10 p-3">
             <section className="container flex justify-center bg-gray-50">
                 <div className=" w-[50%] p-2 pr-6">
                   <h1  className="text-[36px] font-bold text-gray-800 pb-4 pt-4">Discover a Smooth HR Journey</h1>
-                  <p className="mt-2 text-gray-600 text-2xl">Learn why top organizations trust AmsolHR to <br/> streamline their HR operations and enhance <br/> employee experiences.</p>
+                  <p className="mt-2 text-gray-600 text-xl">Learn why top organizations trust AmsolHR to <br/> streamline their HR operations and enhance <br/> employee experiences.</p>
                   <div className="benefits bg-yellow-300  mt-4 rounded-lg h-[60vh]"></div>
+                  <h1 className="mt-5 font-semibold text-xl">Trusted by Thousands of Companies Across Africa</h1>
+                  <Clients />
                 </div>
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 bg-white shadow-xl rounded-lg p-8 w-[50%]">
                     <h2 className="text-2xl font-semibold text-gray-800 text-center">
@@ -112,7 +170,7 @@ const DemoPage = () => {
                     <p className="mt-2 text-gray-600 text-center">
                         Fill in the form below, and we’ll get in touch to schedule your demo.
                     </p>
-                    <form className="mt-8 space-y-6  " onSubmit={handleSubmit} >
+                    <form className="mt-8 space-y-6 " onSubmit={handleSubmit} >
                         {/* Name Fields */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>

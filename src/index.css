@@ -138,10 +138,10 @@
 }
 
 .benefits{
-  background-image: url(../src/assets/payee.avif);
+  background-image: url(../src/assets/womanhr.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  width:80%;
+  width:90%;
   background-position: 60% 30% 60% 40%;
 }
 
