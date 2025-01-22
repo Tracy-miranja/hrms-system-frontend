@@ -94,7 +94,7 @@ function Recruitment() {
                     {index < features.length - 1 && ", "}
                   </span>
                 ))}
-                and detailed analytics for hiring efficiency, with our all-in-one ATS & recruitment management software.
+                 and  detailed analytics for hiring efficiency, with our all-in-one ATS & recruitment management software.
 
                 Schedule a Demo
                 Whether you're a small
@@ -128,7 +128,7 @@ function Recruitment() {
       </div>
       <Clients />
       <motion.div
-            className=" mt-8 lg:mt-6 lg:mb-10  flex flex-col items-center  justify-center h-[20vh] bg-green-50"
+            className=" mt-8 lg:mt-6 lg:mb-10  flex flex-col items-center justify-center bg-green-50 p-10"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
