@@ -22,6 +22,7 @@ import RwandaGuide from "./components/RwandaGuide"
 import TanzaniaGuide from "./components/TanzaniaGuide"
 import UgandaGuide from "./components/UgandaGuide"
 import DemoPage from "./components/Requestdemo"
+import Timemanagement from "./components/Timemanagement"
 function App() {
   return (
     <Router>
@@ -41,9 +42,9 @@ function App() {
         <Route path="/CMS-software" element={<CMS />}/>
         <Route path="/payroll-software" element={<Payroll />}/>
         <Route path="/employee-benefits" element={< Employee/>}/>
-        <Route path="/Recruitment" element={< Recruitment/>}/>
+        <Route path="/ATS & Recruitment-management-software" element={< Recruitment/>}/>
         <Route path="/payrollCalculator" element={<PayrollCalculator />} />
-        <Route path="/ATS" element={<ATS/>} />
+        <Route path="/Time management" element={<Timemanagement/>} />
         <Route path="/pricing" element={<Pricing/>} />
         <Route path="/contact-us" element={<Contact />}/>
         <Route path="/kenya-country-guide" element={<Kenyaguide />}/>

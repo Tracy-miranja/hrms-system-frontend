@@ -84,17 +84,17 @@ function Header() {
                     <span className='bg-blue-100 p-2 rounded-full'><FaTools className="mr-2" /></span>
                     <div >
                       <h2 className='text-blue-300'><Link to="">HRM</Link></h2>
-                      <p className="text-sm text-gray-600">Easily calculate employee salaries and deductions</p>
+                      <p className="text-sm text-gray-600">Management System to Streamline All Processes</p>
                     </div>
                   </Link>
                   <Link to="/CMS-software" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
                     <span className='bg-blue-100 p-2 rounded-full'><FaGlobe className="mr-2" /></span>
                     <div>
                       <h2 className='text-blue-300'>CMS</h2>
-                      <p className="text-sm text-gray-600">Easily calculate employee salaries and deductions</p>
+                      <p className="text-sm text-gray-600">Streamline content creation, management, and collaboration effortlessly with a secure and scalable CMS.</p>
                     </div>
                   </Link>
-                  <Link to="/ATS" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
+                  <Link to="/Time management" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
                     <span className='bg-blue-100 p-2 rounded-full'><FaCode className="mr-2" /></span>
                     <div>
                       <h2 className='text-blue-300'>Time management</h2>
@@ -117,10 +117,10 @@ function Header() {
                     <span className='bg-blue-100 p-2 rounded-full'><FaBriefcase className="mr-2" /></span>
                     <div>
                       <h2 className="font-bold text-blue-300">Employee Benefits </h2>
-                      <p className="text-sm text-gray-600">calculate employee salaries and deductions</p>
+                      <p className="text-sm text-gray-600">designed to streamline and enhance the way organizations manage employee benefits</p>
                     </div>
                   </Link>
-                  <Link to="/Recruitment" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
+                  <Link to="/ATS & Recruitment-management-software" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
                     <span className='flex bg-blue-100 p-2 rounded-full justify-center'><FaUsers className="mr-2" /></span>
                     <div>
                       <h2 className="font-bold text-blue-300">ATS & Recruitment</h2>

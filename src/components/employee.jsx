@@ -56,103 +56,122 @@ Show your commitment to their success and watch your business thrive. Empower yo
       <p className='text-xl'>Flexible financial solutions for your workforce</p>
     </div> */}
     <section className="bg-gray-50 py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2
-          className="text-3xl font-extrabold text-gray-900 sm:text-4xl text-center animate-fade-in"
-        >
-          Employee Financial Solutions
-        </h2>
-        <p
-          className="mt-4 text-lg text-gray-600 text-center animate-slide-in-down"
-        >
-          Empower your workforce with accessible financial solutions designed to
-          enhance productivity and well-being.
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl text-center animate-fade-in">
+      Comprehensive Employee Benefits
+    </h2>
+    <p className="mt-4 text-lg text-gray-600 text-center animate-slide-in-down">
+      Enhance your team's well-being and productivity with tailored employee benefits designed for modern workplaces.
+    </p>
+
+    <div className="mt-12 grid gap-8 sm:grid-cols-1 lg:grid-cols-2">
+      {/* Retirement Plans */}
+      <div className="flex flex-col bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300 animate-fade-in">
+        <img
+          src="https://via.placeholder.com/600x400" // Replace with an actual image URL
+          alt="Retirement Plans"
+          className="h-48 w-full object-cover"
+        />
+        <div className="p-6">
+          <h3 className="text-lg font-semibold text-gray-900">Retirement Plans</h3>
+          <p className="mt-2 text-sm text-gray-600">
+            Secure your employees' future with customizable retirement savings options that adapt to their individual needs.
+          </p>
+        </div>
+      </div>
+
+      {/* Wellness Programs */}
+      <div className="flex flex-col bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300 animate-fade-in">
+        <img
+          src="https://via.placeholder.com/600x400" // Replace with an actual image URL
+          alt="Wellness Programs"
+          className="h-48 w-full object-cover"
+        />
+        <div className="p-6">
+          <h3 className="text-lg font-semibold text-gray-900">Wellness Programs</h3>
+          <p className="mt-2 text-sm text-gray-600">
+            Support your team's mental and physical health through wellness initiatives like fitness memberships and counseling.
+          </p>
+        </div>
+      </div>
+
+      {/* Corporate Compliance */}
+      <div className="flex flex-col bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300 animate-fade-in">
+        <img
+          src="https://via.placeholder.com/600x400" // Replace with an actual image URL
+          alt="Corporate Compliance"
+          className="h-48 w-full object-cover"
+        />
+        <div className="p-6">
+          <h3 className="text-lg font-semibold text-gray-900">Corporate Compliance</h3>
+          <p className="mt-2 text-sm text-gray-600">
+            Ensure your business adheres to regulations with expert compliance consulting and risk management services.
+          </p>
+        </div>
+      </div>
+
+      {/* Customizable Packages */}
+      <div className="flex flex-col bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300 animate-fade-in">
+        <img
+          src="https://via.placeholder.com/600x400" // Replace with an actual image URL
+          alt="Customizable Packages"
+          className="h-48 w-full object-cover"
+        />
+        <div className="p-6">
+          <h3 className="text-lg font-semibold text-gray-900">Customizable Packages</h3>
+          <p className="mt-2 text-sm text-gray-600">
+            Offer flexible benefits packages that cater to the unique needs of your diverse workforce.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* Additional Creative Section */}
+<section className="bg-gradient-to-r from-blue-500 to-teal-500 py-20">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-3xl font-extrabold text-white sm:text-4xl text-center animate-bounce">
+      Why Choose Us?
+    </h2>
+    <p className="mt-4 text-lg text-white text-center animate-fade-in">
+      Discover the difference we bring to employee benefits management with a holistic approach.
+    </p>
+
+    <div className="mt-12 grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="text-center p-6 bg-white rounded-lg shadow-lg transform hover:rotate-1 transition duration-300 animate-zoom-in">
+        <div className="text-blue-500 mb-4">
+          <i className="fas fa-heart fa-3x"></i>
+        </div>
+        <h3 className="text-xl font-semibold text-gray-800">Employee-Centric</h3>
+        <p className="mt-2 text-sm text-gray-600">
+          Designed with your employees' satisfaction and productivity in mind.
         </p>
-
-        <div className="mt-12 grid gap-8 sm:grid-cols-1 lg:grid-cols-2">
-          {/* Employee Loans */}
-          <div className="flex flex-col bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300 animate-fade-in">
-            <img
-              src="https://via.placeholder.com/600x400" // Replace with actual image URL
-              alt="Employee Loans"
-              className="h-48 w-full object-cover"
-            />
-            <div className="p-6">
-              <h3 className="text-lg font-semibold text-gray-900">
-                Employee Loans
-              </h3>
-              <p className="mt-2 text-sm text-gray-600">
-                Provide employees with quick, hassle-free access to loans,
-                helping them manage their financial needs effectively and stay
-                focused at work.
-              </p>
-            </div>
-          </div>
-
-          {/* Earned Wage Access */}
-          <div className="flex flex-col bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300 animate-fade-in">
-            <img
-              src="https://via.placeholder.com/600x400" // Replace with actual image URL
-              alt="Earned Wage Access"
-              className="h-48 w-full object-cover"
-            />
-            <div className="p-6">
-              <h3 className="text-lg font-semibold text-gray-900">
-                Earned Wage Access (EWA)
-              </h3>
-              <p className="mt-2 text-sm text-gray-600">
-                Allow employees to access a portion of their earned wages before
-                payday, reducing financial stress and increasing satisfaction.
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
-    </section>
-    <section className="bg-gray-50 py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-       
 
-        <div className="mt-12 grid gap-8 sm:grid-cols-1 lg:grid-cols-2">
-          {/* Employee Loans */}
-          <div className="flex flex-col bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300 animate-fade-in">
-            <img
-              src="https://via.placeholder.com/600x400" // Replace with actual image URL
-              alt="Employee Loans"
-              className="h-48 w-full object-cover"
-            />
-            <div className="p-6">
-              <h3 className="text-lg font-semibold text-gray-900">
-                Employee Loans
-              </h3>
-              <p className="mt-2 text-sm text-gray-600">
-                Provide employees with quick, hassle-free access to loans,
-                helping them manage their financial needs effectively and stay
-                focused at work.
-              </p>
-            </div>
-          </div>
-
-          {/* Earned Wage Access */}
-          <div className="flex flex-col bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300 animate-fade-in">
-            <img
-              src="https://via.placeholder.com/600x400" // Replace with actual image URL
-              alt="Earned Wage Access"
-              className="h-48 w-full object-cover"
-            />
-            <div className="p-6">
-              <h3 className="text-lg font-semibold text-gray-900">
-                Earned Wage Access (EWA)
-              </h3>
-              <p className="mt-2 text-sm text-gray-600">
-                Allow employees to access a portion of their earned wages before
-                payday, reducing financial stress and increasing satisfaction.
-              </p>
-            </div>
-          </div>
+      <div className="text-center p-6 bg-white rounded-lg shadow-lg transform hover:rotate-1 transition duration-300 animate-zoom-in">
+        <div className="text-teal-500 mb-4">
+          <i className="fas fa-chart-line fa-3x"></i>
         </div>
+        <h3 className="text-xl font-semibold text-gray-800">Scalable Solutions</h3>
+        <p className="mt-2 text-sm text-gray-600">
+          Our packages grow with your business to support expanding needs.
+        </p>
       </div>
-    </section>
+
+      <div className="text-center p-6 bg-white rounded-lg shadow-lg transform hover:rotate-1 transition duration-300 animate-zoom-in">
+        <div className="text-purple-500 mb-4">
+          <i className="fas fa-lock fa-3x"></i>
+        </div>
+        <h3 className="text-xl font-semibold text-gray-800">Data Security</h3>
+        <p className="mt-2 text-sm text-gray-600">
+          Robust measures to keep sensitive employee data secure and confidential.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
     </>
   );
 };
