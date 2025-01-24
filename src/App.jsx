@@ -23,6 +23,7 @@ import TanzaniaGuide from "./components/TanzaniaGuide"
 import UgandaGuide from "./components/UgandaGuide"
 import DemoPage from "./components/Requestdemo"
 import Timemanagement from "./components/Timemanagement"
+import Blog from "./components/Blog"
 function App() {
   return (
     <Router>
@@ -52,6 +53,7 @@ function App() {
         <Route path="/tanzania-country-guide" element={<TanzaniaGuide/>}/>
         <Route path="/uganda-country-guide" element={<UgandaGuide/>}/>
         <Route path="/Demo" element={<DemoPage />} />
+        <Route path="/Blog" element={<Blog />} />
       </Routes>
       <Footer />
     </Router>

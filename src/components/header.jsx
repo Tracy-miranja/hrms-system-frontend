@@ -98,7 +98,7 @@ function Header() {
                     <span className='bg-blue-100 p-2 rounded-full'><FaCode className="mr-2" /></span>
                     <div>
                       <h2 className='text-blue-300'>Time management</h2>
-                      <p className="text-sm text-gray-600">salaries and deductions</p>
+                      <p className="text-sm text-gray-600">Ensure workforce accountability with ease</p>
                     </div>
                   </Link>
                 </div>
@@ -124,7 +124,7 @@ function Header() {
                     <span className='flex bg-blue-100 p-2 rounded-full justify-center'><FaUsers className="mr-2" /></span>
                     <div>
                       <h2 className="font-bold text-blue-300">ATS & Recruitment</h2>
-                      <p className="text-sm text-gray-600">salaries and deductions</p>
+                      <p className="text-sm text-gray-600">Streamline hiring and ensure accountability with ATS and recruitment tools</p>
                     </div>
                   </Link>
                 </div>
@@ -181,7 +181,7 @@ function Header() {
                     </a>
                   </div>
                   <div  className='hover:bg-green-100'>
-                    <a href="#about1" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Press</span>
+                    <a href="#about1" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Webinar</span>
                       <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
                     </a>
                   </div>
@@ -230,9 +230,9 @@ function Header() {
                     </Link>
                   </div>
                   <div  className='hover:bg-green-100'>
-                    <a href="#about1" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Blog</span>
+                    <Link to="/Blog" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Blog</span>
                       <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
-                    </a>
+                    </Link>
                   </div>
                   <div  className='hover:bg-green-100'>
                     <a href="#about1" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Event</span>
