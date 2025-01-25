@@ -145,4 +145,14 @@
   background-position: 60% 30% 60% 40%;
 }
 
+.drop{
+  background-image: url("../src/assets/recruit.jpg");
+}
+  
+.ug{
+  background-image: url("../src/assets/Kampala.jpg");
+}
+
+
+
 

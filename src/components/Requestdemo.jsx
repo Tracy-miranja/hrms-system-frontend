@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import Clients from "./clients";
+import { Link } from "react-router-dom";
 // import { ContainerScroll } from "@/components/container-scroll-animation";
 // import Image from "next/image";
 
@@ -242,16 +243,16 @@ const DemoPage = () => {
                                     Employee Headcount
                                 </label>
                                 <select
-                                    className="placeholder:text-lg placeholder:text-gray-400 mt-1 block w-full border-gray-300 p-3 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    className="placeholder:text-3xl text-lg placeholder:text-gray-400 mt-1 block w-full border-gray-300 p-3 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                     defaultValue=""
                                 >
-                                    <option value="" disabled className="text-lg">
-                                        Select the number of employees
+                                    <option value="" disabled >
+                                        <span className="text-3xl">Select the number of employees</span>
                                     </option>
-                                    <option value="50-100">50-100</option>
-                                    <option value="101-500">101-500</option>
-                                    <option value="501-1000">501-1000</option>
-                                    <option value="1001+">1001+</option>
+                                    <option value="50-100" className="text-lg">50-100</option>
+                                    <option value="101-500" className="text-lg">101-500</option>
+                                    <option value="501-1000" className="text-lg">501-1000</option>
+                                    <option value="1001+" className="text-lg">1001+</option>
                                 </select>
                             </div>
                         </div>
@@ -260,21 +261,48 @@ const DemoPage = () => {
                                 Country
                             </label>
                             <select
-                                value={selectedCountry}
-                                onChange={handleCountryChange}
-                                className=" placeholder:text-xl mt-1 block w-full border-gray-300 p-3 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                            >
-                                <option value="" disabled>
-                                    Select your country
-                                </option>
-                                {countries.map((country) => (
-                                    <option key={country} value={country}>
-                                        {country}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
+  value={selectedCountry}
+  onChange={handleCountryChange}
+  className="placeholder:text-2xl text-3xl mt-1 block w-full border-gray-300 p-3 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-lg"
+>
+  <option value="" disabled >
+    Select your country
+  </option>
+  {countries.map((country) => (
+    <option key={country} value={country} className="text-lg">
+      {country}
+    </option>
+  ))}
+</select>
 
+                            <label className="block text-gray-700 mb-2 font-medium">Select Date:</label>
+          <input
+            name="date"
+            value=""
+            type="date"
+            className="w-full p-2 border border-gray-300 rounded mb-4"
+            required
+          />
+
+                            <label className="block text-gray-700 mb-2 font-medium">Select Time:</label>
+          <select
+            name="time"
+            value=""           
+            className="w-full p-2 border border-gray-300 rounded mb-4"
+            required
+          >
+            <option value="" disabled>
+              Select Time
+            </option>
+            <option value="9:00 AM">9:00 AM</option>
+            <option value="10:00 AM">10:00 AM</option>
+            <option value="11:00 AM">11:00 AM</option>
+            <option value="1:00 PM">1:00 PM</option>
+            <option value="2:00 PM">2:00 PM</option>
+            <option value="3:00 PM">3:00 PM</option>
+          </select>
+                        </div>
+                       
 
                         <h2 className="text-lg font-medium text-gray-700 mb-4">
                             Which of our products are you interested in?
@@ -296,12 +324,13 @@ const DemoPage = () => {
 
                         {/* Submit Button */}
                         <div className="text-center">
-                            <button
+                            <Link to="/Booking"><button
                                 type="submit"
                                 className="w-full md:w-auto bg-blue-600 text-white py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
                             >
                                 Request a Demo
                             </button>
+                            </Link>
                         </div>
                     </form>
                 </div>

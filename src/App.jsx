@@ -10,7 +10,6 @@ import About from "./components/About"
 import PayrollCalculator from "./components/PayrollCalculator"
 import HumanResource from "./components/HumanResource"
 import Payroll from "./components/Payroll"
-import Cms from "./components/Cms"
 import CMS from "./components/Cms"
 import Employee from "./components/employee"
 import Recruitment from "./components/Recruitment"
@@ -24,6 +23,7 @@ import UgandaGuide from "./components/UgandaGuide"
 import DemoPage from "./components/Requestdemo"
 import Timemanagement from "./components/Timemanagement"
 import Blog from "./components/Blog"
+import BookingPage from "./components/date"
 function App() {
   return (
     <Router>
@@ -54,6 +54,7 @@ function App() {
         <Route path="/uganda-country-guide" element={<UgandaGuide/>}/>
         <Route path="/Demo" element={<DemoPage />} />
         <Route path="/Blog" element={<Blog />} />
+        <Route path="/Booking" element={<BookingPage />} />
       </Routes>
       <Footer />
     </Router>

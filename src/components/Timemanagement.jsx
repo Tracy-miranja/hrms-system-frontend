@@ -7,8 +7,8 @@ import { faCircleRight  } from "@fortawesome/free-solid-svg-icons";
 import { useState } from 'react';
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FlipWords } from './ui/flip-words';
-import  HeroParallaxDemo  from './HeroParallaxDemo';
 import recruitment from "../assets/recruitment.webp";
+import MovingCards from './Cards';
 
 const keyfeatures = [
   {
@@ -39,11 +39,31 @@ const keyfeatures = [
   },
 ];
 
+const faqs = [
+  {
+    question: "How does real-time tracking work?",
+    answer: "Real-time tracking uses advanced GPS and time-stamping technology to monitor attendance and task progress instantly.",
+  },
+  {
+    question: "Is the software compliant with labor laws?",
+    answer: "Yes, our solution ensures compliance with local and international labor regulations.",
+  },
+  {
+    question: "Can employees manage their own schedules?",
+    answer: "Absolutely. The employee self-service portal empowers employees to manage their schedules, request time off, and more.",
+  },
+];
+
 function Timemanagement() {
   const [openIndex, setOpenIndex] = useState(null);
+  const [openFAQIndex, setOpenFAQIndex] = useState(null);
 
   const toggleFeature = (index) => {
     setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
+  };
+
+  const toggleFAQ = (index) => {
+    setOpenFAQIndex((prevIndex) => (prevIndex === index ? null : index));
   };
   return (
     <>
@@ -90,7 +110,7 @@ function Timemanagement() {
         </div>
       </div>
       <Clients />
-      <HeroParallaxDemo />
+      
       <div className=' shadow-sm bg-gray-50 h-[20vh]'>
         <h1 className='text-center p-10 text-4xl font-bold text-gray-800'>Optimize time and drive results.</h1>
       </div>
@@ -131,8 +151,31 @@ function Timemanagement() {
             <img src={recruitment} alt='recruitment'/>
           </div>
           </div>
-          
           </section>
+          <MovingCards />
+          {/* FAQ Section */}
+      <section className="container mx-auto py-10">
+        <h2 className="text-3xl text-center font-semibold mb-8">FAQs</h2>
+        {faqs.map((faq, index) => (
+          <div key={index} className="border-b pb-4 mb-4">
+            <div
+              className="flex justify-between items-center cursor-pointer"
+              onClick={() => toggleFAQ(index)}
+            >
+              <h4 className="text-2xl font-semibold text-gray-800">{faq.question}</h4>
+              <FontAwesomeIcon
+                icon={faAngleRight}
+                className={`transition-transform duration-300 ${
+                  openFAQIndex === index ? "rotate-90" : "rotate-0"
+                }`}
+              />
+            </div>
+            {openFAQIndex === index && (
+              <p className="mt-4 text-gray-600 text-2xl">{faq.answer}</p>
+            )}
+          </div>
+        ))}
+      </section>
      </>
   )
 }
