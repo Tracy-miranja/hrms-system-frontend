@@ -92,7 +92,7 @@ function Header() {
                     <span className='bg-blue-100 p-2 rounded-full'><FaGlobe className="mr-2" /></span>
                     <div>
                       <h2 className='text-blue-300'>CRM</h2>
-                      <p className="text-sm text-gray-600">Streamline content creation, management, and collaboration effortlessly with a secure and scalable CMS.</p>
+                      <p className="text-sm text-gray-600">Streamline content .</p>
                     </div>
                   </Link>
                   <Link to="/Time management" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
@@ -109,7 +109,7 @@ function Header() {
                       <FaCalculator className="text-lg" />
                     </span>
                     <div>
-                      <h2 className="font-bold text-blue-300">Payroll & Tax Management</h2>
+                      <h2 className="font-bold text-blue-300">Payroll</h2>
                       <p className="text-sm text-gray-600">Easily calculate employee salaries and deductions.</p>
                     </div>
                   </Link>
@@ -188,7 +188,7 @@ function Header() {
                   </div>
                 </div>
                 <div
-                  className="h-full w-full bg-[url('https://via.placeholder.com/800')] bg-cover bg-center flex items-center justify-center rounded-xl bg-blue-400"
+                  className="drop h-full w-full bg-[url('https://via.placeholder.com/800')] bg-cover bg-center flex items-center justify-center rounded-xl bg-blue-400"
                 >
                   {/* <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-transparent opacity-20 rounded-xl"></div> */}
                   <button className="text-white bg-blue-500 px-4 py-2 rounded-md hover:bg-blue-600">
