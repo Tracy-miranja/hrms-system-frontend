@@ -11,6 +11,7 @@ import about from "../assets/Frame(2).png"
 import { Link } from 'react-router-dom';
 import logo2 from "../assets/logo.png"
 import { faCircleRight  } from "@fortawesome/free-solid-svg-icons";
+import hr from "../assets/cuteman.jpg"
 
 
 function Header() {
@@ -117,7 +118,7 @@ function Header() {
                     <span className='bg-blue-100 p-2 rounded-full'><FaBriefcase className="mr-2" /></span>
                     <div>
                       <h2 className="font-bold text-blue-300">Employee Benefits </h2>
-                      <p className="text-sm text-gray-600">designed to streamline and enhance the way organizations manage employee benefits</p>
+                      <p className="text-sm text-gray-600"> enhance the way organizations manage employee benefits</p>
                     </div>
                   </Link>
                   <Link to="/ATS & Recruitment-management-software" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
@@ -133,7 +134,7 @@ function Header() {
                   <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-transparent opacity-20 rounded-xl"></div>
 
                   {/* Content */}
-                  <div className="relative flex items-center justify-center h-full">
+                  <div className="hrs relative flex items-center justify-center h-full">
                     <button className="text-black bg-white px-4 py-2 rounded-md hover:bg-blue-600">
                       Request a Demo
                     </button>

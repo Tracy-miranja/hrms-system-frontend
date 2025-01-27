@@ -153,6 +153,12 @@
   background-image: url("../src/assets/Kampala.jpg");
 }
 
+.hrs{
+  background-image: url("../src/assets/cuteman.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 
 
 
