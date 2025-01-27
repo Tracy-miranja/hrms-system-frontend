@@ -78,7 +78,7 @@ function Header() {
               </svg>
             </button>
             {isProductOpen && (
-              <div className="grid grid-cols-3 gap-4 z-10 justify-center absolute top-10 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw] pl-10 z-10">
+              <div className="grid grid-cols-3 gap-4 z-10 justify-center absolute top-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw] pl-10 z-10">
                 <div>
                   <Link to="/hr-management-software" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
                     <span className='bg-blue-100 p-2 rounded-full'><FaTools className="mr-2" /></span>
@@ -302,7 +302,7 @@ function Header() {
               </svg>
             </button>
             {isGlobalOpen && (
-              <div className="absolute top-10 left-1/4 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[12vw]">
+              <div className="absolute top-9  transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[12vw]">
                 <Link to="/kenya-country-guide" className="flex items-center gap-3 text-black py-2 hover:text-blue-300">
                   <img
                     src={mapKenya}

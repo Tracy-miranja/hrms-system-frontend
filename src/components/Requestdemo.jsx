@@ -155,7 +155,7 @@ const DemoPage = () => {
         
 
             {/* Form Section */}
-            <div className="flex justify-center pt-4 shadow-xl text-xl mb-10 p-3">
+            <div className="flex justify-center pt-4 text-xl mb-10 p-3">
             <section className="container flex justify-center bg-gray-50">
                 <div className=" w-[50%] p-2 pr-6">
                   <h1  className="text-[36px] font-bold text-gray-800 pb-4 pt-4">Discover a Smooth HR Journey</h1>
