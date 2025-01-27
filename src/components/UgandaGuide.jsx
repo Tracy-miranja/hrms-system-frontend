@@ -12,24 +12,24 @@ const UgandaGuide = () => {
         <div>
         <section className="p-4 bg-gray-100">
     <h2 className="text-xl font-bold mb-2">Minimum Wage</h2>
-    <p className="text-gray-700">
+    <p className="text-xl text-gray-700">
       In Uganda, the minimum wage stands at <strong>6,000 Ugandan shillings per month</strong> for all employees, a figure that has not been revised since <strong>January 1, 1984</strong>. The year 2015 saw the introduction of a fresh minimum wage in parliament, sparking debate and discussion.
     </p>
   </section>
    <section className="p-4 bg-white">
    <h2 className="text-xl font-bold mb-2">Payroll Cycle</h2>
-   <p className="text-gray-700">
+   <p className="text-xl text-gray-700">
      Salaries are paid <strong>monthly</strong>, which is the most prevalent payroll plan in Uganda. However, some companies pay their staff <strong>weekly</strong>, <strong>bi-monthly</strong>, or <strong>semi-monthly</strong>. This flexibility caters to diverse preferences and can be beneficial for both employers and employees.
    </p>
  </section>
  <section className="p-4 bg-gray-100">
     <h2 className="text-xl font-bold mb-2">Taxation</h2>
-    <p className="text-gray-700 mb-4">
+    <p className="text-xl text-gray-700 mb-4">
       The resident individual tax rates are outlined in the following table. These rates apply to employment income and taxable business income.
     </p>
     <div className="overflow-x-auto">
-  <h3 className="text-lg font-semibold mt-4 mb-2">Resident Individual Tax Rates</h3>
-  <table className="table-auto w-full text-left border-collapse border border-gray-300">
+  <h3 className="text-xl font-semibold mt-4 mb-2">Resident Individual Tax Rates</h3>
+  <table className="text-xl table-auto w-full text-left border-collapse border border-gray-300">
     <thead>
       <tr>
         <th className="border border-gray-300 px-4 py-2">Annual Taxable Income Exceeding (UGX)</th>
@@ -74,40 +74,41 @@ const UgandaGuide = () => {
 </div>
 
 <div className="overflow-x-auto">
-  <h3 className="text-lg font-semibold mt-4 mb-2">Non-Resident Individual Tax Rates</h3>
-  <table className="table-auto w-full text-left border-collapse border border-gray-300">
+  <h3 className="text-xl font-semibold mt-4 mb-2">Non-Resident Individual Tax Rates</h3>
+  <table className="text-xl table-auto w-full text-left border-collapse border border-gray-300">
     <thead>
       <tr>
-        <th className="border border-gray-300 px-4 py-2">Annual Taxable Income Exceeding (UGX)</th>
-        <th className="border border-gray-300 px-4 py-2">Annual Taxable Income Not Exceeding (UGX)</th>
-        <th className="border border-gray-300 px-4 py-2">Tax on Lower Amount (UGX)</th>
-        <th className="border border-gray-300 px-4 py-2">Rate on Excess (%)</th>
+        <th className="text-xl border border-gray-300 px-4 py-2">Annual Taxable Income Exceeding (UGX)</th>
+        <th className="text-xl border border-gray-300 px-4 py-2">Annual Taxable Income Not Exceeding (UGX)</th>
+        <th className="text-xl border border-gray-300 px-4 py-2">Tax on Lower Amount (UGX)</th>
+        <th className="text-xl border border-gray-300 px-4 py-2">Rate on Excess (%)</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td className="border border-gray-300 px-4 py-2">0</td>
-        <td className="border border-gray-300 px-4 py-2">4,020,000</td>
-        <td className="border border-gray-300 px-4 py-2">0</td>
-        <td className="border border-gray-300 px-4 py-2">10</td>
+        <td className="text-xl border border-gray-300 px-4 py-2">0</td>
+        <td className="text-xl border border-gray-300 px-4 py-2">4,020,000</td>
+        <td className="text-xl border border-gray-300 px-4 py-2">4,020,000</td>
+        <td className="text-xl border border-gray-300 px-4 py-2">0</td>
+        <td className="text-xl border border-gray-300 px-4 py-2">10</td>
       </tr>
       <tr>
-        <td className="border border-gray-300 px-4 py-2">4,020,000</td>
-        <td className="border border-gray-300 px-4 py-2">4,920,000</td>
-        <td className="border border-gray-300 px-4 py-2">402,000</td>
-        <td className="border border-gray-300 px-4 py-2">20</td>
+        <td className="text-xl border border-gray-300 px-4 py-2">4,020,000</td>
+        <td className="text-xl border border-gray-300 px-4 py-2">4,920,000</td>
+        <td className="text-xl border border-gray-300 px-4 py-2">402,000</td>
+        <td className="text-xl border border-gray-300 px-4 py-2">20</td>
       </tr>
       <tr>
-        <td className="border border-gray-300 px-4 py-2">4,920,000</td>
-        <td className="border border-gray-300 px-4 py-2">120,000,000</td>
-        <td className="border border-gray-300 px-4 py-2">582,000</td>
-        <td className="border border-gray-300 px-4 py-2">30</td>
+        <td className="text-xl border border-gray-300 px-4 py-2">4,920,000</td>
+        <td className="text-xl border border-gray-300 px-4 py-2">120,000,000</td>
+        <td className="text-xl border border-gray-300 px-4 py-2">582,000</td>
+        <td className="text-xl border border-gray-300 px-4 py-2">30</td>
       </tr>
       <tr>
-        <td className="border border-gray-300 px-4 py-2">120,000,000</td>
-        <td className="border border-gray-300 px-4 py-2">-</td>
-        <td className="border border-gray-300 px-4 py-2">35,106,000</td>
-        <td className="border border-gray-300 px-4 py-2">40</td>
+        <td className="text-xl border border-gray-300 px-4 py-2">120,000,000</td>
+        <td className="text-xl border border-gray-300 px-4 py-2">-</td>
+        <td className="text-xl border border-gray-300 px-4 py-2">35,106,000</td>
+        <td className="text-xl border border-gray-300 px-4 py-2">40</td>
       </tr>
     </tbody>
   </table>
@@ -121,7 +122,7 @@ const UgandaGuide = () => {
       title: "Leaves",
       content: (
         <div>
-          <p className="text-gray-600 leading-relaxed">
+          <p className="text-xl text-gray-600 leading-relaxed">
             Employees in Uganda are entitled to various leaves, including annual, maternity, paternity, and sick leave, as per the labor laws.
           </p>
           <div className="mt-4 space-y-6">
@@ -158,7 +159,7 @@ const UgandaGuide = () => {
                   <h2 className="text-xl font-semibold text-gray-800">
                     {policy.title}
                   </h2>
-                  <p className="text-gray-600 mt-2">{policy.description}</p>
+                  <p className="text-xl text-gray-600 mt-2">{policy.description}</p>
                 </div>
               </div>
             ))}
@@ -170,7 +171,7 @@ const UgandaGuide = () => {
       title: "Public Holidays",
       content: (
         <div>
-          <p className="text-gray-600 leading-relaxed mb-4">
+          <p className="text-xl text-gray-600 leading-relaxed mb-4">
             Uganda recognizes several public holidays throughout the year, and employers are required to observe these days.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -194,8 +195,8 @@ const UgandaGuide = () => {
                 key={index}
                 className="p-4 bg-white rounded-lg shadow hover:shadow-lg transition duration-200 border border-gray-200"
               >
-                <div className="text-lg font-semibold text-gray-800">{holiday.name}</div>
-                <div className="text-sm text-gray-600">{holiday.date}</div>
+                <div className="text-xl font-semibold text-gray-800">{holiday.name}</div>
+                <div className="text-xl text-gray-600">{holiday.date}</div>
               </div>
             ))}
           </div>
@@ -207,18 +208,18 @@ const UgandaGuide = () => {
       title: "Termination Process",
       content: (
         <div>
-          <h3 className="text-lg font-semibold">Notice Period</h3>
-          <p className="text-gray-600 leading-relaxed mt-2">
+          <h3 className="text-xl font-semibold">Notice Period</h3>
+          <p className="text-xl text-gray-600 leading-relaxed mt-2">
             The length of the notice period depends on the employee’s length of service:
           </p>
-          <ul className="list-disc ml-6 mt-2 text-gray-600">
+          <ul className="text-xl list-disc ml-6 mt-2 text-gray-600">
             <li>6 months to 1 year: Two weeks’ notice required.</li>
             <li>1 year to 5 years: At least a month’s notice required.</li>
             <li>5 years to 10 years: Three months’ notice required.</li>
             <li>Over 10 years: Three months’ notice required.</li>
           </ul>
-          <h3 className="text-lg font-semibold mt-4">Severance Pay</h3>
-          <p className="text-gray-600 leading-relaxed mt-2">
+          <h3 className="text-xl font-semibold mt-4">Severance Pay</h3>
+          <p className="text-xl text-gray-600 leading-relaxed mt-2">
             Upon termination, including wrongful dismissal, employees with at least six months of service are entitled to severance pay in Uganda. The law mandates negotiation between the employer and employee to determine the amount. If no agreement is reached, a labor officer may intervene and make a binding decision regarding the severance pay.
           </p>
         </div>
@@ -266,8 +267,8 @@ const UgandaGuide = () => {
           { label: "Employee Protection", value: "Moderate" },
         ].map((item, index) => (
           <div key={index} className="bg-white rounded-2xl shadow-md p-6 text-center text-2xl">
-            <h3 className="text-2xl font-semibold text-gray-800">{item.label}</h3>
-            <p className="text-gray-600 mt-2">{item.value}</p>
+            <h3 className="text-xl font-semibold text-gray-800">{item.label}</h3>
+            <p className="text-xl text-gray-600 mt-2">{item.value}</p>
           </div>
         ))}
       </section>
@@ -278,15 +279,15 @@ const UgandaGuide = () => {
       <div className="container flex flex-col md:flex-row gap-6">
         {/* Sidebar */}
         <aside className="bg-white rounded-2xl shadow-md p-6 w-full md:w-1/4">
-          <h3 className=" font-semibold text-gray-800 text-2xl">Get answers to all your questions!</h3>
+          <h3 className=" font-semibold text-gray-800 text-xl">Get answers to all your questions!</h3>
           <ul className="mt-4 space-y-4">
             {sections.map((section, index) => (
               <li
                 key={index}
                 className={`cursor-pointer p-2 rounded-md transition-colors ${
                   selectedSection === section.title
-                    ? "bg-blue-600 text-white"
-                    : "text-gray-800 hover:bg-gray-100 text-2xl"
+                    ? "text-xl bg-blue-600 text-white"
+                    : "text-gray-800 hover:bg-gray-100 text-xl"
                 }`}
                 onClick={() => setSelectedSection(section.title)}
               >
@@ -297,7 +298,7 @@ const UgandaGuide = () => {
         </aside>
 
         {/* Content */}
-        <main className="flex-1 bg-white rounded-2xl shadow-md p-6 text-2xl">
+        <main className="flex-1 bg-white rounded-2xl shadow-md p-6 text-xl">
           {sections.find((section) => section.title === selectedSection)?.content}
         </main>
       </div>

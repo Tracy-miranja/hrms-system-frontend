@@ -227,7 +227,6 @@ However, wages must be paid within seven days of the designated pay period, with
   </header>
 </div>
 
-
       {/* Key Information Section */}
       <div className="flex justify-center">
       <section className="text-xl container my-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3 text-2xl">

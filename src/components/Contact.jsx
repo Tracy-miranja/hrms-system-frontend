@@ -65,103 +65,116 @@ const Contact = () => {
             Fill out the form below, and we’ll get back to you as soon as
             possible.
           </p>
-          <form className="space-y-6 mt-6">
-            <div className='flex gap-3 w-full'>
-              <div>
-              <label className="block text-white font-medium">
-                First Name
-              </label>
-              <input
-                type="text"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 mt-1"
-                required
-              />
-              </div>
-              <div>
-              <label className="block text-white font-medium">
-                Last Name
-              </label>
-              <input
-                type="text"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 mt-1"
-                required
-              />
-              </div>
-              
-            </div>
-            
-            <div>
-              <label className="block text-white font-medium">Email</label>
-              <input
-                type="email"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 mt-1"
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-white font-medium">Phone</label>
-              <input
-                type="tel"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 mt-1"
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-white font-medium">
-                Company Name
-              </label>
-              <input
-                type="text"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 mt-1"
-              />
-            </div>
-            <div>
-              {/* Country Dropdown */}
-              <select
-                className="w-full border border-gray-300 rounded-lg px-4 py-2"
-                required
-              >
-                <option value="" disabled selected>
-                  Select Country
-                </option>
-                <option value="Nigeria">Nigeria</option>
-                <option value="Kenya">Kenya</option>
-                <option value="South Africa">South Africa</option>
-                <option value="United States">United States</option>
-                <option value="United Kingdom">United Kingdom</option>
-              </select>
-            </div>
-            <div>
-              {/* Inquiry Type Dropdown */}
-              <select
-                className="w-full border border-gray-300 rounded-lg px-4 py-2"
-                required
-              >
-                <option value="" disabled selected>
-                  Select Type of Inquiry
-                </option>
-                <option value="General">General Inquiry</option>
-                <option value="Support">Customer Support</option>
-                <option value="Sales">Sales Inquiry</option>
-                <option value="Partnership">Partnership Request</option>
-              </select>
-            </div>
-            <div>
-              <label className="block text-white font-medium">Message</label>
-              <textarea
-                rows="4"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 mt-1"
-                required
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-yellow-500 text-white py-3 rounded-lg hover:bg-gray-800"
-              data-aos="fade-left"
-            >
-              Submit
-            </button>
-          </form>
+          <form 
+  className="space-y-6 mt-6"
+  action="https://formspree.io/f/xzzdeebj" 
+  method="POST"
+>
+  <div className="flex gap-3 w-full">
+    <div>
+      <label className="block text-white font-medium">
+        First Name
+      </label>
+      <input
+        type="text"
+        name="first_name"
+        className="w-full border border-gray-300 rounded-lg px-4 py-2 mt-1"
+        required
+      />
+    </div>
+    <div>
+      <label className="block text-white font-medium">
+        Last Name
+      </label>
+      <input
+        type="text"
+        name="last_name"
+        className="w-full border border-gray-300 rounded-lg px-4 py-2 mt-1"
+        required
+      />
+    </div>
+  </div>
+
+  <div>
+    <label className="block text-white font-medium">Email</label>
+    <input
+    
+     type="hidden" name="_replyto"
+      
+      className="w-full border border-gray-300 rounded-lg px-4 py-2 mt-1"
+      required
+    />
+  </div>
+  <div>
+    <label className="block text-white font-medium">Phone</label>
+    <input
+      type="tel"
+      name="phone"
+      className="w-full border border-gray-300 rounded-lg px-4 py-2 mt-1"
+      required
+    />
+  </div>
+  <div>
+    <label className="block text-white font-medium">
+      Company Name
+    </label>
+    <input
+      type="text"
+      name="company_name"
+      className="w-full border border-gray-300 rounded-lg px-4 py-2 mt-1"
+    />
+  </div>
+  <div>
+    <select
+      name="country"
+      className="w-full border border-gray-300 rounded-lg px-4 py-2"
+      required
+    >
+      <option value="" disabled selected>
+        Select Country
+      </option>
+      <option value="Nigeria">Nigeria</option>
+      <option value="Kenya">Kenya</option>
+      <option value="South Africa">South Africa</option>
+      <option value="United States">United States</option>
+      <option value="United Kingdom">United Kingdom</option>
+    </select>
+  </div>
+  <div>
+    <select
+      name="inquiry_type"
+      className="w-full border border-gray-300 rounded-lg px-4 py-2"
+      required
+    >
+      <option value="" disabled selected>
+        Select Type of Inquiry
+      </option>
+      <option value="General">General Inquiry</option>
+      <option value="Support">Customer Support</option>
+      <option value="Sales">Sales Inquiry</option>
+      <option value="Partnership">Partnership Request</option>
+    </select>
+  </div>
+  <div>
+    <label className="block text-white font-medium">Message</label>
+    <textarea
+      name="message"
+      rows="4"
+      className="w-full border border-gray-300 rounded-lg px-4 py-2 mt-1"
+      required
+    ></textarea>
+  </div>
+  <input type="hidden" name="_replyto" value="{email}" />
+
+  <button
+    type="submit"
+    className="w-full bg-yellow-500 text-white py-3 rounded-lg hover:bg-gray-800"
+    data-aos="fade-left"
+  >
+    Submit
+  </button>
+</form>
+
         </div>
       </section>
 
