@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaShieldAlt, FaRocket, FaHandsHelping, FaThumbsUp } from 'react-icons/fa'; // Icons for reasons
+import { Link } from 'react-router-dom';
 
 const WhyChooseUs = () => {
   const features = [
@@ -57,9 +58,11 @@ const WhyChooseUs = () => {
         <p className="text-lg text-gray-600 mb-8">
           Join countless others who have chosen us for their business needs.
         </p>
+        <Link to="/contact-us">
         <button className="bg-blue-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-600 transition">
           Contact Us
         </button>
+        </Link>
       </div>
     </div>
   );

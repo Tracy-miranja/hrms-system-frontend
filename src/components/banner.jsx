@@ -3,6 +3,7 @@ import Header from './header'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleRight  } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function Banner() {
   const words = ['HR Managers', 'Recruiters', 'Payroll Experts', 'Employees'];
@@ -40,7 +41,7 @@ function Banner() {
 
   return (
     <>
-    <div className='flex h-screen text-white '>
+    <div className='flex h-screen text-white'>
     <div className='home flex flex-col justify-center w-[50%] h-full pl-20 gap-4'>
       <h1 className='text-black font-bold text-5xl'>
         Infinite Possibilities for <br />
@@ -51,6 +52,7 @@ function Banner() {
         AMSOL has a highly skilled, knowledgeable, experienced, diversified, and solid team of competent <br />
         and experienced hr consulting professionals.
       </p>
+      <Link to="/Demo">
       <button className='flex text-black bg-blue-500 p-2 rounded-full w-fit items-center text-white hover:bg-white border hover:text-black hover:border-blue-400'>
         Request a demo
         <FontAwesomeIcon
@@ -58,6 +60,7 @@ function Banner() {
           className='text-xl border border-white rounded-full ml-2'
         />
       </button>
+      </Link>
     </div>
   
         <div className='flex gap-2 w-[50%] h-full bg-white'>

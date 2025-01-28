@@ -10,8 +10,8 @@ import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import about from "../assets/Frame(2).png"
 import { Link } from 'react-router-dom';
 import logo2 from "../assets/logo.png"
-import { faCircleRight  } from "@fortawesome/free-solid-svg-icons";
-import hr from "../assets/cuteman.jpg"
+import { faCircleRight } from "@fortawesome/free-solid-svg-icons";
+import { faMoneyCheck } from "@fortawesome/free-solid-svg-icons";
 
 
 function Header() {
@@ -19,21 +19,25 @@ function Header() {
   const [isProductOpen, setIsProductOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isGlobalOpen, setIsGlobalOpen] = useState(false);
-  const [IsResourceOpen, setIsResourceOpen]=useState(false)
+  const [IsResourceOpen, setIsResourceOpen] = useState(false)
+  const [isOurserviceOpen, setIsOurserviceOpen] = useState(false)
 
   const productDropdownRef = useRef(null);
   const aboutDropdownRef = useRef(null);
   const globalDropdownRef = useRef(null);
+  const ourserviceOpenRef = useRef(null)
 
   const handleOutsideClick = (event) => {
     if (
       productDropdownRef.current && !productDropdownRef.current.contains(event.target) &&
       aboutDropdownRef.current && !aboutDropdownRef.current.contains(event.target) &&
-      globalDropdownRef.current && !globalDropdownRef.current.contains(event.target)
+      globalDropdownRef.current && !globalDropdownRef.current.contains(event.target) &&
+      ourserviceOpenRef.current && !ourserviceOpenRef.current.contains(event.target)
     ) {
       setIsProductOpen(false);
       setIsAboutOpen(false);
       setIsGlobalOpen(false);
+      setIsOurserviceOpen(false)
     }
   };
 
@@ -92,7 +96,7 @@ function Header() {
                     <span className='bg-blue-100 p-2 rounded-full'><FaGlobe className="mr-2" /></span>
                     <div>
                       <h2 className='text-blue-300'>CRM</h2>
-                      <p className="text-sm text-gray-600">Streamline content .</p>
+                      <p className="text-sm text-gray-600"> managing interactions with customers to improve relationships, streamline processes, and drive growth</p>
                     </div>
                   </Link>
                   <Link to="/Time management" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
@@ -114,7 +118,7 @@ function Header() {
                     </div>
                   </Link>
 
-                  <Link to="/employee-benefits"className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
+                  <Link to="/employee-benefits" className="flex items-center text-black py-2 hover:text-blue-300 gap-2 hover:bg-green-100 p-3">
                     <span className='bg-blue-100 p-2 rounded-full'><FaBriefcase className="mr-2" /></span>
                     <div>
                       <h2 className="font-bold text-blue-300">Employee Benefits </h2>
@@ -171,7 +175,7 @@ function Header() {
             {isAboutOpen && (
               <div className="grid grid-cols-2 gap-4 absolute z-10 top-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw]">
                 <div>
-                  <div  className='hover:bg-green-100'>
+                  <div className='hover:bg-green-100'>
                     <Link to="/about" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Our Story</span>
                       <div className='text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
                     </Link>
@@ -181,7 +185,7 @@ function Header() {
                       <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
                     </a>
                   </div>
-                  <div  className='hover:bg-green-100'>
+                  <div className='hover:bg-green-100'>
                     <a href="#about1" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Webinar</span>
                       <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
                     </a>
@@ -198,7 +202,7 @@ function Header() {
               </div>
             )}
           </div>
-          <div className="relative h-[5vh] flex items-center p-1 hover:bg-gray-500"
+          <div className="relative h-[6vh] flex items-center p-1 hover:bg-gray-500"
             onMouseEnter={() => setIsResourceOpen(true)}
             onMouseLeave={() => setIsResourceOpen(false)}
             ref={aboutDropdownRef}>
@@ -225,22 +229,22 @@ function Header() {
             {IsResourceOpen && (
               <div className="grid grid-cols-2 gap-4 absolute z-10 top-8 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[50vw]">
                 <div>
-                <div  className='hover:bg-green-100'>
+                  <div className='hover:bg-green-100'>
                     <Link to="/payrollCalculator" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>PAYE Calculator</span>
                       <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>accurate and Easy to use, calculate employee salaries and deductions in your country</p></div>
                     </Link>
                   </div>
-                  <div  className='hover:bg-green-100'>
+                  <div className='hover:bg-green-100'>
                     <Link to="/Blog" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Blog</span>
                       <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
                     </Link>
                   </div>
-                  <div  className='hover:bg-green-100'>
+                  <div className='hover:bg-green-100'>
                     <a href="#about1" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Event</span>
                       <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Learn how our passion for human productivity drives our mission and values</p></div>
                     </a>
                   </div>
-                 
+
                 </div>
                 <div
                   className=" drop h-full w-full flex items-center justify-center rounded-xl bg-blue-400"
@@ -256,25 +260,118 @@ function Header() {
           <Link to="/pricing" className="hover:text-blue-300 h-[5vh] flex items-center p-1 hover:bg-gray-500">
             Pricing
           </Link>
+          <div className="relative h-[6vh] flex items-center p-1 hover:bg-gray-500"
+            onMouseEnter={() => setIsOurserviceOpen(true)}
+            onMouseLeave={() => setIsOurserviceOpen(false)}
+            ref={ourserviceOpenRef}>
+            <button
+              onClick={() => setIsOurserviceOpen(!setIsOurserviceOpen)}
+              className="flex items-center space-x-2 hover:text-blue-300"
+            >
+              <span>Our Services</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            {isOurserviceOpen && (
+              <div className="grid grid-cols-4 gap-4 absolute z-10 top-9 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[85vw]">
+                <div>
+                  <div className='flex items-center hover:bg-green-100'>
+                  <div className="flex items-center justify-center w-18 h-18 border-2 border-gray-400 rounded-full">
+      <FontAwesomeIcon icon={faMoneyCheck} className="text-gray-600 text-xl" />
+    </div>
+                    <Link to="/payroll-management" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Payroll Management Services</span>
+                      <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>We provide flexible corporate payroll services that improve the quality of payroll management for employers of all sizes. We handle the time consuming tasks of payroll processing.</p></div>
+                    </Link>
+                  </div>
+                  <div className='hover:bg-green-100'>
+                    <Link to="hr-outsourcing" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>HR Outsourcing</span>
+                      <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>We are one of the leading staff outsourcing and labour management companies in Kenya, and beyond. AMSOL will partner with you, taking up the HR department of your organization.</p></div>
+                    </Link>
+                  </div>
+                  <div className='hover:bg-green-100'>
+                    <a href="#about1" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Recruitment & Selection</span>
+                      <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Are you searching for the most reliable recruitment consultants in Nairobi, Kenya? We constitute the best of all the recruitment companies in Kenya, and the region at large.</p></div>
+                    </a>
+                  </div>
+                </div>
+
+                <div>
+                  <div className='hover:bg-green-100'>
+                    <Link to="/payrollCalculator" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Employees & Corporate Training</span>
+                      <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>We believe that training is one of the most important criteria to build up a long term relationship with your staff. We also understand the impact of effective employee training.</p></div>
+                    </Link>
+                  </div>
+                  <div className='hover:bg-green-100'>
+                    <Link to="/Blog" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Job Evaluation</span>
+                      <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>We offer result-oriented job evaluation consulting services. In fact, we’ve been offering solutions to various clients for over 5 years. Similar to other specialist techniques.</p></div>
+                    </Link>
+                  </div>
+                  <div className='hover:bg-green-100'>
+                    <a href="#about1" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>HR Consultancy</span>
+                      <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>We have a diversified team of competent and experienced hr management consultants who provide a hassle-free solution to complex, time consuming and sometimes-political issues.</p></div>
+                    </a>
+                  </div>
+                </div>
+
+                <div>
+                  <div className='hover:bg-green-100'>
+                    <Link to="/payrollCalculator" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>HR Audit</span>
+                      <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>accurate and Easy to use, calculate employee salaries and deductions in your country</p></div>
+                    </Link>
+                  </div>
+                  <div className='hover:bg-green-100'>
+                    <Link to="/Blog" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Salary Surveys</span>
+                      <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>We constitute one of the leading compensation and salary survey companies in Kenya. We design and conduct tailored compensation surveys for clients.</p></div>
+                    </Link>
+                  </div>
+                  <div className='hover:bg-green-100'>
+                    <a href="#about1" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Performance Management</span>
+                      <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>We will assist your organization in designing a streamlined, straightforward and tailored performance management system that considers your strategic goals..</p></div>
+                    </a>
+                  </div>
+                </div>
+                <div
+                  className=" drop h-full w-full flex items-center justify-center rounded-xl bg-blue-400"
+                >
+                  {/* <div className="absolute inset-0 bg-gradient-to-t from-blue-500 to-transparent opacity-20 rounded-xl"></div> */}
+                  <button className="text-white bg-blue-500 px-4 py-2 rounded-md hover:bg-blue-600">
+                    Request a Demo
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
           <Link to="/contact-us" className="hover:text-blue-300 h-[5vh] flex items-center p-1 hover:bg-gray-500">
             Contact
           </Link>
-          
-          </nav>
+
+        </nav>
         <div className="flex text-md font-bold gap-4 text-center items-center">
           {/* <button className="bg-white text-black p-1 pl-2 pr-2 hover:text-blue-300 hover:bg-white border border-blue-400 rounded-full">
             Login
           </button> */}
           <Link to="/Demo">
-          <button className="flex bg-white text-black p-1 pl-4 pr-4  hover:text-blue-300 hover:bg-white border border-blue-400 rounded-full">
-          
-            Request Demo
-            <FontAwesomeIcon
-                                icon={faCircleRight}
-                                className='flex items-center text-xl border border-white rounded-full ml-2'
-                              />
-                            
-          </button>
+            <button className="flex bg-white text-black p-1 pl-4 pr-4  hover:text-blue-300 hover:bg-white border border-blue-400 rounded-full">
+
+              Request Demo
+              <FontAwesomeIcon
+                icon={faCircleRight}
+                className='flex items-center text-xl border border-white rounded-full ml-2'
+              />
+
+            </button>
           </Link>
           <div className="relative h-[5vh] flex items-center p-1 hover:bg-gray-500"
             onMouseEnter={() => setIsGlobalOpen(true)}
@@ -284,9 +381,9 @@ function Header() {
               onClick={() => setIsGlobalOpen(!isGlobalOpen)}
               className="flex items-center space-x-2 hover:text-blue-300"
             >
-            
-            <FontAwesomeIcon icon={faGlobe} className="text-white text-lg" />
-            <span>Global</span>
+
+              <FontAwesomeIcon icon={faGlobe} className="text-white text-lg" />
+              <span>Global</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -341,7 +438,7 @@ function Header() {
             )}
           </div>
         </div>
-        
+
 
         {/* Mobile Menu Button */}
         <button

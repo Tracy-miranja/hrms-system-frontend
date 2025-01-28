@@ -24,6 +24,8 @@ import DemoPage from "./components/Requestdemo"
 import Timemanagement from "./components/Timemanagement"
 import Blog from "./components/Blog"
 import BookingPage from "./components/date"
+import PayrollManagement from "./components/ourServices/PayrollManagement "
+import HROutsourcing from "./components/ourServices/HROutsourcing"
 function App() {
   return (
     <Router>
@@ -55,6 +57,8 @@ function App() {
         <Route path="/Demo" element={<DemoPage />} />
         <Route path="/Blog" element={<Blog />} />
         <Route path="/Booking" element={<BookingPage />} />
+        <Route path="/payroll-management" element={<PayrollManagement />} />
+        <Route path="hr-outsourcing" element={<HROutsourcing />} />
       </Routes>
       <Footer />
     </Router>

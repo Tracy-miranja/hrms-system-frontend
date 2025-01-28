@@ -38,6 +38,40 @@ const Footer = () => {
             </ul>
           </div>
 
+           {/* services */}
+           <div className="flex flex-col flex-1 mb-6 sm:items-center md:mb-0 justify-center items-center">
+            <h4 className="flex font-bold text-lg mb-4 justify-start">Our Services</h4>
+            <ul className="flex items-center flex-col">
+              <li className="mb-2">
+                <a href="/features" className="hover:underline">Payroll Management Services</a>
+              </li>
+              <li className="mb-2">
+                <a href="/pricing" className="hover:underline">HR Outsourcing</a>
+              </li>
+              <li className="mb-2">
+                <a href="/pricing" className="hover:underline">Recruitment & Selection</a>
+              </li>
+              <li className="mb-2">
+                <a href="/pricing" className="hover:underline">Employees & Corporate Training</a>
+              </li>
+              <li className="mb-2">
+                <a href="/pricing" className="hover:underline">Job Evaluation</a>
+              </li>
+              <li className="mb-2">
+                <a href="/resources" className="hover:underline">HR Consultancy</a>
+              </li>
+              <li className="mb-2">
+                <a href="/resources" className="hover:underline">HR Audit</a>
+              </li>
+              <li className="mb-2">
+                <a href="/resources" className="hover:underline">Salary Surveys</a>
+              </li>
+              <li className="mb-2">
+                <a href="/resources" className="hover:underline">Performance Management</a>
+              </li>
+            </ul>
+          </div>
+
           {/* Products */}
           <div className="flex flex-col flex-1 mb-6 sm:items-center md:mb-0 justify-center items-center">
             <h4 className="font-bold text-lg mb-4">Products</h4>

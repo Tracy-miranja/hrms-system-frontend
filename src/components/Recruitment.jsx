@@ -7,6 +7,7 @@ import { faCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import recruitment from "../assets/recruitment.webp";
 import AnimatedTestimonialsSlide from './AnimatedTestimonials';
+import { Link } from 'react-router-dom';
 const keyfeatures = [
   {
     title: "Applicant Tracking System",
@@ -104,13 +105,14 @@ function Recruitment() {
                 recruitment needs.
               </p>
             </div>
-            <button className='bg-yellow-300 text-blue-900 px-6 py-3 font-semibold rounded-full hover:bg-yellow-400 transition duration-300'>
+            <Link to="/Demo"><button className='bg-yellow-300 text-blue-900 px-6 py-3 font-semibold rounded-full hover:bg-yellow-400 transition duration-300'>
               Book a demo
               <FontAwesomeIcon
                 icon={faCircleRight}
                 className='text-xl border border-white rounded-full ml-2'
               />
             </button>
+            </Link>
           </motion.div>
 
           {/* Right Section */}

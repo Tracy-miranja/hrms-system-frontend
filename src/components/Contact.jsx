@@ -33,17 +33,18 @@ const Contact = () => {
             <div>
               <h3 className="text-xl font-semibold text-gray-800">Address</h3>
               <p className="text-gray-600 mt-2">
-                123 Business Lane, Suite 100<br />
-                Houston, TX 77027
+              Vision Plaza, 3rd Floor, Rm 12A, Mombasa Road, Nairobi, Kenya <br/>P.O.Box 11145 – 00100, Nairobi, Kenya
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-gray-800">Phone</h3>
-              <p className="text-gray-600 mt-2">+1 (555) 123-4567</p>
+              <p className="text-gray-600 mt-2">+254 111 888 000, +254 738 038378, <br />+254 782 016043, +254 750000028</p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-gray-800">Email</h3>
-              <p className="text-gray-600 mt-2">info@example.com</p>
+              <p className="text-gray-600 mt-2">info@amsol.africa
+
+</p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-gray-800">Hours</h3>

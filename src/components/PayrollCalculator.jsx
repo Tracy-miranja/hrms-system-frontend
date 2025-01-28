@@ -194,7 +194,16 @@ const PayrollCalculator = () => {
             {/* Salary Type Toggle */}
             <div className="mb-4 flex justify-between items-center">
               <label className="block text-gray-600 font-medium">Salary Type</label>
-              <div className="flex items-center">
+              <div className="flex items-center gap-1">
+                
+                <label className="mr-2">Gross</label>
+                <input
+                  type="radio"
+                  name="salaryType"
+                  value="Gross"
+                  checked={salaryType === 'Gross'}
+                  onChange={() => setSalaryType('Gross')}
+                />
                 <label className="mr-2">Net</label>
                 <input
                   type="radio"
@@ -203,14 +212,6 @@ const PayrollCalculator = () => {
                   checked={salaryType === 'Net'}
                   onChange={() => setSalaryType('Net')}
                   className="mr-4"
-                />
-                <label className="mr-2">Gross</label>
-                <input
-                  type="radio"
-                  name="salaryType"
-                  value="Gross"
-                  checked={salaryType === 'Gross'}
-                  onChange={() => setSalaryType('Gross')}
                 />
               </div>
             </div>

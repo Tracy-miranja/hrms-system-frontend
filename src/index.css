@@ -147,6 +147,8 @@
 
 .drop{
   background-image: url("../src/assets/recruit.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
   
 .ug{
