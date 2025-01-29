@@ -26,9 +26,13 @@ import Blog from "./components/Blog"
 import BookingPage from "./components/date"
 import PayrollManagement from "./components/ourServices/PayrollManagement "
 import HROutsourcing from "./components/ourServices/HROutsourcing"
+import RecruitmentSelection from "./components/ourServices/recruitmentselection"
+import CursorEffect from "./components/CursorEffect"
+import Training from "./components/ourServices/Training"
 function App() {
   return (
     <Router>
+      <CursorEffect />
       <Header />
       <Routes>
         <Route path="/" element={
@@ -59,6 +63,8 @@ function App() {
         <Route path="/Booking" element={<BookingPage />} />
         <Route path="/payroll-management" element={<PayrollManagement />} />
         <Route path="hr-outsourcing" element={<HROutsourcing />} />
+        <Route path="recruitment-and-selection" element={<RecruitmentSelection/>} />
+        <Route path="employees-corporate-training-services" element={<Training />} />
       </Routes>
       <Footer />
     </Router>

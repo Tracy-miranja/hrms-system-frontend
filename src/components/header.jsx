@@ -301,15 +301,17 @@ function Header() {
                     </Link>
                   </div>
                   <div className='hover:bg-green-100'>
+                    <Link to="/recruitment-and-selection">
                     <a href="#about1" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Recruitment & Selection</span>
                       <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>Are you searching for the most reliable recruitment consultants in Nairobi, Kenya? We constitute the best of all the recruitment companies in Kenya, and the region at large.</p></div>
                     </a>
+                    </Link>
                   </div>
                 </div>
 
                 <div>
                   <div className='hover:bg-green-100'>
-                    <Link to="/payrollCalculator" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Employees & Corporate Training</span>
+                    <Link to="employees-corporate-training-services" className="block text-black hover:text-blue-300 text-blue-300"><span className='p-2'>Employees & Corporate Training</span>
                       <div className=' text-black p-2'><p className='text-gray-600 font-small hover:text-blue-300'>We believe that training is one of the most important criteria to build up a long term relationship with your staff. We also understand the impact of effective employee training.</p></div>
                     </Link>
                   </div>

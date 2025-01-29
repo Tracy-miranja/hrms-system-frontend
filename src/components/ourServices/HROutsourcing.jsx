@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function HROutsourcing() {
   return (
@@ -55,14 +56,15 @@ We are aware that dealing with staff issues is time consuming especially adherin
 
       {/* Call to Action Section */}
       <div className="py-12 bg-blue-600 text-white text-center animate-scale-up">
-        <h2 className="text-3xl font-bold mb-4">Ready to Simplify Payroll Management?</h2>
+        <h2 className="text-3xl font-bold mb-4">Ready to Simplify Hr Management services?</h2>
         <p className="text-lg mb-6">
-          Contact Africa Management Solutions Ltd today for seamless payroll solutions tailored to
+          Contact Africa Management Solutions Ltd today for seamless Hr solutions tailored to
           your needs.
         </p>
-        <button className="bg-white text-blue-600 font-bold py-3 px-6 rounded-lg shadow-md hover:bg-gray-100 transition duration-300">
+        <Link to="/Demo"><button className="bg-white text-blue-600 font-bold py-3 px-6 rounded-lg shadow-md hover:bg-gray-100 transition duration-300">
           Get Started
         </button>
+        </Link>
       </div>
     </div>
   );

@@ -161,6 +161,46 @@
   background-repeat: no-repeat;
 }
 
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-gradient-animation {
+  background: linear-gradient(45deg, #ff6f91, #ff90f2, #f6f4f1, #fcfaf5);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+/* Global styles */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+a, button {
+  cursor: pointer;
+}
+
+.cursor-effect {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999; /* Ensure it's on top of all other content */
+}
+
+
+
 
 
 
