@@ -26,7 +26,7 @@ function RecruitmentSelection() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-3xl font-bold text-white">Why you should choose us</h1>
+        <h1 className="text-3xl font-bold text-yellow-400">Why you should choose us</h1>
         <p className="text-white text-lg mt-3 max-w-2xl px-4">
           We provide tailored recruitment solutions, a vast database of CVs, and a quick, efficient process. Trust us to find the best candidates for your needs.
         </p>

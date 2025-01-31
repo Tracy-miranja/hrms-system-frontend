@@ -48,8 +48,8 @@ function Banner() {
         <span className='text-blue-500 pt-2'>{currentWord}</span>
         <span className="text-blue-500">|</span>
       </h1>
-      <p className='text-black pt-3 pb-3'>
-        AMSOL has a highly skilled, knowledgeable, experienced, diversified, and solid team of competent <br />
+      <p className='text-black pt-3 pb-3 text-xl pr-3'>
+        AMSOL has a highly skilled, knowledgeable, experienced, diversified, and solid team of competent 
         and experienced hr consulting professionals.
       </p>
       <Link to="/Demo">

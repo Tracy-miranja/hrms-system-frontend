@@ -29,6 +29,11 @@ import HROutsourcing from "./components/ourServices/HROutsourcing"
 import RecruitmentSelection from "./components/ourServices/recruitmentselection"
 import CursorEffect from "./components/CursorEffect"
 import Training from "./components/ourServices/Training"
+import JobEvaluation from "./components/ourServices/jobevaluation"
+import HrConsultancy from "./components/ourServices/HrConsultancy"
+import HrAudit from "./components/ourServices/HrAudit"
+import Survey from "./components/ourServices/Survey"
+import Performance from "./components/ourServices/performance"
 function App() {
   return (
     <Router>
@@ -65,6 +70,11 @@ function App() {
         <Route path="hr-outsourcing" element={<HROutsourcing />} />
         <Route path="recruitment-and-selection" element={<RecruitmentSelection/>} />
         <Route path="employees-corporate-training-services" element={<Training />} />
+        <Route path="/job-evaluation" element={<JobEvaluation />} />
+        <Route path="/hr-consultancy" element={<HrConsultancy />} />
+        <Route path="/hr-audits" element={<HrAudit />} />
+        <Route path="/compensation-and-salary-surveys" element={<Survey />} />
+        <Route path="/performance-management-tools" element={<Performance />} />
       </Routes>
       <Footer />
     </Router>

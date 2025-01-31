@@ -4,23 +4,32 @@ import { Link } from "react-router-dom";
 
 function Training() {
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className=" min-h-screen">
       {/* Banner Section */}
-      <div className="relative w-full h-64 bg-blue-600 flex items-center justify-center">
-        <motion.h1 
-          className="flex flex-col justify-center items-center text-white text-4xl font-bold"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          Employees & Corporate Training Services
-          <Link to="/demo"><button className="bg-white mt-4 rounded-full text-black text-sm p-3 hover:bg-orange-200">Get started</button></Link>
-        </motion.h1>
-      </div>
+      <div className="relative bg-gradient-to-r from-blue-500 to-teal-500 w-full h-64 flex items-center justify-center">
+  {/* Background Overlay */}
+  <div className="absolute inset-0 bg-black opacity-50"></div>
+
+  {/* Content (Text & Button) */}
+  <motion.h1 
+    className="relative flex flex-col justify-center items-center text-white text-4xl font-bold"
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+  >
+    Employees & Corporate Training Services
+    <Link to="/demo">
+      <button className="bg-white mt-4 rounded-full text-black text-sm p-3 hover:bg-orange-200">
+        Get started
+      </button>
+    </Link>
+  </motion.h1>
+</div>
+
       
       {/* Content Section */}
       <div className="flex">
-      <div className="container mx-auto p-6 mt-6 rounded-lg">
+      <div className="container mx-auto p-6 mt-6 rounded-lg text-white">
         <h2 className="text-2xl font-semibold text-gray-800">Want to always stay ahead of your competitors?</h2>
         <p className="text-gray-600 mt-4 text-xl">
           Your workforce could be the key factor holding back your organization's growth. Training employees effectively ensures they deliver strategies efficiently.

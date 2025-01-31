@@ -1,39 +1,43 @@
 "use client";
 import React, { useState } from "react";
 import { PinContainer } from "../components/ui/3d-pin";
+import { Link } from "react-router-dom";
 
 // Sample data for services
 const servicesData = {
-  HRMS: {
-    title: "Streamlined HR Management",
-    description: "Easily manage employee data, automate processes, and gain insights with ease.",
-    image: "https://via.placeholder.com/300?text=HRMS",
-  },
-  ATS: {
-    title: "Applicant Tracking Simplified",
-    description: "Track, evaluate, and hire top talent seamlessly.",
-    image: "https://via.placeholder.com/300?text=ATS",
-  },
-  Payroll: {
+  "Payroll Services": {
     title: "Fast and Accurate Payroll",
     description: "Ensure compliant and timely payroll management for all employees.",
     image: "https://via.placeholder.com/300?text=Payroll",
   },
-  Recruitment: {
+  "Salary survey": {
     title: "Effective Recruitment Solutions",
     description: "Find and onboard the best talent with our recruitment tools.",
     image: "https://via.placeholder.com/300?text=Recruitment",
   },
-  "Time Management": {
+  "HR Outsourcing": {
+    title: "Streamlined HR Management",
+    description: "Easily manage employee data, automate processes, and gain insights with ease.",
+    image: "https://via.placeholder.com/300?text=HRMS",
+  },
+ 
+  "Recruitment & Selection": {
+    title: "Effective Recruitment Solutions",
+    description: "Find and onboard the best talent with our recruitment tools.Track, evaluate, and hire top talent seamlessly.",
+    image: "https://via.placeholder.com/300?text=ATS",
+  },
+
+  "Cycometric tests": {
+    title: "Enhanced Employee Benefits",
+    description: "Find and onboard the best talent with our recruitment tools.",
+    image: "https://via.placeholder.com/300?text=Recruitment",
+  },
+  "Training Modules": {
     title: "Efficient Time Management",
     description: "Track work hours, manage schedules, and improve productivity.",
     image: "https://via.placeholder.com/300?text=Time+Management",
   },
-  "Employee Benefits": {
-    title: "Enhanced Employee Benefits",
-    description: "Offer attractive benefits to boost employee satisfaction and retention.",
-    image: "https://via.placeholder.com/300?text=Employee+Benefits",
-  },
+  
 };
 
 function Service() {
@@ -46,8 +50,8 @@ function Service() {
           {/* Header */}
           <div className="text-center mb-10">
             <h1 className="text-4xl font-extrabold text-blue-600">Our Services</h1>
-            <p className="text-lg text-gray-600 mt-2">
-              Explore our offerings designed to simplify and enhance your workflow.
+            <p className="text-xl text-gray-600 mt-2">
+            AMSOL has a highly skilled, knowledgeable, experienced, diversified, and solid team of competent and experienced hr consulting professionals.
             </p>
           </div>
 
@@ -66,6 +70,7 @@ function Service() {
                 {service}
               </button>
             ))}
+           <Link to=""><button className="text-lg rounded-full bg-yellow-300 p-2 font-semibold hover:bg-blue-200">More Services</button></Link>
           </div>
 
           {/* Service Cards */}
