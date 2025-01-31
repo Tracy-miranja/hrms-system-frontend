@@ -288,11 +288,11 @@ function Header() {
               <div className="grid grid-cols-4 gap-4 absolute z-10 top-9 left-1/2 transform -translate-x-1/2 bg-white shadow-md p-2 rounded-md w-[85vw]">
                 <div>
                   <div className='flex items-center hover:bg-green-100'>
-                  <div className="flex items-center justify-center w-18 h-18 border-2 border-gray-400 rounded-full">
+                  {/* <div className="flex items-center justify-center w-18 h-18 border-2 border-gray-400 rounded-full">
       <FontAwesomeIcon icon={faMoneyCheck} className="text-gray-600 text-xl" />
-    </div>
+    </div> */}
                     <Link to="/payroll-management" className="block hover:text-blue-300 text-blue-300"><span className='p-2'>Payroll Management Services</span>
-                      <div className=' text-black p-2'><p className='text-gray-400 font-small hover:text-blue-300'>We provide flexible corporate payroll services that improve the quality of payroll management for employers of all sizes. We handle the time consuming tasks of payroll processing.</p></div>
+                      <div className=' text-black p-2'><p className='text-gray-500 font-small hover:text-blue-300'>We provide flexible corporate payroll services that improve the quality of payroll management for employers of all sizes. We handle the time consuming tasks of payroll processing.</p></div>
                     </Link>
                   </div>
                   <div className='hover:bg-green-100'>
