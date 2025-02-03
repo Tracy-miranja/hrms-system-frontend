@@ -160,11 +160,11 @@ const PayrollCalculator = () => {
 
   return (
     <>
-      <div className='bg-gradient-to-r from-blue-500 to-purple-600 pt-6 px-3'>
+      <div className=' bg-gradient-to-r from-blue-500 to-purple-600 pt-6 px-3'>
         <h1 className="text-2xl font-bold text-white text-center mb-6 ">
           Payroll Cost Calculator
         </h1>
-        <div className=" min-h-screen  flex  justify-center gap-10 text-lg bg-gradient-to-r from-blue-500 to-purple-600 p-6">
+        <div className="flex flex-col lg:flex-row min-h-screen  flex sm:flex-col justify-center gap-10 text-lg bg-gradient-to-r from-blue-500 to-purple-600 p-6">
           <div className="bg-white  p-8 rounded-lg shadow-lg w-full max-w-lg">
             <h1 className="text-2xl font-bold text-gray-800 text-center mb-6">
 
@@ -196,7 +196,7 @@ const PayrollCalculator = () => {
               <label className="block text-gray-600 font-medium">Salary Type</label>
               <div className="flex items-center gap-1">
                 
-                <label className="mr-2">Gross</label>
+              
                 <input
                   type="radio"
                   name="salaryType"
@@ -204,7 +204,8 @@ const PayrollCalculator = () => {
                   checked={salaryType === 'Gross'}
                   onChange={() => setSalaryType('Gross')}
                 />
-                <label className="mr-2">Net</label>
+                  <label className="mr-2">Gross</label>
+                
                 <input
                   type="radio"
                   name="salaryType"
@@ -213,6 +214,7 @@ const PayrollCalculator = () => {
                   onChange={() => setSalaryType('Net')}
                   className="mr-4"
                 />
+                <label className="mr-2">Net</label>
               </div>
             </div>
 
