@@ -16,7 +16,7 @@ const Employee = () => {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl font-bold mb-4 leading-tight">
+            <h1 className="sm:text-lg lg:text-4xl font-bold mb-4 leading-tight">
               Enhance Employee Well-Being with{' '}
               <span className="text-yellow-300">Tailored Benefits</span>
             </h1>

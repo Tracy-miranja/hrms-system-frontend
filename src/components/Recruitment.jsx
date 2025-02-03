@@ -73,45 +73,45 @@ function Recruitment() {
         <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between">
           {/* Left Section */}
           <motion.div
-            className="lg:w-1/2"
+            className="lg:w-1/2 w-full px-4"  // Full width on smaller screens and half on large
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl font-bold mb-4 leading-tight">
+            <h1 className="text-3xl sm:text-4xl font-bold mb-4 leading-tight text-center sm:text-left">
               Revolutionize Your Hiring Process with <span className="text-yellow-300">Smart Recruitment Software</span>
             </h1>
 
-            <div className="text-xl text-gray-600 mt-4 mb-4">
+            <div className="text-lg sm:text-xl text-gray-600 mt-4 mb-4">
               <p className='text-white'>
                 Features include{" "}
                 {features.map((feature, index) => (
                   <span
                     key={index}
                     className={`${index === visibleFeatureIndex
-                        ? "text-yellow-500 font-bold"
-                        : "text-gray-700"
+                      ? "text-yellow-500 font-bold"
+                      : "text-gray-700"
                       } transition-all duration-500`}
                   >
                     {feature}
                     {index < features.length - 1 && ", "}
                   </span>
                 ))}
-                 and  detailed analytics for hiring efficiency, with our all-in-one ATS & recruitment management software.
+                and detailed analytics for hiring efficiency, with our all-in-one ATS & recruitment management software.
 
                 Schedule a Demo
-                Whether you're a small
-                business or a global enterprise, our solution adapts to meet your
-                recruitment needs.
+                Whether you're a small business or a global enterprise, our solution adapts to meet your recruitment needs.
               </p>
             </div>
-            <Link to="/Demo"><button className='bg-yellow-300 text-blue-900 px-6 py-3 font-semibold rounded-full hover:bg-yellow-400 transition duration-300'>
-              Book a demo
-              <FontAwesomeIcon
-                icon={faCircleRight}
-                className='text-xl border border-white rounded-full ml-2'
-              />
-            </button>
+
+            <Link to="/Demo">
+              <button className='bg-yellow-300 text-blue-900 px-6 py-3 font-semibold rounded-full hover:bg-yellow-400 transition duration-300'>
+                Book a demo
+                <FontAwesomeIcon
+                  icon={faCircleRight}
+                  className='text-xl border border-white rounded-full ml-2'
+                />
+              </button>
             </Link>
           </motion.div>
 
@@ -132,56 +132,56 @@ function Recruitment() {
       </div>
       <Clients />
       <section className='flex justify-center'>
-      <motion.div
-  className="container mt-8 lg:mt-6 lg:mb-10 flex flex-col items-center justify-center bg-gradient-to-r from-blue-50 to-blue-100 p-10 rounded-lg shadow-lg"
-  initial={{ scale: 0.8, opacity: 0 }}
-  animate={{ scale: 1, opacity: 1 }}
-  transition={{ duration: 0.8, delay: 0.2 }}
->
-  {/* Title */}
-  <h1 className="text-4xl font-extrabold text-blue-800 text-center">
-    Stay Ahead of the Curve with <span className="text-blue-600">AmsolRecruit</span>
-  </h1>
+        <motion.div
+          className="container mt-8 lg:mt-6 lg:mb-10 flex flex-col items-center justify-center bg-gradient-to-r from-blue-50 to-blue-100 p-10 rounded-lg shadow-lg"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          {/* Title */}
+          <h1 className="text-4xl font-extrabold text-blue-800 text-center">
+            Stay Ahead of the Curve with <span className="text-blue-600">AmsolRecruit</span>
+          </h1>
 
-  {/* Description */}
-  <p className="text-center lg:w-2/3 mt-6 text-lg text-gray-700 leading-relaxed">
-    With <strong className="text-blue-600">SmartRecruit</strong>, you’re equipped to stay ahead in the competitive world 
-    of hiring. Our advanced features, like AI-driven screening, collaborative tools, and real-time analytics, ensure your 
-    recruitment process is seamless, efficient, and tailored to your needs. Whether you're building a team for tomorrow 
-    or scaling for success, AmsolRecruit keeps you one step ahead.
-  </p>
+          {/* Description */}
+          <p className="text-center lg:w-2/3 mt-6 text-lg text-gray-700 leading-relaxed">
+            With <strong className="text-blue-600">SmartRecruit</strong>, you’re equipped to stay ahead in the competitive world
+            of hiring. Our advanced features, like AI-driven screening, collaborative tools, and real-time analytics, ensure your
+            recruitment process is seamless, efficient, and tailored to your needs. Whether you're building a team for tomorrow
+            or scaling for success, AmsolRecruit keeps you one step ahead.
+          </p>
 
-  {/* Call to Action */}
-  <div className="mt-8 flex flex-col lg:flex-row items-center gap-6">
-    <button
-      className="px-6 py-3 bg-blue-600 text-white rounded-md text-lg font-semibold hover:bg-blue-700 
+          {/* Call to Action */}
+          <div className="mt-8 flex flex-col lg:flex-row items-center gap-6">
+            <button
+              className="px-6 py-3 bg-blue-600 text-white rounded-md text-lg font-semibold hover:bg-blue-700 
       transition duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300 shadow-md transform hover:scale-105"
-    >
-      Get Started Now
-    </button>
-    <button
-      className="px-6 py-3 bg-white border-2 border-blue-600 text-blue-600 rounded-md text-lg font-semibold 
+            >
+              Get Started Now
+            </button>
+            <button
+              className="px-6 py-3 bg-white border-2 border-blue-600 text-blue-600 rounded-md text-lg font-semibold 
       hover:bg-blue-100 transition duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300 
       shadow-md transform hover:scale-105"
-    >
-      Learn More
-    </button>
-  </div>
+            >
+              Learn More
+            </button>
+          </div>
 
-  {/* Decorative SVG or Animation */}
-  {/* <div className="mt-10">
+          {/* Decorative SVG or Animation */}
+          {/* <div className="mt-10">
     <img
       src="https://via.placeholder.com/600x300" 
       alt="Stay Ahead"
       className="rounded-lg shadow-lg hover:shadow-2xl transition duration-300"
     />
   </div> */}
-</motion.div>
+        </motion.div>
 
-</section>
+      </section>
       <section className='flex justify-center p-5 mb-10'>
-      <div className='container flex justify-between gap-3'>
-      <div className="flex flex-col justify-between max-w-3xl mx-auto p-6 w-[45%]">
+  <div className='container flex flex-col lg:flex-row justify-between gap-3'>
+    <div className="flex flex-col justify-between max-w-3xl mx-auto p-6 w-full lg:w-[45%]">
       {keyfeatures.map((feature, index) => (
         <div key={index} className="flex flex-col justify-between mb-4 border-b border-gray-300 pb-4">
           <div
@@ -189,39 +189,37 @@ function Recruitment() {
             onClick={() => toggleFeature(index)}
           >
             <div>
-            <h3 className="text-xl font-semibold text-gray-800">
-              {feature.title}
-            </h3>
+              <h3 className="text-xl font-semibold text-gray-800">
+                {feature.title}
+              </h3>
             </div>
             <span
-              className={`transition-transform duration-300 ${
-                openIndex === index ? "rotate-90" : "rotate-0"
-              }`}
+              className={`transition-transform duration-300 ${openIndex === index ? "rotate-90" : "rotate-0"}`}
             >
               ▶
             </span>
           </div>
           {openIndex === index && (
             <div className="mt-4 bg-gray-100 p-4 rounded-lg shadow">
-              <p className="text-gray-700 text-xl">{feature.content}</p>
+              <p className="text-gray-700 text-lg">{feature.content}</p>
             </div>
           )}
         </div>
       ))}
     </div>
-    <div className='w-[50%] bg-white'>
-      <img src={recruitment} alt='recruitment'/>
+    <div className='w-full lg:w-[50%] bg-white'>
+      <img src={recruitment} alt='recruitment' className="w-full h-auto" />
     </div>
-    </div>
-    
-    </section>
-    <section className='flex justify-center p-5 bg-gradient-to-r from-blue-500 to-teal-500 mt-8'>
-    <div className='container text-xl'>
-    <AnimatedTestimonialsSlide  />
-    </div>
-    </section>
-    
-    
+  </div>
+</section>
+
+      <section className='flex justify-center p-5 bg-gradient-to-r from-blue-500 to-teal-500 mt-8'>
+        <div className='container text-xl'>
+          <AnimatedTestimonialsSlide />
+        </div>
+      </section>
+
+
     </>
   )
 }
