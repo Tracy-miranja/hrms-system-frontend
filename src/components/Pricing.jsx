@@ -15,16 +15,16 @@ function Pricing() {
 
           {/* Content */}
           <div className="flex items-center justify-center flex-col relative z-10 h-full text-white">
-            <div className="flex flex-col justify-center text-center items-center gap-8 w-[50%]">
-              <h1 className="text-5xl font-bold pt-8">
+            <div className="flex flex-col justify-center text-center items-center gap-8 w-full md:w-[50%] px-6">
+              <h1 className="text-4xl md:text-5xl font-bold pt-8">
                 Flexible pricing for different stages in
                 your growth journey
               </h1>
-              <h4 className="text-2xl">
+              <h4 className="text-lg md:text-2xl">
                 AmsolHr is loved by more than 1000 organizations across Africa ranging from one employee to 10,000+ employees
               </h4>
 
-              <div className='flex gap-3 text-[18px] mb-10'>
+              <div className='flex gap-3 text-[16px] md:text-[18px] mb-10 flex-wrap justify-center'>
                 <button className='flex text-black z-40 bg-blue-500 p-2 px-6 rounded-full w-fit items-center text-white hover:bg-white border hover:text-black hover:border-blue-400'>
                   See our Pricing
                   <FontAwesomeIcon
@@ -32,7 +32,7 @@ function Pricing() {
                     className='text-xl border border-white rounded-full ml-2'
                   />
                 </button>
-                <button className='flex bg-white  text-black p-2 px-6 z-40 rounded-full w-fit items-center border-blue-400 text-black hover:bg-inherit border hover:text-black hover:border-blue-400'>
+                <button className='flex bg-white text-black p-2 px-6 z-40 rounded-full w-fit items-center border-blue-400 text-black hover:bg-inherit border hover:text-black hover:border-blue-400'>
                   Request a demo
                   <FontAwesomeIcon
                     icon={faCircleRight}
@@ -46,14 +46,13 @@ function Pricing() {
       </div>
 
       {/* Pricing Cards Section */}
-      <div className="bg-[#Ffff] py-16 ">
+      <div className="bg-[#Ffff] py-16 px-6">
         <p className="text-2xl font-bold text-center mb-12">Choose a plan</p>
-        <div className=" mx-auto flex flex-wrap justify-center gap-8">
+        <div className="mx-auto flex flex-wrap justify-center gap-8">
           {/* Lite Plan */}
-          <CardSpotlight className="pricing-card bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-all duration-300 ease-in-out w-fit">
+          <CardSpotlight className="pricing-card bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-all duration-300 ease-in-out w-full sm:w-[300px] md:w-[350px] lg:w-[400px]">
             <div className='flex-grow'>
-              <h3 className="text-3xl font-bold mb-4">Lite Plan</h3>
-              {/* <p className="text-xl mb-4">$29/month</p> */}
+              <h3 className="text-2xl sm:text-3xl font-bold mb-4">Lite Plan</h3>
               <ul className="text-lg mb-6">
                 <li className="flex items-center"><FontAwesomeIcon icon={faCheckCircle} className="text-green-500 mr-2" /> Automate your basic HR operations</li>
                 <li className="flex items-center"><FontAwesomeIcon icon={faCheckCircle} className="text-green-500 mr-2" /> HR Information System</li>
@@ -70,13 +69,11 @@ function Pricing() {
                 />
               </button>
             </div>
-
           </CardSpotlight>
 
           {/* Core Plan */}
-          <CardSpotlight className="pricing-card bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-all duration-300 ease-in-out w-fit">
-            <h3 className="text-3xl font-bold mb-4">Core Plan</h3>
-            {/* <p className="text-xl mb-4">$59/month</p> */}
+          <CardSpotlight className="pricing-card bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-all duration-300 ease-in-out w-full sm:w-[300px] md:w-[350px] lg:w-[400px]">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-4">Core Plan</h3>
             <ul className="text-lg mb-6">
               <li className="flex items-center"><FontAwesomeIcon icon={faCheckCircle} className="text-green-500 mr-2" /> Automate your basic HR operations</li>
               <li className="flex items-center"><FontAwesomeIcon icon={faCheckCircle} className="text-green-500 mr-2" /> HR Information System</li>
@@ -97,9 +94,8 @@ function Pricing() {
           </CardSpotlight>
 
           {/* Advantage Plan */}
-          <CardSpotlight className="pricing-card bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-all duration-300 ease-in-out w-fit">
-            <h3 className="text-3xl font-bold mb-4">Advantage Plan</h3>
-            {/* <p className="text-xl mb-4">$99/month</p> */}
+          <CardSpotlight className="pricing-card bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-all duration-300 ease-in-out w-full sm:w-[300px] md:w-[350px] lg:w-[400px]">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-4">Advantage Plan</h3>
             <ul className="text-lg mb-6">
               <li><FontAwesomeIcon icon={faCheckCircle} className="text-green-500 mr-2" />Automate your basic HR operations</li>
               <li><FontAwesomeIcon icon={faCheckCircle} className="text-green-500 mr-2" />HR Information System</li>
@@ -122,8 +118,8 @@ function Pricing() {
           </CardSpotlight>
 
           {/* Custom Plan */}
-          <CardSpotlight className="pricing-card bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-all duration-300 ease-in-out w-[400px]">
-            <h3 className="text-3xl font-bold mb-4">Custom Plan</h3>
+          <CardSpotlight className="pricing-card bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-all duration-300 ease-in-out w-full sm:w-[300px] md:w-[350px] lg:w-[400px]">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-4">Custom Plan</h3>
             <p className="text-xl mb-4">Contact us for pricing</p>
             <ul className="text-lg mb-6">
               <li><FontAwesomeIcon icon={faCheckCircle} className="text-green-500 mr-2" />Automate your basic HR operations</li>
@@ -134,21 +130,17 @@ function Pricing() {
               <li><FontAwesomeIcon icon={faCheckCircle} className="text-green-500 mr-2" />Mobile Apps (iOS & Android)</li>
               <li><FontAwesomeIcon icon={faCheckCircle} className="text-green-500 mr-2" />Organization Structure</li>
               <li><FontAwesomeIcon icon={faCheckCircle} className="text-green-500 mr-2" />Redeployment</li>
-              <li><FontAwesomeIcon icon={faCheckCircle} className="text-green-500 mr-2" />Leave Management</li>
-              <li><FontAwesomeIcon icon={faCheckCircle} className="text-green-500 mr-2" />Payroll Management</li>
             </ul>
-            <div className="flex justify-center justify-center z-40">
-              <button className="flex text-black bg-blue-500 p-2 px-6 rounded-full w-full items-center text-white hover:bg-white border hover:text-black hover:border-blue-400 justify-center z-40">
-                Contact Us
+            <div className="absolute bottom-0 left-0 right-0 px-6 pb-6">
+              <button className="flex text-black bg-blue-500 p-2 px-6 rounded-full w-full justify-center items-center text-white hover:bg-white border hover:text-black hover:border-blue-400">
+                Choose Plan
                 <FontAwesomeIcon
                   icon={faCircleRight}
-                  className='text-xl border border-white rounded-full ml-2'
+                  className="text-xl border border-white rounded-full ml-2"
                 />
               </button>
             </div>
           </CardSpotlight>
-
-
         </div>
       </div>
     </div>
