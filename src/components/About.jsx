@@ -89,11 +89,10 @@ Yes, one platform! And it’s not just any platform—it’s designed to work sm
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-            Our Vision
+          Our Mission
           </h2>
           <p className="mt-4 text-gray-600 text-lg">
-            Our HRMS system aims to simplify, streamline, and optimize all
-            aspects of human resource management for businesses of all sizes.
+          To provide timely, quality, and superior services with the aim of being the management solutions service provider of choice in Africa.
           </p>
         </motion.div>
 

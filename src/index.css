@@ -102,13 +102,7 @@
     }
 }
 
-.unique{
-  background-image: url("../src/assets/image.png");
-  background-repeat: no-repeat;
-  height: 70vh;
-  width: 60%;
 
-}
 
 .text-blue-500 span {
   animation: blink 1s step-start infinite;
@@ -196,8 +190,24 @@ a, button {
 .cursor-effect {
   position: fixed;
   pointer-events: none;
-  z-index: 9999; /* Ensure it's on top of all other content */
+  z-index: 9999; 
 }
+
+.unique {
+  background-image: url("../src/assets/image.png");
+  background-repeat: no-repeat;
+  height: 70vh;
+  width: 60%;
+}
+
+@media (max-width: 768px) {
+  .unique {
+    width: 100%;
+    background-size: contain;
+    height: 40vh;
+  }
+}
+
 
 
 

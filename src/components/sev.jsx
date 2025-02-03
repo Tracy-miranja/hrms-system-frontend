@@ -24,7 +24,7 @@ function Sev() {
   ];
 
   return (
-    <div className="flex flex-col lg:flex-row bg-white min-h-[80vh] mt-6 px-6 md:px-10">
+    <div className="flex flex-col lg:flex-row bg-white min-h-[80vh] mt-6 px-6 md:px-10 sm:mb-3">
       <div className="unique"></div>
       <div className="w-full lg:w-[50%]">
         <h1 className="text-3xl md:text-4xl lg:text-[42px] font-bold mb-8 text-center lg:text-left">

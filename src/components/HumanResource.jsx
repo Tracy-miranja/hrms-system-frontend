@@ -105,60 +105,58 @@ function HumanResource() {
   return (
     <div>
       <section className="bg-gradient-to-r from-blue-500 to-purple-600 py-12 gap-4">
-        <div className="container mx-auto flex flex-col lg:flex-row items-center py-[30px]">
-          <div className="lg:w-1/2 ">
-            <h1 className="text-4xl font-bold text-green-500 mb-8 z-40">
-              Empower Your Workforce <br />
-              with Amsol HRM
-            </h1>
-            <p className="text-white text-[22px] mb-8 z-40">
-              Automate manual tasks, eliminate errors, and securely manage employee information –  all in a single database: an HR management system.
-              Streamline your HR operations,
-              enhance productivity, and elevate
-              employee experience
-            </p>
-            <div className="grid grid-cols-2 gap-x-8 gap-y-4 text-[22px] pb-8 text-white ">
-      <div className="flex items-center ">
-        <FaCheckCircle className=" text-blue-500 w-9 h-9 mr-2" />
-        <span className='text-white'>Streamlined & paperless</span>
+  <div className="container mx-auto flex flex-col lg:flex-row items-center py-[30px] px-4">
+    <div className="lg:w-1/2 w-full text-center lg:text-left">
+      <h1 className="text-4xl font-bold text-green-500 mb-8">
+        Empower Your Workforce <br />
+        with Amsol HRM
+      </h1>
+      <p className="text-white text-[22px] mb-8">
+        Automate manual tasks, eliminate errors, and securely manage employee information –  
+        all in a single database: an HR management system. Streamline your HR operations,
+        enhance productivity, and elevate employee experience.
+      </p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-[22px] pb-8 text-white">
+        <div className="flex items-center">
+          <FaCheckCircle className="text-blue-500 w-9 h-9 mr-2" />
+          <span>Streamlined & paperless</span>
+        </div>
+        <div className="flex items-center">
+          <FaCheckCircle className="text-blue-500 w-9 h-9 mr-2" />
+          <span>Onboarding tracker</span>
+        </div>
+        <div className="flex items-center">
+          <FaCheckCircle className="text-blue-500 w-9 h-9 mr-2" />
+          <span>Fully customizable workflows</span>
+        </div>
+        <div className="flex items-center">
+          <FaCheckCircle className="text-blue-500 w-9 h-9 mr-2" />
+          <span>Secure database</span>
+        </div>
       </div>
-      <div className="flex items-center">
-        <FaCheckCircle className="text-blue-500 w-9 h-9  mr-2" />
-        <span>Onboarding tracker</span>
-      </div>
-      <div className="flex items-center">
-        <FaCheckCircle className="text-blue-500 w-9 h-9  mr-2" />
-        <span>Fully customizable workflows</span>
-      </div>
-      <div className="flex items-center">
-        <FaCheckCircle className="text-blue-500 w-9 h-9  mr-2" />
-        <span>Secure database</span>
+      <div className="flex flex-col sm:flex-row gap-3 text-[18px] mb-10 justify-center lg:justify-start">
+        <button className="flex text-blue-900 bg-yellow-300 p-2 px-6 rounded-full items-center hover:bg-white border hover:text-black hover:border-blue-400">
+          See our Pricing
+          <FontAwesomeIcon icon={faCircleRight} className="text-xl border border-white rounded-full ml-2" />
+        </button>
+        <button className="flex text-white p-2 px-6 rounded-full items-center border-blue-400 hover:bg-white border hover:text-black hover:border-blue-400">
+          Request a demo
+          <FontAwesomeIcon icon={faCircleRight} className="text-xl border border-white rounded-full ml-2" />
+        </button>
       </div>
     </div>
-            <div className='flex gap-3 text-[18px] mb-10'>
-              <button className='flex text-blue-900 z-40 bg-yellow-300 p-2 px-6 rounded-full w-fit items-center  hover:bg-white border hover:text-black hover:border-blue-400'>
-                See our Pricing
-                <FontAwesomeIcon
-                  icon={faCircleRight}
-                  className='text-xl border border-white rounded-full ml-2'
-                />
-              </button>
-              <button className='flex text-white p-2 px-6 z-40 rounded-full w-fit items-center border-blue-400 text-black hover:bg-white border hover:text-black hover:border-blue-400'>
-                Request a demo
-                <FontAwesomeIcon
-                  icon={faCircleRight}
-                  className='text-xl border border-white rounded-full ml-2'
-                />
-              </button>
-            </div>
-            
-          </div>
-          <div className="relative lg:w-[50%] z-40 ">
-            <img src={hroutsourcingcompany} alt="HR Software" className=" -mt-[50px] rounded-lg w-[100%] h-full " />
-          </div>
-          <BackgroundBeams className="h-screen"/>
-        </div>
-      </section>
+
+    {/* Image Section */}
+    <div className="relative lg:w-1/2 w-full flex justify-center">
+      <img 
+        src={hroutsourcingcompany} 
+        alt="HR Software" 
+        className="rounded-lg w-full max-w-[500px] sm:max-w-[600px] h-auto object-cover"
+      />
+    </div>
+  </div>
+</section>
+
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-blue-500 mb-4">Features</h2>
